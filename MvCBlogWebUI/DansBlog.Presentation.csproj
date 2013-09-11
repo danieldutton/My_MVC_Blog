@@ -228,7 +228,6 @@
   <ItemGroup>
     <Content Include="App_Data\aspnet.sdf" />
     <Content Include="App_Data\DansMVCBlog.sdf" />
-    <Content Include="App_Data\error-2013-09-06123628Z-9a9b53c1-f357-4739-a696-64de27966a46.xml" />
     <Content Include="Content\images\comments.png" />
     <Content Include="Content\images\img01.gif" />
     <Content Include="Content\images\img01.jpg" />

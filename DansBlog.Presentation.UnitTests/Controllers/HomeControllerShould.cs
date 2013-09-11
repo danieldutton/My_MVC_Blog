@@ -8,7 +8,9 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace DansBlog.UnitTests.Presentation.Controllers
 {
@@ -18,7 +20,7 @@ namespace DansBlog.UnitTests.Presentation.Controllers
         #region Index
 
         [Test]
-        public void Index_MakeACallToPostRepository_All()
+        public void Index_CallMethod_All()
         {
             var fakePostRepository = new Mock<IPostRepository>();
             var fakeEmailService = new Mock<IEmailer>();
@@ -27,30 +29,23 @@ namespace DansBlog.UnitTests.Presentation.Controllers
             var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
             sut.Index(1);
 
-            fakePostRepository.Verify(x => x.All, Times.Once());
-
-            
+            fakePostRepository.Verify(x => x.All, Times.Once()); 
         }
 
         [Test]
-        public void Index_ReturnTheCorrectViewModelType()
+        public void Index_CallMethod_MapIndexViewModel()
         {
+            List<Post> posts = Mother.GetTenPosts_No_Categories_NoComments_No_Tags();
             var fakePostRepository = new Mock<IPostRepository>();
-            fakePostRepository.Setup(x => x.All).Returns(Mother.GetTenPosts_No_Categories_NoComments_No_Tags());
             var fakeEmailService = new Mock<IEmailer>();
             var fakeViewMapper = new Mock<IViewMapper>();
-            fakeViewMapper.Setup(
-                x =>
-                x.MapIndexViewModel(Mother.GetTenPosts_No_Categories_NoComments_No_Tags(), 1, 5, It.IsAny<string>(),
-                                    It.IsAny<bool>(), It.IsAny<string>()));
+
+            fakePostRepository.Setup(x => x.All).Returns(posts);
 
             var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+            sut.Index(1);
 
-            ViewResult viewResult = sut.Index(1);
-
-            var expected = viewResult.Model as BlogPostViewModel;
-
-            Assert.IsInstanceOf<BlogPostViewModel>(expected);
+            fakeViewMapper.Verify(x => x.MapIndexViewModel(posts, 1, 5, "Index", false, string.Empty), Times.Exactly(1));
         }
 
         [Test]
@@ -68,8 +63,23 @@ namespace DansBlog.UnitTests.Presentation.Controllers
             string actual = viewResult.ViewName;
 
             Assert.AreEqual(expected, actual);
+        }
 
-            //should reurn values from mapper be tested
+        [Test]
+        public void Index_ReturnTheCorrectModelType()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            fakeViewMapper.Setup(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), 1, 5, "Index", false, string.Empty))
+                .Returns(()=> new BlogPostViewModel());
+
+            fakePostRepository.Setup(x => x.All).Returns(It.IsAny<List<Post>>());
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+            var model = sut.Index(1).Model as BlogPostViewModel;
+
+            Assert.IsInstanceOf(typeof (BlogPostViewModel), model);
         }
 
         #endregion
@@ -170,6 +180,116 @@ namespace DansBlog.UnitTests.Presentation.Controllers
         #endregion
 
         #region FetchComments
+
+        [Test]
+        public void FetchComments_CallMethod_GetModeratedPostComments()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            var request = new Mock<HttpRequestBase>();
+            var context = new Mock<HttpContextBase>();
+
+            context.Setup(x => x.Request).Returns(request.Object);
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);                                
+
+            sut.ControllerContext = new ControllerContext(context.Object,
+                                   new RouteData(), sut);
+
+            sut.FetchComments();
+
+            fakePostRepository.Verify(x => x.GetModeratedPostComments(1), Times.Once());
+        }
+
+        [Test]
+        public void FetchComments_SetIDParamToOneIfNoneGiven()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            var request = new Mock<HttpRequestBase>();
+            var context = new Mock<HttpContextBase>();
+
+            context.Setup(x => x.Request).Returns(request.Object);
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.ControllerContext = new ControllerContext(context.Object,
+                                   new RouteData(), sut);
+
+            var viewResult = sut.FetchComments() as ViewResult;
+
+            var model = viewResult.Model as List<Comment>;
+
+            Assert.AreEqual(1, model[0].PostId);
+        }
+
+        [Test]
+        public void FetchComments_ReturnTheCorrectView_IfIsAjaxRequest()
+        {
+            
+        }
+
+        [Test]
+        public void FetchComments_ReturnTheCorrectView_IfNormalRequest()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            var request = new Mock<HttpRequestBase>();
+            var context = new Mock<HttpContextBase>();
+
+            context.Setup(x => x.Request).Returns(request.Object);
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.ControllerContext = new ControllerContext(context.Object,
+                                   new RouteData(), sut);
+
+            
+            var viewResult = sut.FetchComments() as ViewResult;
+            const string expected = "NonAjaxView";
+            string actual = viewResult.ViewName;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void FetchComments_ReturnTheCorrectModelType_IfNormalRequest()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            fakePostRepository.Setup(x => x.GetModeratedPostComments(1))
+                              .Returns(It.IsAny<List<Comment>>());
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            var request = new Mock<HttpRequestBase>();
+            var context = new Mock<HttpContextBase>();
+
+            context.Setup(x => x.Request).Returns(request.Object);
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.ControllerContext = new ControllerContext(context.Object,
+                                   new RouteData(), sut);
+
+
+            var viewResult = sut.FetchComments() as ViewResult;
+
+            Assert.IsInstanceOf(typeof (List<Comment>), viewResult.Model);
+        }
+
+        [Test]
+        public void FetchComments_ReturnTheCorrectModelType_IfAjaxRequest()
+        {
+            
+        }
+
+        [Test]
+        public void FetchComments_ReturnTheCorrectPostsComments()
+        {
+                
+        }
 
         #endregion
 
