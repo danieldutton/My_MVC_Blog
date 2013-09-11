@@ -1,5 +1,6 @@
 ﻿using DansBlog.DataAccess;
 using DansBlog.Presentation.Controllers;
+using DansBlog.Presentation.Mappers;
 using DansBlog.Repository.Repositories;
 using DansBlog.Services.Email.Interfaces;
 using Moq;
@@ -14,12 +15,13 @@ namespace DansBlog.IntegrationTests.Presentation.Controllers
         [Test]
         public void Foo()
         {
-            //var fakeEmailService = new Mock<IEmailService>();
-            //var db = new BlogDbContext();
-            //var postRepository = new PostRepository(db);
-            //var sut = new HomeController(postRepository, fakeEmailService.Object);
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            var db = new BlogDbContext();
+            var postRepository = new PostRepository(db);
+            var sut = new HomeController(postRepository, fakeEmailService.Object, fakeViewMapper.Object);
 
-            //ViewResult result = sut.Index(1);            
+            ViewResult result = sut.Index(1);            
         }
     }
 }

@@ -152,3 +152,5 @@ C:\Users\Dan\Documents\GitHub\My-Blog\DansBlog.Presentation.IntegrationTests\obj
 C:\Users\Dan\Documents\GitHub\My-Blog\DansBlog.Presentation.IntegrationTests\obj\Release\DansBlog.IntegrationTests.Presentation.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\My-Blog\DansBlog.Presentation.IntegrationTests\obj\Release\DansBlog.IntegrationTests.Presentation.dll
 C:\Users\Dan\Documents\GitHub\My-Blog\DansBlog.Presentation.IntegrationTests\obj\Release\DansBlog.IntegrationTests.Presentation.pdb
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Presentation.IntegrationTests\bin\Release\System.Data.SqlServerCe.dll
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Presentation.IntegrationTests\bin\Release\System.Data.SqlServerCe.Entity.dll

@@ -48,3 +48,5 @@ C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Release\EntityFramework
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Release\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Release\DansBlog.DataAccess.dll
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Release\DansBlog.DataAccess.pdb
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Release\System.Data.SqlServerCe.dll
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Release\System.Data.SqlServerCe.Entity.dll
