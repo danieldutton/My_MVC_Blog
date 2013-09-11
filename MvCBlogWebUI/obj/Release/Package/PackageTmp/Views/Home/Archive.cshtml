@@ -1,0 +1,26 @@
+﻿ @model IEnumerable<IGrouping<int, DansBlog.Model.Entities.Post>>
+
+
+@{
+    ViewBag.Title = "Archive";
+}
+
+<h2 id="title">Archive</h2>
+<p/>
+<ul>
+    @foreach (var item in Model) {
+        
+        <h3 class="archive-year">@Html.DisplayFor(modelItem => item.Key)</h3>
+               
+        foreach (var i in item)
+        {  <li>
+               @Html.ActionLink(i.Title, "Details", new {leaveComments = false, postId = i.Id}, "Home")
+           </li>
+          <li>
+            <small>Posted: @i.PublishDate.ToLongDateString()</small>
+          </li>
+        }
+        <br/>   
+}
+</ul>
+

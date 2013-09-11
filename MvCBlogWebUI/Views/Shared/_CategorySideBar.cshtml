@@ -1,0 +1,16 @@
+﻿@model DansBlog.Presentation.ViewModels.MasterLayout
+
+@{
+    var categories = Model.Categories;
+}
+
+<ul class="archive">
+    <h2>Categories</h2>
+
+    @foreach(var category in categories)
+    {
+        <li class="category">
+            @Html.ActionLink(category.Name, "CategorySearch", "Home", new { search = category.Name }, null)<span>&nbsp;&nbsp;(@category.Count)</span>
+        </li>         
+    }
+</ul>

@@ -1,0 +1,5 @@
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\bin\Debug\DansBlog.Utilities.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\bin\Debug\DansBlog.Utilities.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\obj\Debug\DansBlog.Utilities.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\obj\Debug\DansBlog.Utilities.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\obj\Debug\DansBlog.Utilities.pdb

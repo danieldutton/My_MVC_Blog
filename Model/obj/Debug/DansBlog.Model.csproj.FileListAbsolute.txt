@@ -1,0 +1,16 @@
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\bin\Debug\DansBlog.Model.dll.config
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\bin\Debug\EntityFramework.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\bin\Debug\EntityFramework.xml
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\obj\Debug\DansBlog.Model.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\obj\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\Model\obj\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\Model\bin\Debug\DansBlog.Model.dll.config
+C:\Users\Dan\Desktop\Git\MyBlog\Model\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\Model\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\Model\bin\Debug\EntityFramework.dll
+C:\Users\Dan\Desktop\Git\MyBlog\Model\bin\Debug\EntityFramework.xml
+C:\Users\Dan\Desktop\Git\MyBlog\Model\obj\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\Model\obj\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\Model\obj\Debug\DansBlog.Model.csprojResolveAssemblyReference.cache

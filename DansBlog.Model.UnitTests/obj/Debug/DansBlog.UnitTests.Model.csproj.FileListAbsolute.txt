@@ -1,0 +1,12 @@
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\DansBlog.UnitTests.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\DansBlog.UnitTests.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\Moq.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\Moq.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\Moq.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\obj\Debug\DansBlog.UnitTests.Model.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\obj\Debug\DansBlog.UnitTests.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Model.UnitTests\obj\Debug\DansBlog.UnitTests.Model.pdb

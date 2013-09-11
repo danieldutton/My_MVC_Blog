@@ -1,0 +1,7 @@
+C:\Users\Daniel\Desktop\Blog\Services\bin\Release\Services.dll
+C:\Users\Daniel\Desktop\Blog\Services\bin\Release\Services.pdb
+C:\Users\Daniel\Desktop\Blog\Services\bin\Release\Model.dll
+C:\Users\Daniel\Desktop\Blog\Services\bin\Release\Model.pdb
+C:\Users\Daniel\Desktop\Blog\Services\obj\Release\Services.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\Blog\Services\obj\Release\Services.dll
+C:\Users\Daniel\Desktop\Blog\Services\obj\Release\Services.pdb

@@ -1,0 +1,16 @@
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\DansBlog.IntegrationTests.Presentation.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\DansBlog.IntegrationTests.Presentation.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\Moq.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\nunit.framework.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\Moq.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\Moq.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\nunit.framework.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\obj\Debug\DansBlog.IntegrationTests.Presentation.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\obj\Debug\DansBlog.IntegrationTests.Presentation.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\obj\Debug\DansBlog.IntegrationTests.Presentation.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\DansBlog.IntegrationTests.Presentation.dll.config
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Presentation.IntegrationTests\obj\Debug\DansBlog.IntegrationTests.Presentation.csproj.App.config

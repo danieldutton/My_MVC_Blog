@@ -1,0 +1,10 @@
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\_tmpIntermediateAT\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\DataAccess.dll.config
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\_tmpIntermediateAT\DataAccess.dll
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\_tmpIntermediateAT\DataAccess.pdb
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\DataAccess.dll
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\DataAccess.pdb
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\EntityFramework.dll
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\Model.dll
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\Model.pdb
+C:\Users\Daniel\Desktop\Projects\DansBlog\DataAccess\bin\AutoTest.Net\EntityFramework.xml
