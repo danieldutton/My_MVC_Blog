@@ -1,10 +1,13 @@
-﻿using DansBlog.Presentation.Controllers;
+﻿using DansBlog.Model.Entities;
+using DansBlog.Presentation.Controllers;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Services.Email.Interfaces;
 using Moq;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace DansBlog.UnitTests.Presentation.Controllers
@@ -25,6 +28,8 @@ namespace DansBlog.UnitTests.Presentation.Controllers
             sut.Index(1);
 
             fakePostRepository.Verify(x => x.All, Times.Once());
+
+            
         }
 
         [Test]
@@ -63,6 +68,8 @@ namespace DansBlog.UnitTests.Presentation.Controllers
             string actual = viewResult.ViewName;
 
             Assert.AreEqual(expected, actual);
+
+            //should reurn values from mapper be tested
         }
 
         #endregion
@@ -90,9 +97,75 @@ namespace DansBlog.UnitTests.Presentation.Controllers
 
         #region Archive
 
+        [Test]
+        public void Archive_ReturnTheCorrectView()
+        {
+            var fakeRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakeRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            ViewResult viewResult = sut.Archive();
+
+            string expected = string.Empty;
+            string actual = viewResult.ViewName;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Archive_ReturnTheCorrectViewModelType()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            fakeViewMapper.Setup(
+                x =>
+                x.MapIndexViewModel(Mother.GetTenPosts_No_Categories_NoComments_No_Tags(), 1, 5, It.IsAny<string>(),
+                                    It.IsAny<bool>(), It.IsAny<string>()));
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            ViewResult viewResult = sut.Index(1);
+
+            var expected = viewResult.Model as BlogPostViewModel;
+
+            Assert.IsInstanceOf<IEnumerable<IGrouping<int, Post>>>(expected);
+        }
+
         #endregion
 
         #region TagCloud
+
+        [Test]
+        public void TagCloud_MakeACallToAction_GetDistinctTags()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+            sut.TagCloud();
+
+            fakePostRepository.Verify(x => x.GetDistinctTags(), Times.Exactly(1));
+        }
+
+        [Test]
+        public void TagCloud_ReturnsTheCorrectView()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+            sut.TagCloud();
+
+            string expected = string.Empty;
+            string actual = sut.TagCloud().ViewName;
+
+            Assert.AreEqual(expected, actual);
+        }
 
         #endregion
 

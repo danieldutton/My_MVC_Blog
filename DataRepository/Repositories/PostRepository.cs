@@ -10,12 +10,12 @@ namespace DansBlog.Repository.Repositories
 {
     public class PostRepository : IPostRepository
     {
-        private readonly BlogDbContext _dataContext;
+        private readonly IDbContext _dataContext;
 
         public List<Post> All { get { return _dataContext.Posts.OrderByDescending(p => p.PublishDate).ToList(); } }
 
 
-        public PostRepository(BlogDbContext dataContext)
+        public PostRepository(IDbContext dataContext)
         {
             _dataContext = dataContext;
         }

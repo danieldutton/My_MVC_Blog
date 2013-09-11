@@ -3,15 +3,15 @@ using System.Data.Entity;
 
 namespace DansBlog.DataAccess
 {
-    public class BlogDbContext : DbContext 
+    public class BlogDbContext : DbContext , IDbContext
     {
-        public DbSet<Post> Posts { get; set; }
+        public IDbSet<Post> Posts { get; set; }
 
-        public DbSet<Comment> Comments { get; set; }
+        public IDbSet<Comment> Comments { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
+        public IDbSet<Category> Categories { get; set; }
 
-        public DbSet<Tag> Tags { get; set; } 
+        public IDbSet<Tag> Tags { get; set; } 
         
         public BlogDbContext():base("DansMVCBlog")
         {           

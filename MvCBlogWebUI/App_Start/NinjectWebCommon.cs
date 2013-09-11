@@ -1,3 +1,4 @@
+using DansBlog.DataAccess;
 using DansBlog.Model.Partials;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Repository.Interfaces;
@@ -8,12 +9,11 @@ using DansBlog.Services.Archiving.Utilities;
 using DansBlog.Services.Email;
 using DansBlog.Services.Email.Interfaces;
 using DansBlog.Services.Email.Model;
-using DansBlog.Utilities;
 using DansBlog.Utilities.DateTimes;
 using DansBlog.Utilities.Interfaces;
-using System.Configuration;
 using DansBlog.Utilities.Numbers;
 using DansBlog.Utilities.Xml;
+using System.Configuration;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(DansBlog.Presentation.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(DansBlog.Presentation.App_Start.NinjectWebCommon), "Stop")]
@@ -81,6 +81,9 @@ namespace DansBlog.Presentation.App_Start
             kernel.Bind<IArchiver>().To<Archiver>();
             kernel.Bind<IDistinctMonthHelper>().To<DistinctMonthHelper>();
             kernel.Bind<IArchiveMapper>().To<ArchiveMapper>();
+            //Data Context
+            kernel.Bind<IDbContext>().To<BlogDbContext>();
+
             string smtpServer = ConfigurationManager.AppSettings["Smtp_Server"];
             string targetEmail = ConfigurationManager.AppSettings["Smtp_TargetEmail"];
 

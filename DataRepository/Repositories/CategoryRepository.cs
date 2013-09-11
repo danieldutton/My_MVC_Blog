@@ -9,9 +9,9 @@ namespace DansBlog.Repository.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private readonly BlogDbContext _dataContext;
+        private readonly IDbContext _dataContext;
 
-        public CategoryRepository(BlogDbContext blogDataContextContext)
+        public CategoryRepository(IDbContext blogDataContextContext)
         {
             _dataContext = blogDataContextContext;
         }

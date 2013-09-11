@@ -51,7 +51,6 @@
     <Compile Include="Repositories\QuoteRepository.cs" />
     <Compile Include="Repositories\PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryBundle.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
