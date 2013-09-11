@@ -29,3 +29,11 @@ C:\Users\Dan\Desktop\Git\MyBlog\Model\bin\Release\EntityFramework.xml
 C:\Users\Dan\Desktop\Git\MyBlog\Model\obj\Release\DansBlog.Model.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Desktop\Git\MyBlog\Model\obj\Release\DansBlog.Model.dll
 C:\Users\Dan\Desktop\Git\MyBlog\Model\obj\Release\DansBlog.Model.pdb
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\bin\Release\DansBlog.Model.dll.config
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\bin\Release\DansBlog.Model.dll
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\bin\Release\DansBlog.Model.pdb
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\bin\Release\EntityFramework.dll
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\bin\Release\EntityFramework.xml
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\obj\Release\DansBlog.Model.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\obj\Release\DansBlog.Model.dll
+C:\Users\Dan\Documents\GitHub\My-MVC-Blog\Model\obj\Release\DansBlog.Model.pdb

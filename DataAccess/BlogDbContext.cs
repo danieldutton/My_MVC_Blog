@@ -1,4 +1,5 @@
-﻿using DansBlog.Model.Entities;
+﻿using System.Data;
+using DansBlog.Model.Entities;
 using System.Data.Entity;
 
 namespace DansBlog.DataAccess
@@ -15,6 +16,11 @@ namespace DansBlog.DataAccess
         
         public BlogDbContext():base("DansMVCBlog")
         {           
+        }
+
+        public void SetModified(object entity)
+        {
+            Entry(entity).State = EntityState.Modified;
         }
 
 

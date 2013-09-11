@@ -2,7 +2,6 @@
 using DansBlog.Model.Entities;
 using DansBlog.Repository.Interfaces;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 
 namespace DansBlog.Repository.Repositories
@@ -31,8 +30,8 @@ namespace DansBlog.Repository.Repositories
 
         public void Update(Category entity)
         {
-            var posts = _dataContext.Posts.Find(entity);
-            _dataContext.Entry(posts).State = EntityState.Modified;
+            var post = _dataContext.Posts.Find(entity);
+            _dataContext.SetModified(post);
             
             _dataContext.SaveChanges();
         }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DataAccess\bin\Release\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
@@ -38,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PostRepository_Test\PostRepositoryShould.cs" />
     <Compile Include="Repositories\QuoteRepository_Test\QuoteRepository_GetRandomQuote_Should.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,12 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\CategoryRepository_Test\" />
-    <Folder Include="Repositories\PostRepository_Test\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
       <Project>{2e0f0783-b4c2-4a5e-9d2e-46560b18e120}</Project>
       <Name>DansBlog.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DansBlog.DataAccess.csproj">
+      <Project>{68d95657-e9fe-4c76-b18e-1bad82ec97ad}</Project>
+      <Name>DansBlog.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataRepository\DansBlog.Repository.csproj">
       <Project>{7df482f0-e568-468b-b079-ecbd88dd68c8}</Project>

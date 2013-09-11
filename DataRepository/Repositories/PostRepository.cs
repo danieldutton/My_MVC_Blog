@@ -3,7 +3,6 @@ using DansBlog.Model.Entities;
 using DansBlog.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 
 namespace DansBlog.Repository.Repositories
@@ -18,28 +17,18 @@ namespace DansBlog.Repository.Repositories
         public PostRepository(IDbContext dataContext)
         {
             _dataContext = dataContext;
-        }
-
-        public Post Get(int id)
-        {
-            return _dataContext.Posts.SingleOrDefault(p => p.Id == id);
-        }
-
-        public List<Post> GetAll()
-        {
-            return _dataContext.Posts.OrderByDescending(p => p.PublishDate).ToList();
-        }
+        }       
 
         public void Add(Post element)
         {
-            element.PublishDate = DateTime.Now;
+            element.PublishDate = DateTime.Now; //ToDo Abstract with interface
             _dataContext.Posts.Add(element);
             _dataContext.SaveChanges();
         }
 
         public void Update(Post post)
         {
-            _dataContext.Entry(post).State = EntityState.Modified;
+            _dataContext.SetModified(post);
             _dataContext.SaveChanges();
         }
         
@@ -86,7 +75,7 @@ namespace DansBlog.Repository.Repositories
 
         public List<Post> GetPostsByCategory(string category)
         {
-            List<Post> posts = GetAll();
+            List<Post> posts = All;
             List<Post> postsByCategory = posts.Where(a => a.Categories.Any(b => b.Name.Contains(category))).ToList();
 
             return postsByCategory;
@@ -110,6 +99,7 @@ namespace DansBlog.Repository.Repositories
                             .OrderByDescending(p => p.PublishDate).ToList();
         }
 
+        //violates srp move in due course
         public List<Tag> GetDistinctTags()
         {
             return _dataContext.Tags.ToList()
@@ -125,7 +115,7 @@ namespace DansBlog.Repository.Repositories
             if (post != null)
             {
                 post.Comments.Add(comment);
-                _dataContext.Entry(post).State = EntityState.Modified;
+                _dataContext.SetModified(post);
             }
             _dataContext.SaveChanges();            
         }
@@ -139,10 +129,9 @@ namespace DansBlog.Repository.Repositories
             {
                 comment.HasBeenModerated = true;
                 post.Comments.Add(comment);
-                _dataContext.Entry(post).State = EntityState.Modified;
+                _dataContext.SetModified(post);
             }
             _dataContext.SaveChanges();
         }
-
     }
 }

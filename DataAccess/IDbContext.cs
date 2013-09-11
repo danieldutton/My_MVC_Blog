@@ -1,5 +1,4 @@
-﻿using System.Data.Entity.Infrastructure;
-using DansBlog.Model.Entities;
+﻿using DansBlog.Model.Entities;
 using System.Data.Entity;
 
 namespace DansBlog.DataAccess
@@ -16,7 +15,6 @@ namespace DansBlog.DataAccess
 
         int SaveChanges();
 
-        DbEntityEntry Entry(object entity);
-
+        void SetModified(object entity);
     }
 }
