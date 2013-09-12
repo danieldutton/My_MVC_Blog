@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace DansBlog.Presentation.Controllers
-{   [HandleError]
+{   
+    [HandleError]
     [Authorize]
     public class AdminController : ApplicationController
     {
@@ -15,7 +16,7 @@ namespace DansBlog.Presentation.Controllers
         {
         }
 
-        public ActionResult Index(int? page)
+        public ViewResult Index(int? page)
         {
             var posts = PostRepository.All;
             
@@ -38,7 +39,7 @@ namespace DansBlog.Presentation.Controllers
             return View(post);
         }
 
-        public ActionResult Create(){
+        public ViewResult Create(){
 
             var post = new Post {Author = User.Identity.Name};
             

@@ -48,6 +48,7 @@
     <Compile Include="Archiving\ArchiveMapperShould.cs" />
     <Compile Include="Archiving\ArchiverShould.cs" />
     <Compile Include="Archiving\DistinctMonthHelper_Should.cs" />
+    <Compile Include="Email\Emailer_Should.cs" />
     <Compile Include="Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

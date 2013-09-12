@@ -1,6 +1,7 @@
 ﻿using DansBlog.Model.Entities;
 using DansBlog.Presentation.ViewModels;
 using PagedList;
+using System;
 using System.Collections.Generic;
 
 namespace DansBlog.Presentation.Mappers
@@ -9,6 +10,8 @@ namespace DansBlog.Presentation.Mappers
     {
         public BlogPostViewModel MapIndexViewModel(List<Post> posts, int? pageNo, int pageSize, string actionToInvoke, bool leaveComment, string searchTerm="")
         {
+            if (posts == null) throw new ArgumentNullException();
+
             int pageNumber = (pageNo ?? 1);
             if (pageNumber < 1) pageNumber = 1;
 

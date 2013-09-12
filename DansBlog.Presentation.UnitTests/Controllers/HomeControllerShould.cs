@@ -399,6 +399,12 @@ namespace DansBlog.UnitTests.Presentation.Controllers
 
         #region Details
 
+        [Test]
+        public void Details_CallMethod_Find()
+        {
+            
+        }
+
         #endregion
     }
 }
