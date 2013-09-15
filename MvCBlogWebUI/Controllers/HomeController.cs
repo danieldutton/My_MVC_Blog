@@ -196,6 +196,11 @@ namespace DansBlog.Presentation.Controllers
             return View("_BlogPost", viewModel);
         }
 
+        public ViewResult Error()
+        {
+            return View();
+        }
+
         #endregion
 
     }
