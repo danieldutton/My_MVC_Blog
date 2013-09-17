@@ -400,9 +400,81 @@ namespace DansBlog.UnitTests.Presentation.Controllers
         #region Details
 
         [Test]
-        public void Details_CallMethod_Find()
+        public void Details_CallMethod_Find_Once()
         {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.Details(1, false);
+
+            fakePostRepository.Verify(x => x.Find(It.IsAny<int>()), Times.Once());
+        }
+
+        [Test]
+        public void Details_CallMethod_Find_WithDefaultPostIdOf_0()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.Details(1, false);
+
+            fakePostRepository.Verify(x => x.Find(It.Is<int>(i => i == 0)), Times.Once(), "param not 0");
+        }
+
+
+        [Test]
+        public void Details_CallMethod_Find_WithSpecifiedPostId()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
             
+            sut.Details(1, false, 2);
+
+            fakePostRepository.Verify(x => x.Find(It.Is<int>(i => i == 2)), Times.Once(), "param not 2");
+        }
+
+        [Test]
+        public void Details_CallMethod_MapIndexViewModel_WithPageNumberDefaultAs_One_IfPagenumberParamIsNull()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.Details(null, false, 2);
+
+            fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), 1, It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()), "page param is not 1");
+        }
+
+        #endregion
+
+        #region Error
+
+        [Test]
+        public void Error_ReturnTheCorrectView()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            ViewResult viewResult = sut.Error();
+
+            string expected = string.Empty;
+            string actual = viewResult.ViewName;
+
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion

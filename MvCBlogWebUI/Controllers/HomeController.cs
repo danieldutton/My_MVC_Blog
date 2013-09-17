@@ -15,17 +15,12 @@ namespace DansBlog.Presentation.Controllers
     [HandleError]
     public class HomeController : ApplicationController
     {
-        #region Properties
-
         private readonly IViewMapper _viewMapper;
 
         public int PageSize = 5;
 
         public IEmailer MessagingService { get; private set; }
 
-        #endregion
-
-        #region Constructor(s)
 
         public HomeController(IPostRepository postRepository, 
                               IEmailer messagingService,
@@ -36,10 +31,7 @@ namespace DansBlog.Presentation.Controllers
             MessagingService = messagingService;
         }
 
-        #endregion
-
-        #region Action(s)
-
+        [OutputCache(Duration=1800, VaryByParam="page")]
         public ViewResult Index(int? page)
         {
             List<Post> posts = PostRepository.All;           
@@ -54,13 +46,15 @@ namespace DansBlog.Presentation.Controllers
             return View();
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none")]
         public ViewResult Archive()
         {
             IEnumerable<IGrouping<int, Post>> groupedPosts = PostRepository.PostsGroupedByYear();
             
             return View(groupedPosts);
         }
-       
+
+        [OutputCache(Duration = 3600, VaryByParam = "none")]
         public ViewResult TagCloud()
         {
             List<Tag> tags = PostRepository.GetDistinctTags();
@@ -105,6 +99,7 @@ namespace DansBlog.Presentation.Controllers
             return View("_CommentSubmitted");
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "*")]
         public ViewResult TagSearch(int? page, string sort = "Programming")
         {
             ViewBag.Tag = sort;
@@ -160,6 +155,7 @@ namespace DansBlog.Presentation.Controllers
             return View("ContactFailed");
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "*")]
         public ViewResult CategorySearch(int? page, string search)
         {
             List<Post> posts = PostRepository.GetPostsByCategory(search);
@@ -172,6 +168,7 @@ namespace DansBlog.Presentation.Controllers
             return View("_BlogPost", viewModel);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "*")]
         public ViewResult ArchiveSearch(int? page, int sort, int year)
         {
             List<Post> posts = PostRepository.GetPostsByDate(sort, year);
@@ -183,6 +180,7 @@ namespace DansBlog.Presentation.Controllers
             return View("_BlogPost", viewModel);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "*")]
         public ViewResult Details(int? page, bool leaveComments, int postId = 0)
         {
             Post post = PostRepository.Find(postId);
@@ -200,8 +198,6 @@ namespace DansBlog.Presentation.Controllers
         {
             return View();
         }
-
-        #endregion
 
     }
 }

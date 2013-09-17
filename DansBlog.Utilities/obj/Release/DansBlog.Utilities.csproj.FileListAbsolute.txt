@@ -10,6 +10,5 @@ C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\obj\Release\DansBlog.Utilitie
 C:\Users\Dan\Desktop\Git\MyBlog\DansBlog.Utilities\obj\Release\DansBlog.Utilities.pdb
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\bin\Release\DansBlog.Utilities.dll
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\bin\Release\DansBlog.Utilities.pdb
-C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\obj\Release\DansBlog.Utilities.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\obj\Release\DansBlog.Utilities.dll
 C:\Users\Dan\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\obj\Release\DansBlog.Utilities.pdb

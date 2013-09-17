@@ -58,6 +58,7 @@ namespace DansBlog.Presentation.Controllers
 
         #region Action(s)
 
+        
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             string filePath = Server.MapPath(ConfigurationManager.AppSettings["Quote_Partial_XmlFilePath"]);
@@ -76,6 +77,8 @@ namespace DansBlog.Presentation.Controllers
             
             base.OnActionExecuted(filterContext);
         }
+
+
 
         #endregion
     }
