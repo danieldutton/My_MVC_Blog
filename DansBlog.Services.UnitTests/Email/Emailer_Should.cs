@@ -11,8 +11,10 @@ namespace DansBlog.UnitTests.Services.Email
         [Test]
         public void Message_SetSMTPClientWithTheCorrectSmtpServerValue()
         {
-            //var fakeEmailSettings = new Mock<IEmailSettings>();
+            var emailSettings = new EmailSettings("smtpServer", "targetEmail");
+
             
+
             //var sut = new Emailer(settings);
         }
     }

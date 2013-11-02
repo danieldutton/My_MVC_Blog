@@ -75,7 +75,7 @@ namespace DansBlog.Presentation.App_Start
             kernel.Bind<ICurrentTime>().To<CurrentTimeHelper>();
             kernel.Bind<IQuoteRepository<Quote>>().To<QuoteRepository>();
             kernel.Bind<IRandomNumberGenerator>().To<RandomNumberGenerator>();
-            kernel.Bind<IXmlLoader>().To<XmlLoader>();
+            kernel.Bind<IXDocumentLoader>().To<XDocumentLoader>();
             kernel.Bind<ICategoryRepository>().To<CategoryRepository>();
             //Archiver
             kernel.Bind<IArchiver>().To<Archiver>();

@@ -78,8 +78,6 @@ namespace DansBlog.Presentation.Controllers
             base.OnActionExecuted(filterContext);
         }
 
-
-
         #endregion
     }
 }
