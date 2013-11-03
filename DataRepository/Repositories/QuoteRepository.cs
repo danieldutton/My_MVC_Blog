@@ -11,16 +11,16 @@ namespace DansBlog.Repository.Repositories
 {
     public class QuoteRepository : IQuoteRepository<Quote>
     {
-        private readonly IXmlLoader _xmlLoader;
+        private readonly IXDocumentLoader _ixDocumentLoader;
 
         public DefaultQuoteGenerator DefaultQuoteGenerator { get; set; }
 
         public IRandomNumberGenerator RandomNumberGenerator { get; set; }
 
 
-        public QuoteRepository(IXmlLoader xmlLoader)
+        public QuoteRepository(IXDocumentLoader ixDocumentLoader)
         {
-            _xmlLoader = xmlLoader;
+            _ixDocumentLoader = ixDocumentLoader;
 
             RandomNumberGenerator = new RandomNumberGenerator();
             DefaultQuoteGenerator = new DefaultQuoteGenerator();
@@ -34,7 +34,7 @@ namespace DansBlog.Repository.Repositories
 
             try
             {
-                XDocument doc = _xmlLoader.LoadXml(filePath);
+                XDocument doc = _ixDocumentLoader.LoadXDocument(filePath);
 
                 int randomIndex = RandomNumberGenerator.GetRandomNumber(0, doc.Descendants("quote").Count());
 

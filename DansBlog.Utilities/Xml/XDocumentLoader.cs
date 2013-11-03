@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace DansBlog.Utilities.Xml
 {
-    public class XDocumentLoader : IXmlLoader
+    public class XDocumentLoader : IXDocumentLoader
     {
         public XDocument LoadXDocument(string filePath)
         {

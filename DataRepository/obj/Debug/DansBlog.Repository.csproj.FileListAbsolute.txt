@@ -1,0 +1,14 @@
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Repository.dll.config
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Repository.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Repository.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Model.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Utilities.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\EntityFramework.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Utilities.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\DansBlog.Model.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\bin\Debug\EntityFramework.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\obj\Debug\DansBlog.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\obj\Debug\DansBlog.Repository.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataRepository\obj\Debug\DansBlog.Repository.pdb

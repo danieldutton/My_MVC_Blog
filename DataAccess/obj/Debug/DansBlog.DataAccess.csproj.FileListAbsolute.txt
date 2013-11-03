@@ -28,3 +28,15 @@ E:\MyBlog\DataAccess\bin\Debug\EntityFramework.xml
 E:\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
 E:\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.dll
 E:\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.DataAccess.dll.config
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.Model.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\System.Data.SqlServerCe.Entity.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.Model.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Debug\DansBlog.DataAccess.pdb

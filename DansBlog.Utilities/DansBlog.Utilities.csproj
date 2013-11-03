@@ -39,10 +39,10 @@
     <Compile Include="DateTimes\CurrentTimeHelper.cs" />
     <Compile Include="Interfaces\ICurrentTime.cs" />
     <Compile Include="Interfaces\IRandomNumberGenerator.cs" />
-    <Compile Include="Interfaces\IXmlLoader.cs" />
+    <Compile Include="Interfaces\IXDocumentLoader.cs" />
     <Compile Include="Numbers\RandomNumberGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Xml\XmlLoader.cs" />
+    <Compile Include="Xml\XDocumentLoader.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

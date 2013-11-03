@@ -2,8 +2,8 @@
 
 namespace DansBlog.Utilities.Interfaces
 {
-    public interface IXmlLoader
+    public interface IXDocumentLoader
     {
-        XDocument LoadXml(string filePath);
+        XDocument LoadXDocument(string filePath);
     }
 }
