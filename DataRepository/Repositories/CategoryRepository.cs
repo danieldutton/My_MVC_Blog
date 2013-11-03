@@ -62,5 +62,16 @@ namespace DansBlog.Repository.Repositories
             return categories;
         }
 
+        public List<string> SearchForCategories(string term)
+        {
+            List<string> result = _dataContext.Categories.Select(x => x.Name)
+                    .Where(x => x.ToLower()
+                    .Contains(term.ToLower()))
+                    .Distinct()
+                    .ToList();
+
+            return result;
+        }
+
     }
 }

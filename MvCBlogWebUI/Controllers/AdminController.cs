@@ -116,5 +116,12 @@ namespace DansBlog.Presentation.Controllers
             }
             return View("ModerationSucessfull");
         }
+
+        public JsonResult AutoCompleteCategory(string term)
+        {
+            var result = CategoryRepository.SearchForCategories(term);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

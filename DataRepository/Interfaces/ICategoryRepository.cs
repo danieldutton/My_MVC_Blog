@@ -6,5 +6,7 @@ namespace DansBlog.Repository.Interfaces
     public interface ICategoryRepository : IEntityRepository<Category>
     {
         List<Category> MostPopularCategories(int count);
+
+        List<string> SearchForCategories(string term);
     }
 }
