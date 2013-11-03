@@ -2,7 +2,7 @@
     $("#Categories").autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: "/Home/AutoCompleteCategory",
+                url: "/Admin/AutoCompleteCategory",
                 type: "POST",
                 dataType: "json",
                 data: { term: request.term, maxRows: 12 },
