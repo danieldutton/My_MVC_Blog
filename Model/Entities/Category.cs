@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DansBlog.Model.Entities
@@ -16,6 +17,8 @@ namespace DansBlog.Model.Entities
         {
             return other.Name == Name;
         }
+
+        public List<Post> Posts { get; set; }
 
         public override int GetHashCode()
         {

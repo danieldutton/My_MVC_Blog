@@ -21,3 +21,4 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Model\bin\Debug\EntityFramework.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Model\bin\Debug\EntityFramework.xml
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Model\obj\Debug\DansBlog.Model.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Model\obj\Debug\DansBlog.Model.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Model\obj\Debug\DansBlog.Model.csprojResolveAssemblyReference.cache

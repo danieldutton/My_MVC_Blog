@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace DansBlog.DataAccess
 {
-    public class BlogDataInitializer : CreateDatabaseIfNotExists<BlogDbContext>
+    public class BlogDataInitializer : DropCreateDatabaseAlways<BlogDbContext>
     {
         protected override void Seed(BlogDbContext context)
         {

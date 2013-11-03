@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace DansBlog.Presentation.Controllers
 {   
-    [HandleError]
     [Authorize]
     public class AdminController : ApplicationController
     {

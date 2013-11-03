@@ -28,15 +28,13 @@ namespace DansBlog.DataAccess
         {
             modelBuilder.Entity<Post>()
                         .HasMany(j => j.Categories)
-                        .WithRequired();
-
-            modelBuilder.Entity<Post>()
-                        .HasMany(j => j.Comments)
-                        .WithRequired();
+                        .WithMany(j => j.Posts)
+                        .Map(x => x.ToTable("PostCategory"));
 
             modelBuilder.Entity<Post>()
                         .HasMany(j => j.Tags)
-                        .WithRequired();
+                        .WithMany(j => j.Posts)
+                        .Map(x => x.ToTable("PostTag"));
             
             base.OnModelCreating(modelBuilder);
         }

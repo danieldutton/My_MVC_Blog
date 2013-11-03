@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace DansBlog.Presentation.Controllers
 {
-    [HandleError]
     public class SearchController : ApplicationController
     {
         #region Constructor(s)

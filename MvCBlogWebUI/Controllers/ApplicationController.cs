@@ -16,8 +16,6 @@ namespace DansBlog.Presentation.Controllers
 {   [HandleError]
     public class ApplicationController : Controller
     {
-        #region Properties
-
         [Inject]
         public IQuoteRepository<Quote> QuoteRepository { get; set; }
 
@@ -32,7 +30,8 @@ namespace DansBlog.Presentation.Controllers
 
         private readonly IPostRepository _postRepository;
 
-        protected IPostRepository PostRepository {
+        protected IPostRepository PostRepository 
+        {
             get { return _postRepository; }
         }
 
@@ -43,9 +42,7 @@ namespace DansBlog.Presentation.Controllers
             get { return _viewMapper; }
         }
 
-        #endregion
 
-        #region Constructor(s)
 
         public ApplicationController(IPostRepository postRepository, 
             IViewMapper viewMapper)
@@ -54,11 +51,7 @@ namespace DansBlog.Presentation.Controllers
             _viewMapper = viewMapper;
         }
 
-        #endregion
 
-        #region Action(s)
-
-        
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             string filePath = Server.MapPath(ConfigurationManager.AppSettings["Quote_Partial_XmlFilePath"]);
@@ -77,7 +70,5 @@ namespace DansBlog.Presentation.Controllers
             
             base.OnActionExecuted(filterContext);
         }
-
-        #endregion
     }
 }

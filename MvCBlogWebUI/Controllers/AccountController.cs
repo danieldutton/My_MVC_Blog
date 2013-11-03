@@ -13,7 +13,7 @@ using System.Web.Security;
 using WebMatrix.WebData;
 
 namespace DansBlog.Presentation.Controllers
-{   [HandleError]
+{   
     [Authorize]
     [InitializeSimpleMembership]
     public class AccountController : ApplicationController

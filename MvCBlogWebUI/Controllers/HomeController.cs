@@ -12,7 +12,6 @@ using System.Web.Mvc;
 
 namespace DansBlog.Presentation.Controllers
 {   
-    [HandleError]
     public class HomeController : ApplicationController
     {
         private readonly IViewMapper _viewMapper;
