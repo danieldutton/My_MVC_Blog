@@ -17,6 +17,9 @@ namespace DansBlog.Presentation.App_Start
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                 "~/Scripts/jquery-ui-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquerycategories").Include(
+                "~/Scripts/jquery-autocomplete-settings.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             BundleTable.EnableOptimizations = true;
