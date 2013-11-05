@@ -1,0 +1,39 @@
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\bin\Debug\DansBlog.Services.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\bin\Debug\DansBlog.Services.pdb
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\obj\Debug\DansBlog.Services.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\obj\Debug\DansBlog.Services.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\Services\obj\Debug\DansBlog.Services.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\Services\bin\Debug\DansBlog.Services.dll
+C:\Users\Dan\Desktop\Git\MyBlog\Services\bin\Debug\DansBlog.Services.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\Services\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\Services\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\Services\obj\Debug\DansBlog.Services.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Git\MyBlog\Services\obj\Debug\DansBlog.Services.dll
+C:\Users\Dan\Desktop\Git\MyBlog\Services\obj\Debug\DansBlog.Services.pdb
+E:\MyBlog\Services\bin\Debug\DansBlog.Services.dll
+E:\MyBlog\Services\bin\Debug\DansBlog.Services.pdb
+E:\MyBlog\Services\bin\Debug\DansBlog.Model.dll
+E:\MyBlog\Services\bin\Debug\DansBlog.Model.pdb
+E:\MyBlog\Services\obj\Debug\DansBlog.Services.csprojResolveAssemblyReference.cache
+E:\MyBlog\Services\obj\Debug\DansBlog.Services.dll
+E:\MyBlog\Services\obj\Debug\DansBlog.Services.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\obj\Debug\DansBlog.Services.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\obj\Debug\DansBlog.Services.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\obj\Debug\DansBlog.Services.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\bin\Debug\DansBlog.Services.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\bin\Debug\DansBlog.Services.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\bin\Debug\DansBlog.Model.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\bin\Debug\DansBlog.Utilities.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\bin\Debug\DansBlog.Utilities.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\Services\bin\Debug\DansBlog.Model.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\bin\Debug\DansBlog.Services.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\bin\Debug\DansBlog.Services.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\bin\Debug\DansBlog.Model.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\bin\Debug\DansBlog.Utilities.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\bin\Debug\DansBlog.Model.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\bin\Debug\DansBlog.Utilities.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\obj\Debug\DansBlog.Services.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\obj\Debug\DansBlog.Services.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Services\obj\Debug\DansBlog.Services.pdb

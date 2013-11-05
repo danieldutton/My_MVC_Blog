@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\DataAccess\bin\Release\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
@@ -73,29 +73,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
-      <Project>{2e0f0783-b4c2-4a5e-9d2e-46560b18e120}</Project>
-      <Name>DansBlog.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccess\DansBlog.DataAccess.csproj">
-      <Project>{68d95657-e9fe-4c76-b18e-1bad82ec97ad}</Project>
+    <ProjectReference Include="..\DansBlog.DataAccess\DansBlog.DataAccess.csproj">
+      <Project>{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}</Project>
       <Name>DansBlog.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataRepository\DansBlog.Repository.csproj">
+    <ProjectReference Include="..\DansBlog.Model\DansBlog.Model.csproj">
+      <Project>{E537E700-E0C2-4A67-BD57-1E24C0966449}</Project>
+      <Name>DansBlog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Presentation\DansBlog.Presentation.csproj">
+      <Project>{945997B1-5D4D-4526-A206-F712FACCDFFD}</Project>
+      <Name>DansBlog.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Repository\DansBlog.Repository.csproj">
       <Project>{7df482f0-e568-468b-b079-ecbd88dd68c8}</Project>
       <Name>DansBlog.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Model\DansBlog.Model.csproj">
-      <Project>{e537e700-e0c2-4a67-bd57-1e24c0966449}</Project>
-      <Name>DansBlog.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MvCBlogWebUI\DansBlog.Presentation.csproj">
-      <Project>{945997b1-5d4d-4526-a206-f712faccdffd}</Project>
-      <Name>DansBlog.Presentation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services\DansBlog.Services.csproj">
-      <Project>{96f1e5bd-a859-4a2c-a1ef-03a221cb172e}</Project>
+    <ProjectReference Include="..\DansBlog.Services\DansBlog.Services.csproj">
+      <Project>{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}</Project>
       <Name>DansBlog.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
+      <Project>{2e0f0783-b4c2-4a5e-9d2e-46560b18e120}</Project>
+      <Name>DansBlog.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,0 +1,52 @@
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\DansBlog.DataAccess.dll.config
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\DansBlog.DataAccess.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\DansBlog.DataAccess.pdb
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\obj\Debug\DansBlog.DataAccess.dll
+C:\Users\Dan\Desktop\Working Copies\My Blog\DataAccess\obj\Debug\DansBlog.DataAccess.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\DansBlog.DataAccess.dll.config
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\DansBlog.DataAccess.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\DansBlog.DataAccess.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\DansBlog.Model.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\DansBlog.Model.pdb
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.dll
+C:\Users\Dan\Desktop\Git\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.pdb
+E:\MyBlog\DataAccess\bin\Debug\DansBlog.DataAccess.dll.config
+E:\MyBlog\DataAccess\bin\Debug\DansBlog.DataAccess.dll
+E:\MyBlog\DataAccess\bin\Debug\DansBlog.DataAccess.pdb
+E:\MyBlog\DataAccess\bin\Debug\DansBlog.Model.dll
+E:\MyBlog\DataAccess\bin\Debug\EntityFramework.dll
+E:\MyBlog\DataAccess\bin\Debug\DansBlog.Model.pdb
+E:\MyBlog\DataAccess\bin\Debug\EntityFramework.xml
+E:\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
+E:\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.dll
+E:\MyBlog\DataAccess\obj\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.DataAccess.dll.config
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.Model.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\System.Data.SqlServerCe.Entity.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\DansBlog.Model.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DataAccess\obj\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.DataAccess.dll.config
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\System.Data.SqlServerCe.Entity.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\obj\Debug\DansBlog.DataAccess.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\obj\Debug\DansBlog.DataAccess.pdb

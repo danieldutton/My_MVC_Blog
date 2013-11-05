@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DansBlog.Services</RootNamespace>
+    <AssemblyName>DansBlog.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archiving\ViewModel\Archive.cs" />
+    <Compile Include="Archiving\Archiver.cs" />
+    <Compile Include="Archiving\Interfaces\IArchiveMapper.cs" />
+    <Compile Include="Archiving\Interfaces\IArchiver.cs" />
+    <Compile Include="Archiving\Interfaces\IDistinctMonthHelper.cs" />
+    <Compile Include="Archiving\Utilities\ArchiveMapper.cs" />
+    <Compile Include="Archiving\Utilities\DistinctMonthHelper.cs" />
+    <Compile Include="Email\Emailer.cs" />
+    <Compile Include="Email\Model\Contact.cs" />
+    <Compile Include="Email\Model\EmailSettings.cs" />
+    <Compile Include="Email\Interfaces\IEmailer.cs" />
+    <Compile Include="Email\Interfaces\IMessagingService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DansBlog.Model\DansBlog.Model.csproj">
+      <Project>{E537E700-E0C2-4A67-BD57-1E24C0966449}</Project>
+      <Name>DansBlog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
+      <Project>{2e0f0783-b4c2-4a5e-9d2e-46560b18e120}</Project>
+      <Name>DansBlog.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

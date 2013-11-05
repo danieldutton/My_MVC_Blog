@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.DataAccess", "DataAccess\DansBlog.DataAccess.csproj", "{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Model", "Model\DansBlog.Model.csproj", "{E537E700-E0C2-4A67-BD57-1E24C0966449}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Presentation", "MvCBlogWebUI\DansBlog.Presentation.csproj", "{945997B1-5D4D-4526-A206-F712FACCDFFD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Repository", "DataRepository\DansBlog.Repository.csproj", "{7DF482F0-E568-468B-B079-ECBD88DD68C8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Services", "Services\DansBlog.Services.csproj", "{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.UnitTests", "DansBlog.UnitTests\DansBlog.UnitTests.csproj", "{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Utilities", "DansBlog.Utilities\DansBlog.Utilities.csproj", "{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.UnitTests", "DansBlog.UnitTests\DansBlog.UnitTests.csproj", "{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Repository", "DansBlog.Repository\DansBlog.Repository.csproj", "{7DF482F0-E568-468B-B079-ECBD88DD68C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.DataAccess", "DansBlog.DataAccess\DansBlog.DataAccess.csproj", "{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Model", "DansBlog.Model\DansBlog.Model.csproj", "{E537E700-E0C2-4A67-BD57-1E24C0966449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Presentation", "DansBlog.Presentation\DansBlog.Presentation.csproj", "{945997B1-5D4D-4526-A206-F712FACCDFFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Services", "DansBlog.Services\DansBlog.Services.csproj", "{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +21,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,22 +45,10 @@ Global
 		{945997B1-5D4D-4526-A206-F712FACCDFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{945997B1-5D4D-4526-A206-F712FACCDFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{945997B1-5D4D-4526-A206-F712FACCDFFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DF482F0-E568-468B-B079-ECBD88DD68C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
