@@ -11,8 +11,6 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var emailSettings = new EmailSettings("smtpServer", "targetEmail");
 
-            
-
             //var sut = new Emailer(settings);
         }
     }

@@ -42,6 +42,6 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\bin\Release\DansBlog.
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\bin\Release\DansBlog.Model.pdb
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\bin\Release\EntityFramework.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\bin\Release\EntityFramework.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\obj\Release\DansBlog.Model.csprojResolveAssemblyReference.cache
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\obj\Release\DansBlog.Model.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\obj\Release\DansBlog.Model.pdb
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Model\obj\Release\DansBlog.Model.csprojResolveAssemblyReference.cache

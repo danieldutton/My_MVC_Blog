@@ -2,13 +2,13 @@
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
+using DansBlog.Services.Email.Interfaces;
+using DansBlog.Services.Email.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
-using DansBlog.Services.Email.Interfaces;
-using DansBlog.Services.Email.Model;
 
 namespace DansBlog.Presentation.Controllers
 {   
@@ -134,6 +134,7 @@ namespace DansBlog.Presentation.Controllers
                 {
                     MessagingService.Contact = contact;
                     MessagingService.Message();
+                    
                     RedirectToAction("ContactConfirmed");
                 }
                 catch (Exception)

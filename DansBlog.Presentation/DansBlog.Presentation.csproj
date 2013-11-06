@@ -204,8 +204,6 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Config\AppSettings.cs" />
-    <Compile Include="Config\IAppSettings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
@@ -218,7 +216,6 @@
     <Compile Include="HtmlHelpers\CommentHelperExtension.cs" />
     <Compile Include="HtmlHelpers\SpanExtensions.cs" />
     <Compile Include="Mappers\ViewMapper.cs" />
-    <Compile Include="Mappers\IApplicationViewMapper.cs" />
     <Compile Include="Mappers\IViewMapper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="ViewModels\BlogPostViewModel.cs" />

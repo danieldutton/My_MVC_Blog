@@ -16,7 +16,7 @@ namespace DansBlog.Services.Email
 
         public Contact Contact { get; set; }
 
-
+        
         public Emailer(EmailSettings emailSettings)
         {
             _emailSettings = emailSettings;

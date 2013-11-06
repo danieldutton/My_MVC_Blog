@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using DansBlog.Model.Entities;
+﻿using DansBlog.Model.Entities;
 using DansBlog.Presentation.ViewModels;
+using System.Collections.Generic;
 
 namespace DansBlog.Presentation.Mappers
 {
