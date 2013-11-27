@@ -43,7 +43,6 @@ namespace DansBlog.Presentation.Controllers
         }
 
 
-
         public ApplicationController(IPostRepository postRepository, 
             IViewMapper viewMapper)
         {

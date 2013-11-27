@@ -230,6 +230,7 @@
     <Content Include="Content\images\img01.jpg" />
     <Content Include="Content\images\img02.jpg" />
     <Content Include="Content\images\singlePerceptron.gif" />
+    <Content Include="Content\images\sorter.jpg" />
     <Content Include="Content\images\tempConverter.gif" />
     <Content Include="App_Data\quotes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -301,6 +302,7 @@
     <Content Include="Content\downloads\Single Perceptron.rar" />
     <Content Include="Content\downloads\tempconverter_java.rar" />
     <Content Include="Content\downloads\TemperatureConverter_1.2.rar" />
+    <Content Include="Content\downloads\_sorter.rar" />
     <None Include="Properties\PublishProfiles\dannydutton.co.uk - FTP.pubxml" />
     <Content Include="Scripts\comments.js" />
     <Content Include="Scripts\g_analytics.js" />
