@@ -60,3 +60,9 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\Org.M
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\Mono.Math.xml
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\obj\Release\DansBlog.UnitTests.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\obj\Release\DansBlog.UnitTests.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\DansBlog.UnitTests.dll.config
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\System.Net.Http.Extensions.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\System.Net.Http.Primitives.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\System.Net.Http.Extensions.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Release\System.Net.Http.Primitives.xml
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\obj\Release\DansBlog.UnitTests.csproj.App.config

@@ -1,0 +1,35 @@
+﻿@using DansBlog.Presentation.ViewModels
+
+@model BlogPostViewModel
+
+@{
+    BlogPostViewModel model = Model;
+}
+
+@if(model.Posts.PageCount > 1){
+
+if (model.Posts.HasPreviousPage)
+{
+    @Html.ActionLink("<< ", model.ActionToInvoke, new {page = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, search = model.SearchTerm})
+    @Html.ActionLink("< Prev ", model.ActionToInvoke, new {page = model.Posts.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, search = model.SearchTerm})
+}
+else
+{
+    @:<<
+    @Html.Raw(" ")
+    @:< Prev
+}
+
+if (model.Posts.HasNextPage)
+    {
+        @Html.ActionLink("Next >", model.ActionToInvoke, new { page = model.Posts.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, search = model.SearchTerm})
+        @Html.Raw(" ")
+        @Html.ActionLink(">> ", model.ActionToInvoke, new { page = model.Posts.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, search = model.SearchTerm})
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw(" ")
+        @:>>
+    }
+}

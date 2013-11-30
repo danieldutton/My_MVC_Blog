@@ -1,0 +1,16 @@
+﻿@model IEnumerable<DansBlog.Model.Entities.Comment>
+
+<div id="post-comments">
+@foreach (var c in Model)
+{
+    <div id ="comment">
+        <div id="comment-author">
+            @Html.DisplayNameFor(e => e.Author) &nbsp; @Html.DisplayFor(e => c.Author)
+            <span id="comment-date">@Html.DisplayFor(e => c.CreationTime)</span>
+        </div>                    
+        <p id="comment-content">@Html.DisplayFor(e => c.Content)</p> 
+    </div>   
+}
+<a href="#" id="hide-comments">Close</a>
+</div>
+

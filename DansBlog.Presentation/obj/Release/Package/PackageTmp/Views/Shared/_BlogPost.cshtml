@@ -1,0 +1,56 @@
+﻿@using DansBlog.Model.Entities
+@using DansBlog.Presentation.HtmlHelpers;
+@using DansBlog.Presentation.ViewModels
+
+@model BlogPostViewModel
+
+@{
+    BlogPostViewModel model = Model;
+}
+
+@Html.Partial("_PagenationGeneral", Model)
+
+@foreach(var item in model.Posts)
+{   @Html.HiddenFor(p => item.Id)
+    <div class="post">
+        <h2 class="title">@Html.ActionLink(item.Title, "Details", new {leaveComments = false, postId = item.Id })</h2>
+        <p class="meta">
+            <abbr class="published">
+                <span class="date">
+                    
+                    <span class="month">@Html.DisplayFor(modelItem => item.PublishDate)</span>
+                </span>
+
+                <span class="posted">Posted By @Html.DisplayFor(modelItem => item.Author)</span>
+            </abbr>
+        </p>
+        <div class="entry">
+            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+            
+        </div>
+        <div class="entry-meta">
+            <span class="fetch-comments"> 
+                @Ajax.ActionLink("Comments", "FetchComments", "Home", new{id = item.Id}, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "result-" + item.Id, InsertionMode = InsertionMode.Replace})<span>&nbsp;(@item.ModeratedCommentCount)</span>
+            </span> 
+            <span class="leave-comment">   |
+                @Html.ActionLink("Leave Comment", "Details", new {leaveComments = true, postId = item.Id})
+            </span> 
+                <p/>
+                      
+        </div>
+        
+        <!-- Replace this with hidden field -->
+        @Html.Foo("result-", item.Id.ToString(), "div") 
+    </div>
+    
+    if (model.LeaveComments)
+{
+    @Html.Partial("~/Views/Home/_CommentsForm.cshtml", new Comment {PostId = item.Id})    
+}
+}
+
+@Html.Partial("_PagenationGeneral", Model)
+
+
+
+

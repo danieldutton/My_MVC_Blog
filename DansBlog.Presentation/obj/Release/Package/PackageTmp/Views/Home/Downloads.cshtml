@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Downloads";
+}
+
+<h2>Temperature Converter</h2>
+<br/>
+<p>
+    Simple Temperature Conversion tool.  There are two versions.  One written in C#, and the other in Java.  
+    They Converts temperature values between Fahrenheit, Celcius and Kelvin, in a nice easy manner. 
+    They also include a nice bit of graphical bling. This was really just a practice project whilst I looked at Delegates and Lambdas in more detail. 
+    In particular, I was interested in how Delegates can be used in place of the Strategy Design Pattern. 
+    The only difference between the two projects is that the Java program took the longest time to implement as I hand coded the user interface using the Java Swing API. 
+    Click the relevant link below to download.
+</p>
+
+<img src="../../Content/images/tempConverter.gif" alt="temp Converter" />
+<p/>
+<a href="@Url.Content("../../Content/downloads/TemperatureConverter_1.2.rar")" 
+   onClick="_gaq.push(['_trackEvent', 'download', 'exe', 'tempconverter_csharp',1, false]);">Download (C#)</a>
+&nbsp;|&nbsp;
+
+<a href="@Url.Content("../../Content/downloads/tempconverter_java.rar")" 
+      onclick="_gaq.push(['_trackEvent', 'download', 'free', 'tempconverter_java.rar']);">Download (Java)</a>
+
+<h2>Single Layer Neural Network Perceptron</h2>
+<br/>
+<p>
+    I dug this one out of some old code samples I created when studying Artificial Intelligence.  A Perceptron is a classifier and is one of the simplest kind of 
+    Artificial Neural Networks.  The Perceptron exhibits learning behaviour and can be trained. In order to train the Perceptron we present it with data called a training set.  
+    The Perceptron learns as follow: an input pattern is shown, 
+    It produces an output, compares the output to what the output should be, and then adjusts its weights. This is repeated until the Perceptron converges to the 
+    correct behaviour 
+    Click the link below to download.  
+</p>
+
+<img src="../../Content/images/singlePerceptron.gif" alt="Single Perceptron" />
+
+<p><a href="@Url.Content("../../Content/downloads/Single Perceptron.rar")" 
+      onclick="_gaq.push(['_trackEvent', 'download', 'free', 'singlePerceptron.exe']);">Download </a></p>
+
+<h2> Algorithm Sorter</h2>
+<br/>
+<p>
+    Built using the new async/await features of C# 5.0, and the Task Parallell library, this program provides access to a number of popular sort routines and provides
+    test data to try them out on.  Take it for a spin.    
+</p>
+
+<img src="../../Content/images/sorter.jpg" alt="Algorithm Sorter" />
+
+<p><a href="@Url.Content("../../Content/downloads/_sorter.rar")" 
+      onclick="_gaq.push(['_trackEvent', 'download', 'free', 'sorter']);">Download </a></p>

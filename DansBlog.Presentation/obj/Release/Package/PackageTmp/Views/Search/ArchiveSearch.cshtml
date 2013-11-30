@@ -1,0 +1,26 @@
+﻿@using DansBlog.Presentation.ViewModels
+@model BlogPostViewModel
+
+@{
+    BlogPostViewModel viewModel = Model;
+    ViewBag.Title = "Search Results";
+}
+
+@Html.Partial("_PagenationGeneral", viewModel)
+
+<h2>Search</h2>
+
+<p>Your search for: <strong>@viewModel.SearchTerm</strong> returned <strong>@viewModel.Posts.TotalItemCount</strong> result(s) - </p>
+
+@foreach(var item in viewModel.Posts)
+{
+    <div class="post">
+        <h3 class="title">@Html.ActionLink(item.Title, "Details", "Home", new {leaveComments = false, PostId = item.Id }, null)</h3>
+
+
+            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+    </div>   
+}
+
+@Html.Partial("_PagenationGeneral", viewModel)
+
