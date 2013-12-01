@@ -58,7 +58,5 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\Dans
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\DansBlog.DataAccess.pdb
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\DansBlog.Model.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\EntityFramework.dll
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\System.Data.SqlServerCe.dll
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\System.Data.SqlServerCe.Entity.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\DansBlog.Model.pdb
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Release\EntityFramework.xml
