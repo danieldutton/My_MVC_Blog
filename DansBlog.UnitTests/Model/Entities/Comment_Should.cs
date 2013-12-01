@@ -14,17 +14,6 @@ namespace DansBlog._UnitTests.Model.Entities
 
         private const string EmailValue = "dan@dan.com";
 
-        [Test]
-        public void CreationTime_GenerateTheCorrectDisplayName()
-        {
-
-        }
-
-        [Test]
-        public void CreationTime_GenerateValueInTheCorrectDisplayFormat()
-        {
-
-        }
 
         [Test]
         public void Content_ErrorMessageDisplayedIfCharsOver500()
@@ -82,12 +71,6 @@ namespace DansBlog._UnitTests.Model.Entities
         }
 
         [Test]
-        public void Content_GenerateTheCorrectDisplayName()
-        {
-
-        }
-
-        [Test]
         public void Author_FailModelValidationIfAuthorIsMissing()
         {
             var sut = new Comment { Author = null, Email = EmailValue, Content = ContentValue };
@@ -139,14 +122,9 @@ namespace DansBlog._UnitTests.Model.Entities
             IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
-            Assert.AreEqual("E-mail address Too Long", errorMessage);
+            Assert.AreEqual("Max of 70 characters allowed", errorMessage);
         }
 
-        [Test]
-        public void Author_GenerateTheCorrectDisplayName()
-        {
-
-        }
 
         [Test]
         public void Email_FailModelValidationIfEmailIsMissing()
@@ -187,7 +165,7 @@ namespace DansBlog._UnitTests.Model.Entities
             IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
-            Assert.AreEqual("A comment is required", errorMessage);
+            Assert.AreEqual("E-mail address is required", errorMessage);
         }
 
         [Test]
@@ -201,12 +179,6 @@ namespace DansBlog._UnitTests.Model.Entities
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("E-mail address Too Long", errorMessage);
-        }
-
-        [Test]
-        public void HasBeenModerated_GenerateTheCorrectDisplayName()
-        {
-
         }
     }
 }

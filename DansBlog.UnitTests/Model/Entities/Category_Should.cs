@@ -30,6 +30,27 @@ namespace DansBlog._UnitTests.Model.Entities
         }
 
         [Test]
+        public void Name_FailModelValidationIfNameIsMissing()
+        {
+            var sut = new Category { Count = 2, Posts = null, Name = null };
+
+            int errorCount = Mother.ValidateModel(sut).Count;
+
+            Assert.AreEqual(1, errorCount);
+        }
+
+        [Test]
+        public void Name_GenerateTheCorrectErrorMessageIfNameIsMissing()
+        {
+            var sut = new Category { Count = 2, Posts = null, Name = null };
+
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
+            string errorMessage = result[0].ErrorMessage;
+
+            Assert.AreEqual("Name is required", errorMessage);
+        }
+
+        [Test]
         public void Name_CorrectErrorMessageDisplayedIfCharsOver30()
         {
             var chars31 = new string('a', 31);
@@ -40,27 +61,6 @@ namespace DansBlog._UnitTests.Model.Entities
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Max of 30 characters allowed", errorMessage);
-        }
-
-        [Test]
-        public void Name_FailModelValidationIfNameIsMissing()
-        {
-            var sut = new Category {Count = 2, Posts = null, Name = null};
-
-            int errorCount = Mother.ValidateModel(sut).Count;
-
-            Assert.AreEqual(1, errorCount);
-        }
-
-        [Test]
-        public void Name_GenerateTheCorrectErrorMessageIfNameIsMissing()
-        {
-            var sut = new Category {Count = 2, Posts = null, Name = null};
-
-            IList<ValidationResult> result = Mother.ValidateModel(sut);
-            string errorMessage = result[0].ErrorMessage;
-
-            Assert.AreEqual("Name is required", errorMessage);
         }
 
         [Test]

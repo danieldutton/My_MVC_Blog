@@ -16,11 +16,11 @@ namespace DansBlog.Model.Entities
         [Required(ErrorMessage = "Post Date is required")]
         public DateTime PublishDate { get; set; }
 
-        [Required(ErrorMessage = "Title is required")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Title is required")]
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [Required(ErrorMessage = "Content is required")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Content is required")]
         public string Content { get; set; }
 
         [Required(ErrorMessage = "Author is required")]

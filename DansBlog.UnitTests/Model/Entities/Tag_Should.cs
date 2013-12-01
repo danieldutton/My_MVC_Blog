@@ -9,6 +9,27 @@ namespace DansBlog._UnitTests.Model.Entities
     public class Tag_Should
     {
         [Test]
+        public void Name_FailModelValidationIfNameIsAnEmptyString()
+        {
+            var sut = new Tag { Name = string.Empty };
+
+            int errorCount = Mother.ValidateModel(sut).Count;
+
+            Assert.AreEqual(1, errorCount);
+        }
+
+        [Test]
+        public void Name_GenerateTheCorrectErrorMessageIfNameIsAnEmptyString()
+        {
+            var sut = new Tag { Name = string.Empty };
+
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
+            string errorMessage = result[0].ErrorMessage;
+
+            Assert.AreEqual("Name is required", errorMessage);
+        }
+
+        [Test]
         public void Name_FailModelValidationIfNameIsMissing()
         {
             var sut = new Tag {Name = null};
