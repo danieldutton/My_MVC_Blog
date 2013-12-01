@@ -71,6 +71,5 @@ namespace DansBlog._UnitTests.Presentation
         {
             return new Contact { Name = "Daniel Dutton", Email = "dan@dan.com", Subject = "Test Subject", Message = "Test Message" };
         }
-
     }
 }

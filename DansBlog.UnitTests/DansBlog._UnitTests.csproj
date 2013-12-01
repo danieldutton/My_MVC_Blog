@@ -51,6 +51,7 @@
     <Compile Include="Model\Entities\CategoryShould.cs" />
     <Compile Include="Model\Entities\PostShould.cs" />
     <Compile Include="Model\Entities\Tag_Should.cs" />
+    <Compile Include="Model\Mother.cs" />
     <Compile Include="Model\Partials\QuoteShould.cs" />
     <Compile Include="Presentation\Controllers\AccountControllerShould.cs" />
     <Compile Include="Presentation\Controllers\AdminControllerShould.cs" />

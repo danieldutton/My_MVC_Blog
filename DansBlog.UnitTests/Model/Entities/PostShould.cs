@@ -16,7 +16,7 @@ namespace DansBlog._UnitTests.Model.Entities
         {
             var sut = new Post { PublishDate = new DateTime(2013, 2, 4), Content = "Test", Title = null, Author = "author" };
 
-            int errorCount = ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -26,7 +26,7 @@ namespace DansBlog._UnitTests.Model.Entities
         {
             var sut = new Post { PublishDate = new DateTime(2013, 2, 4), Content = "Test", Title = null, Author = "author" };
 
-            IList<ValidationResult> result = ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Title is required", errorMessage);
@@ -37,7 +37,7 @@ namespace DansBlog._UnitTests.Model.Entities
         {
             var sut = new Post { PublishDate = new DateTime(2013, 2, 4), Content = null, Title = "title", Author = "author" };
 
-            int errorCount = ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -47,7 +47,7 @@ namespace DansBlog._UnitTests.Model.Entities
         {
             var sut = new Post { PublishDate = new DateTime(2013, 2, 4), Content = null, Title = "title", Author = "author" };
 
-            IList<ValidationResult> result = ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Content is required", errorMessage);
@@ -58,7 +58,7 @@ namespace DansBlog._UnitTests.Model.Entities
         {
             var sut = new Post { PublishDate = new DateTime(2013, 2, 4), Content = "Content", Title = "title", Author = null };
 
-            int errorCount = ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -68,7 +68,7 @@ namespace DansBlog._UnitTests.Model.Entities
         {
             var sut = new Post { PublishDate = new DateTime(2013, 2, 4), Content = "Content", Title = "title", Author = null };
 
-            IList<ValidationResult> result = ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Author is required", errorMessage);
@@ -103,16 +103,6 @@ namespace DansBlog._UnitTests.Model.Entities
             int result = sut.ModeratedCommentCount;
 
             Assert.AreEqual(0, result);
-        }
-
-        
-
-        private IList<ValidationResult> ValidateModel(object model)
-        {
-            var validationResults = new List<ValidationResult>();
-            var ctx = new ValidationContext(model, null, null);
-            Validator.TryValidateObject(model, ctx, validationResults, true);
-            return validationResults;
-        }
+        }  
     }
 }
