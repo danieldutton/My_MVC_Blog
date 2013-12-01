@@ -67,6 +67,7 @@
     <Compile Include="Services\Archiving\ArchiveMapperShould.cs" />
     <Compile Include="Services\Archiving\ArchiverShould.cs" />
     <Compile Include="Services\Archiving\DistinctMonthHelper_Should.cs" />
+    <Compile Include="Services\Email\Contact_Should.cs" />
     <Compile Include="Services\Email\Emailer_Should.cs" />
     <Compile Include="Services\Mother.cs" />
   </ItemGroup>

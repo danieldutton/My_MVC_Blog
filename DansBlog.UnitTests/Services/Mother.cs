@@ -1,4 +1,5 @@
-﻿using DansBlog.Model.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using DansBlog.Model.Entities;
 using System;
 using System.Collections.Generic;
 
@@ -64,6 +65,14 @@ namespace DansBlog._UnitTests.Services
                 };
 
             return posts;
+        }
+
+        public static IList<ValidationResult> ValidateModel(object model)
+        {
+            var validationResults = new List<ValidationResult>();
+            var ctx = new ValidationContext(model, null, null);
+            Validator.TryValidateObject(model, ctx, validationResults, true);
+            return validationResults;
         }
     }
 }

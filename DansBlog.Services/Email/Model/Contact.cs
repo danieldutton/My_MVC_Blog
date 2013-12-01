@@ -4,7 +4,7 @@ namespace DansBlog.Services.Email.Model
 {
     public class Contact
     {
-        [Required(ErrorMessage = "Name is Required", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Name is required", AllowEmptyStrings = false)]
         [Display(Description = "Your Name")]
         [StringLength(70, ErrorMessage = "Max of 70 characters allowed")]
         public string Name { get; set; }

@@ -39,6 +39,17 @@ namespace DansBlog._UnitTests.Model.Entities
         }
 
         [Test]
+        public void Content_GenerateTheCorrectErrorMessageIfContentIsMissing()
+        {
+            var sut = new Comment { Author = AuthorValue, Email = EmailValue, Content = null };
+
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
+            string errorMessage = result[0].ErrorMessage;
+
+            Assert.AreEqual("A comment is required", errorMessage);
+        }
+
+        [Test]
         public void Content_FailModelValidationIfContentIsAnEmptyString()
         {
             var sut = new Comment { Author = AuthorValue, Email = EmailValue, Content = string.Empty };
@@ -50,17 +61,6 @@ namespace DansBlog._UnitTests.Model.Entities
 
         [Test]
         public void Content_GenerateTheCorrectErrorMessageIfContentIsAnEmptyString()
-        {
-            var sut = new Comment { Author = AuthorValue, Email = EmailValue, Content = null };
-
-            IList<ValidationResult> result = Mother.ValidateModel(sut);
-            string errorMessage = result[0].ErrorMessage;
-
-            Assert.AreEqual("A comment is required", errorMessage);
-        }
-
-        [Test]
-        public void Content_GenerateTheCorrectErrorMessageIfContentIsMissing()
         {
             var sut = new Comment { Author = AuthorValue, Email = EmailValue, Content = null };
 
