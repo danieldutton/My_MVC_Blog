@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Download.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Partials\Quote.cs" />

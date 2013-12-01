@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Entities\CategoryShould.cs" />
+    <Compile Include="Model\Entities\Comment_Should.cs" />
     <Compile Include="Model\Entities\PostShould.cs" />
     <Compile Include="Model\Entities\Tag_Should.cs" />
     <Compile Include="Model\Mother.cs" />
