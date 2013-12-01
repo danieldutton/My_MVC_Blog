@@ -4,7 +4,7 @@ using DansBlog.Repository.Repositories;
 using Moq;
 using NUnit.Framework;
 
-namespace DansBlog._UnitTests.Repository
+namespace DansBlog._UnitTests.Repository.Repositories
 {
     [TestFixture]
     public class PostRepositoryShould

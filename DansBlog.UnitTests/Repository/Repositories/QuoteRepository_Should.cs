@@ -5,10 +5,10 @@ using Moq;
 using NUnit.Framework;
 using System.Xml.Linq;
 
-namespace DansBlog._UnitTests.Repository
+namespace DansBlog._UnitTests.Repository.Repositories
 {
     [TestFixture]
-    public class QuoteRepository_GetRandomQuote_Should
+    public class QuoteRepository_Should
     {
         private XDocument _inMemoryXDoc;
 

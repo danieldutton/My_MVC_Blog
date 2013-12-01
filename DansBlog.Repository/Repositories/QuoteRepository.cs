@@ -1,11 +1,11 @@
 ﻿using DansBlog.Model.Partials;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Utilities.Interfaces;
+using DansBlog.Utilities.Numbers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using DansBlog.Utilities.Numbers;
 
 namespace DansBlog.Repository.Repositories
 {

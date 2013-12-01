@@ -22,6 +22,7 @@ namespace DansBlog.Repository.Repositories
         public void Add(Post element)
         {
             element.PublishDate = DateTime.Now; //ToDo Abstract with interface
+            
             _dataContext.Posts.Add(element);
             _dataContext.SaveChanges();
         }
