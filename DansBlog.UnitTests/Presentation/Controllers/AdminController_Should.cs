@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
-    public class AdminControllerShould
+    public class AdminController_Should
     {
         #region Index
 

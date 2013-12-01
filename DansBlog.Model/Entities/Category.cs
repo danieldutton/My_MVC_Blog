@@ -8,7 +8,7 @@ namespace DansBlog.Model.Entities
     {
         public int CategoryId { get; set; }
 
-        [Required(ErrorMessage = "Name is required")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
         public int Count { get; set; }

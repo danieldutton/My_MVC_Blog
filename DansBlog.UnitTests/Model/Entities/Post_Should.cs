@@ -7,9 +7,20 @@ using System.ComponentModel.DataAnnotations;
 namespace DansBlog._UnitTests.Model.Entities
 {
     [TestFixture]
-    public class PostShould
+    public class Post_Should
     {
         //ToDo Test PublishedDate DisplayName and DisplayFormat
+        [Test]
+        public void PublishDate_GenerateTheCorrectDisplayName()
+        {
+            
+        }
+
+        [Test]
+        public void PublishDate_GenerateValueInTheCorrectDisplayFormat()
+        {
+            
+        }
 
         [Test]
         public void Title_FailModelValidationIfTitleIsMissing()

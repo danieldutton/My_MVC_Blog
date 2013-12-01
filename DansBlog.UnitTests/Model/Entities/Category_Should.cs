@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DansBlog._UnitTests.Model.Entities
 {
     [TestFixture]
-    public class CategoryShould
+    public class Category_Should
     {
         [Test]
         public void Name_FailModelValidationIfNameIsMissing()

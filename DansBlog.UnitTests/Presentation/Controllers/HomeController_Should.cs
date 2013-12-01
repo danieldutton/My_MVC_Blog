@@ -15,7 +15,7 @@ using System.Web.Routing;
 namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
-    public class HomeControllerShould
+    public class HomeController_Should
     {
         #region Index
 

@@ -3,7 +3,7 @@
 namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
-    public class ApplicationControllerShould
+    public class AccountController_Should
     {
     }
 }
