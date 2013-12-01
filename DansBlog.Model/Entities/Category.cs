@@ -9,6 +9,7 @@ namespace DansBlog.Model.Entities
         public int CategoryId { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
+        [StringLength(30, ErrorMessage = "Max of 30 characters allowed")]
         public string Name { get; set; }
 
         public int Count { get; set; }
