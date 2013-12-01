@@ -8,7 +8,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace DansBlog.UnitTests.Presentation.Controllers
+namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
     public class AdminControllerShould

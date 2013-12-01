@@ -1,9 +1,8 @@
 ﻿using DansBlog.Model.Entities;
 using DansBlog.Services.Email.Model;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace DansBlog.UnitTests.Presentation
+namespace DansBlog._UnitTests.Presentation
 {
     public static class Mother
     {

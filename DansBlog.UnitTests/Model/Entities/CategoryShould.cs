@@ -1,7 +1,7 @@
 ﻿using DansBlog.Model.Entities;
 using NUnit.Framework;
 
-namespace DansBlog.UnitTests.Model.Entities
+namespace DansBlog._UnitTests.Model.Entities
 {
     [TestFixture]
     public class CategoryShould

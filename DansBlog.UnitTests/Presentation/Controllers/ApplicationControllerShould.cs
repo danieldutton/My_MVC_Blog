@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace DansBlog.UnitTests.Presentation.Controllers
+namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
     public class ApplicationControllerShould

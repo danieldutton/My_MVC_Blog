@@ -1,13 +1,13 @@
 ﻿using DansBlog.Model.Entities;
 using NUnit.Framework;
 
-namespace DansBlog.UnitTests.Model.Entities
+namespace DansBlog._UnitTests.Model.Entities
 {
     [TestFixture]
-    public class TagShould
+    public class Tag_Should
     {
         [Test]
-        public void GiveTrueIfTwoCategoriesWithTheSameNameValueAreEqual()
+        public void Equals_ReturnTrueIfTwoCategoriesHaveIdenticalNameValues()
         {
             var category1 = new Tag { Name = "Programming" };
             var category2 = new Tag { Name = "Programming" };
@@ -16,7 +16,7 @@ namespace DansBlog.UnitTests.Model.Entities
         }
 
         [Test]
-        public void GiveFalseIfTwoCategoriesWithDifferentNameValuesAreNotEqual()
+        public void Equals_ReturnFalseIfTwoCategoriesHaveDifferentNameValues()
         {
             var category1 = new Tag { Name = "CSS" };
             var category2 = new Tag { Name = "Programming" };

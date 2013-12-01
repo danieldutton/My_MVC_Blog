@@ -23,7 +23,7 @@ namespace DansBlog.Model.Entities
         [Required(ErrorMessage = "Content is required")]
         public string Content { get; set; }
 
-        [Required(ErrorMessage = "Content is required")]
+        [Required(ErrorMessage = "Author is required")]
         public string Author { get; set; }
 
         public virtual List<Tag> Tags { get; set; }

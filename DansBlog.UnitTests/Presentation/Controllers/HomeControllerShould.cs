@@ -1,7 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using DansBlog.Model.Entities;
+﻿using DansBlog.Model.Entities;
 using DansBlog.Presentation.Controllers;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
@@ -11,9 +8,11 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 
-
-namespace DansBlog.UnitTests.Presentation.Controllers
+namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
     public class HomeControllerShould

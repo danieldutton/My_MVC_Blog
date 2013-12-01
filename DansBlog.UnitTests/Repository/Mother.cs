@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using DansBlog.Model.Entities;
+using System.Collections.Generic;
 using System.Xml.Linq;
-using DansBlog.Model.Entities;
 
-namespace DansBlog.UnitTests.Repository
+namespace DansBlog._UnitTests.Repository
 {
     public static class Mother
     {

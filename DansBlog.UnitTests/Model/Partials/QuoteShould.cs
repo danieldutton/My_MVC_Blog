@@ -1,7 +1,7 @@
 ﻿using DansBlog.Model.Partials;
 using NUnit.Framework;
 
-namespace DansBlog.UnitTests.Model.Partials
+namespace DansBlog._UnitTests.Model.Partials
 {
     [TestFixture]
     public class QuoteShould

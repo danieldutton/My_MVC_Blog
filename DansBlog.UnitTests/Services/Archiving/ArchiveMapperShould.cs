@@ -4,7 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace DansBlog.UnitTests.Services.Archiving
+namespace DansBlog._UnitTests.Services.Archiving
 {
     [TestFixture]
     public class ArchiveMapperShould

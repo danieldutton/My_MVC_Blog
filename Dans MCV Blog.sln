@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.UnitTests", "DansBlog.UnitTests\DansBlog.UnitTests.csproj", "{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog._UnitTests", "DansBlog.UnitTests\DansBlog._UnitTests.csproj", "{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Utilities", "DansBlog.Utilities\DansBlog.Utilities.csproj", "{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}"
 EndProject

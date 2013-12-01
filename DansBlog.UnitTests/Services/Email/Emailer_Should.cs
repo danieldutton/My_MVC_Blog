@@ -1,7 +1,7 @@
 ﻿using DansBlog.Services.Email.Model;
 using NUnit.Framework;
 
-namespace DansBlog.UnitTests.Services.Email
+namespace DansBlog._UnitTests.Services.Email
 {
     [TestFixture]
     public class Emailer_Should

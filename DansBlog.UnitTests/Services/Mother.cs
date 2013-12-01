@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DansBlog.UnitTests.Services
+namespace DansBlog._UnitTests.Services
 {
     public static class Mother
     {
