@@ -1,4 +1,5 @@
-﻿using DansBlog.DataAccess;
+﻿using System.Data.Entity;
+using DansBlog.DataAccess;
 using DansBlog.Model.Entities;
 using DansBlog.Repository.Repositories;
 using Moq;
@@ -11,27 +12,15 @@ namespace DansBlog._UnitTests.Repository.Repositories
     public class CategoryRepository_Should
     {
         [Test]
-        public void All_ReturnListOfCategories()
+        public void All_CallCategoriesProperty()
         {
-            
+            //var fakeDbContext = new Mock<IDbContext>();
+            //fakeDbContext.Setup(x => x.Categories).Returns(()=> new List<Category>());
+            //var sut = new CategoryRepository(fakeDbContext.Object);
+            //List<Category> categories = sut.All;
+            //fakeDbContext.Verify(x => x.Categories, Times.Exactly(2));
         }
 
-        [Test]
-        public void Find_ReturnCategoryById()
-        {
-            var categories = new List<Category>
-                {
-                    new Category(),
-                    new Category(),
-                    new Category(),
-                    new Category(),
-                    new Category(),
-                };
-
-            var fakeDbContext = new Mock<IDbContext>();
-            fakeDbContext.Setup(x => x.Categories).Returns(()=> categories);
-            var sut = new CategoryRepository(fakeDbContext.Object);
-
-        }
+        
     }
 }

@@ -8,7 +8,7 @@
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4407CACB319A4A8C8AC904D63A1C7994/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements /&gt;&lt;/Session&gt;</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4E726A9B22CD4BF697E3EE2D6DA5C65C/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4E726A9B22CD4BF697E3EE2D6DA5C65C/Name/@EntryValue">TestIndexView</s:String>
-	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4E726A9B22CD4BF697E3EE2D6DA5C65C/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements /&gt;&lt;/Session&gt;</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=4E726A9B22CD4BF697E3EE2D6DA5C65C/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="nUnit" Id="DansBlog._UnitTests.Repository.Repositories.CategoryRepository_Should" type="NUnitTestFixtureElement" Project="2AB262AA-02D1-4955-8DE4-9B008F93ADDC" /&gt;&lt;UnitTestElement Provider="nUnit" Id="DansBlog._UnitTests.Repository.Repositories.CategoryRepository_Should.All_CallCategoriesProperty" ParentId="DansBlog._UnitTests.Repository.Repositories.CategoryRepository_Should" type="NUnitTestElement" TypeName="DansBlog._UnitTests.Repository.Repositories.CategoryRepository_Should" MethodName="All_CallCategoriesProperty" Project="2AB262AA-02D1-4955-8DE4-9B008F93ADDC" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String>
 	
 	
 	</wpf:ResourceDictionary>
