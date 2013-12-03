@@ -19,10 +19,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="App_Data/aspnet.sdf">
-      <publishTime>11/27/2013 11:04:41</publishTime>
+      <publishTime>12/03/2013 16:12:47</publishTime>
     </File>
     <File Include="App_Data/DansMVCBlog.sdf">
-      <publishTime>11/27/2013 11:40:35</publishTime>
+      <publishTime>12/03/2013 16:25:09</publishTime>
     </File>
     <File Include="App_Data/DefaultConnection.sdf">
       <publishTime>04/06/2013 09:54:45</publishTime>
@@ -55,19 +55,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2013 21:16:49</publishTime>
     </File>
     <File Include="bin/DansBlog.DataAccess.dll">
-      <publishTime>11/27/2013 11:19:23</publishTime>
+      <publishTime>12/03/2013 16:25:00</publishTime>
     </File>
     <File Include="bin/DansBlog.Model.dll">
-      <publishTime>11/06/2013 17:35:41</publishTime>
+      <publishTime>12/01/2013 16:58:29</publishTime>
     </File>
     <File Include="bin/DansBlog.Presentation.dll">
-      <publishTime>11/27/2013 11:40:09</publishTime>
+      <publishTime>12/03/2013 16:25:01</publishTime>
     </File>
     <File Include="bin/DansBlog.Repository.dll">
-      <publishTime>11/27/2013 11:19:24</publishTime>
+      <publishTime>12/03/2013 16:25:00</publishTime>
     </File>
     <File Include="bin/DansBlog.Services.dll">
-      <publishTime>11/06/2013 17:37:23</publishTime>
+      <publishTime>12/01/2013 17:29:42</publishTime>
     </File>
     <File Include="bin/DansBlog.Utilities.dll">
       <publishTime>11/06/2013 17:35:41</publishTime>
@@ -208,7 +208,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2013 20:33:19</publishTime>
     </File>
     <File Include="Content/downloads/TemperatureConverter_1.2.rar">
-      <publishTime>11/05/2013 20:33:19</publishTime>
+      <publishTime>12/03/2013 11:27:35</publishTime>
     </File>
     <File Include="Content/downloads/_sorter.rar">
       <publishTime>11/27/2013 11:38:59</publishTime>
