@@ -126,6 +126,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DansBlog.DataAccess\DansBlog.DataAccess.csproj">
+      <Project>{68D95657-E9FE-4C76-B18E-1BAD82EC97AD}</Project>
+      <Name>DansBlog.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DansBlog.Model\DansBlog.Model.csproj">
       <Project>{E537E700-E0C2-4A67-BD57-1E24C0966449}</Project>
       <Name>DansBlog.Model</Name>
