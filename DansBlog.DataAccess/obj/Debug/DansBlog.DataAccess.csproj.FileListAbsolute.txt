@@ -44,9 +44,9 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBl
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.DataAccess.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.DataAccess.pdb
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\EntityFramework.dll
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\System.Data.SqlServerCe.dll
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\System.Data.SqlServerCe.Entity.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\obj\Debug\DansBlog.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\obj\Debug\DansBlog.DataAccess.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\obj\Debug\DansBlog.DataAccess.pdb
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.Model.dll
+C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.DataAccess\bin\Debug\DansBlog.Model.pdb

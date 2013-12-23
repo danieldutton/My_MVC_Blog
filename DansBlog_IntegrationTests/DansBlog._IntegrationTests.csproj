@@ -93,6 +93,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +124,25 @@
       <ProductName>SQL Server Compact 4.0 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DansBlog.Model\DansBlog.Model.csproj">
+      <Project>{E537E700-E0C2-4A67-BD57-1E24C0966449}</Project>
+      <Name>DansBlog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Repository\DansBlog.Repository.csproj">
+      <Project>{7DF482F0-E568-468B-B079-ECBD88DD68C8}</Project>
+      <Name>DansBlog.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
+      <Project>{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}</Project>
+      <Name>DansBlog.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\quotes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

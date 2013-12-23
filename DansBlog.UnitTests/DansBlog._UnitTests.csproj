@@ -53,7 +53,7 @@
     <Compile Include="Model\Entities\Post_Should.cs" />
     <Compile Include="Model\Entities\Tag_Should.cs" />
     <Compile Include="Model\Mother.cs" />
-    <Compile Include="Model\Partials\QuoteShould.cs" />
+    <Compile Include="Model\Domain\QuoteShould.cs" />
     <Compile Include="Presentation\Controllers\AccountController_Should.cs" />
     <Compile Include="Presentation\Controllers\AdminController_Should.cs" />
     <Compile Include="Presentation\Controllers\ApplicationController_Should.cs" />
@@ -69,7 +69,6 @@
     <Compile Include="Services\Archiving\ArchiverShould.cs" />
     <Compile Include="Services\Archiving\DistinctMonthHelper_Should.cs" />
     <Compile Include="Services\Email\Contact_Should.cs" />
-    <Compile Include="Services\Email\Emailer_Should.cs" />
     <Compile Include="Services\Mother.cs" />
   </ItemGroup>
   <ItemGroup>

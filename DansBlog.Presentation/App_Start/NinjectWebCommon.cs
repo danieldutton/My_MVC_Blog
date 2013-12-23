@@ -1,5 +1,5 @@
 using DansBlog.DataAccess;
-using DansBlog.Model.Partials;
+using DansBlog.Model.Domain;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Repository.Repositories;

@@ -1,10 +1,4 @@
-﻿using System.Data.Entity;
-using DansBlog.DataAccess;
-using DansBlog.Model.Entities;
-using DansBlog.Repository.Repositories;
-using Moq;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿using NUnit.Framework;
 
 namespace DansBlog._UnitTests.Repository.Repositories
 {

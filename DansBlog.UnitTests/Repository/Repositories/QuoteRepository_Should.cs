@@ -1,4 +1,4 @@
-﻿using DansBlog.Model.Partials;
+﻿using DansBlog.Model.Domain;
 using DansBlog.Repository.Repositories;
 using DansBlog.Utilities.Interfaces;
 using Moq;
@@ -149,7 +149,7 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
@@ -171,16 +171,14 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             Quote quote = sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));   
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());   
         }
 
         [Test]
         public void ReturnQuoteTwoIfRandomIndexIsTwo()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
             fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(2);
@@ -195,19 +193,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteThreeIfRandomIndexIsThree()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(3);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -219,19 +215,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteFourIfRandomIndexIsFour()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(4);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -243,19 +237,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteFiveIfRandomIndexIsFive()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(5);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -267,19 +259,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteSixIfRandomIndexIsSix()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(6);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -291,19 +281,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteSevenIfRandomIndexIsSeven()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(7);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -315,19 +303,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteEightIfRandomIndexIsEight()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(8);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -339,19 +325,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteNineIfRandomIndexNine()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(9);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -363,19 +347,17 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
         [Test]
         public void ReturnQuoteTenIfRandomIndexIsTen()
         {
-            var nullElementXDoc = new XDocument();
-
             var fakeXmlLoader = new Mock<IXDocumentLoader>();
-            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(nullElementXDoc);
+            fakeXmlLoader.Setup(x => x.LoadXDocument(It.IsAny<string>())).Returns(_inMemoryXDoc);
 
             var fakeNumberGenerator = new Mock<IRandomNumberGenerator>();
-            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(1);
+            fakeNumberGenerator.Setup(x => x.GetRandomNumber(It.IsAny<int>(), It.IsAny<int>())).Returns(10);
 
             var fakeDefaultQuoteGenerator = new Mock<DefaultQuoteGenerator>();
 
@@ -387,7 +369,7 @@ namespace DansBlog._UnitTests.Repository.Repositories
 
             sut.GetRandomQuote(filePath: "test");
 
-            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Exactly(1));
+            fakeDefaultQuoteGenerator.Verify(x => x.GetDefaultQuote(), Times.Once());
         }
 
     }

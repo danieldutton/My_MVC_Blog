@@ -1,4 +1,4 @@
-﻿namespace DansBlog.Model.Partials
+﻿namespace DansBlog.Model.Domain
 {
     public class Quote
     {
@@ -9,8 +9,9 @@
         public string Author { get; private set; }
 
 
-        public Quote(string text, string author)
+        public Quote(int id, string text, string author)
         {
+            Id = id;
             Text = text;
             Author = author;
         }

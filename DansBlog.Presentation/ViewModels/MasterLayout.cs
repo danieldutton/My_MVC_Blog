@@ -1,5 +1,5 @@
-﻿using DansBlog.Model.Entities;
-using DansBlog.Model.Partials;
+﻿using DansBlog.Model.Domain;
+using DansBlog.Model.Entities;
 using System.Collections.Generic;
 using DansBlog.Services.Archiving.ViewModel;
 

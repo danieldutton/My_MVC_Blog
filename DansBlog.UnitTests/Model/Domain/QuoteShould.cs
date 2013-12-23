@@ -1,7 +1,7 @@
-﻿using DansBlog.Model.Partials;
+﻿using DansBlog.Model.Domain;
 using NUnit.Framework;
 
-namespace DansBlog._UnitTests.Model.Partials
+namespace DansBlog._UnitTests.Model.Domain
 {
     [TestFixture]
     public class QuoteShould
@@ -9,7 +9,7 @@ namespace DansBlog._UnitTests.Model.Partials
         [Test]
         public void ToString_ReturnTheCorrectString()
         {
-            var quote = new Quote("This is a really good quote", "Daniel Dutton");
+            var quote = new Quote(0, "This is a really good quote", "Daniel Dutton");
 
             const string expected = "[Quote] Text: This is a really good quote Author: Daniel Dutton";
             string actual = quote.ToString();

@@ -1,4 +1,4 @@
-﻿using DansBlog.Model.Partials;
+﻿using DansBlog.Model.Domain;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Utilities.Interfaces;
 using DansBlog.Utilities.Numbers;
@@ -32,11 +32,13 @@ namespace DansBlog.Repository.Repositories
 
             string text, author;
 
+            int randomIndex;
+
             try
             {
                 XDocument doc = _ixDocumentLoader.LoadXDocument(filePath);
 
-                int randomIndex = RandomNumberGenerator.GetRandomNumber(0, doc.Descendants("quote").Count());
+                randomIndex = RandomNumberGenerator.GetRandomNumber(1, doc.Descendants("quote").Count());
 
                 var xElement = doc.Element("quotes");
 
@@ -51,7 +53,7 @@ namespace DansBlog.Repository.Repositories
                 return DefaultQuoteGenerator.GetDefaultQuote();
             }
 
-            var quote = new Quote(text, author);
+            var quote = new Quote(randomIndex + 1, text, author);
 
             return quote;
         }
@@ -61,7 +63,7 @@ namespace DansBlog.Repository.Repositories
     {
         public virtual Quote GetDefaultQuote()
         {
-            return new Quote(text: "Default Quote", author: "Default Author");
+            return new Quote(id: 0,text: "Default Quote", author: "Default Author");
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using DansBlog.Model.Entities;
-using DansBlog.Model.Partials;
+﻿using DansBlog.Model.Domain;
+using DansBlog.Model.Entities;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
