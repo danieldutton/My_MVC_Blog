@@ -59,5 +59,27 @@ namespace DansBlog._IntegrationTests.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///
+        ///  &lt;quotes&gt;
+        ///  &lt;quote id=&quot;1&quot;&gt;
+        ///    &lt;text&gt;I am the wisest man alive for I know one thing, and that is that I know nothing&lt;/text&gt;
+        ///    &lt;author&gt;Socrates&lt;/author&gt;
+        ///  &lt;/quote&gt;
+        ///  &lt;quote id=&quot;2&quot;&gt;
+        ///    &lt;text&gt;Any man who reads too much and uses his own brain too little falls into lazy habits of thinking.&lt;/text&gt;
+        ///    &lt;author&gt;David Brinkley&lt;/author&gt;
+        ///  &lt;/quote&gt;
+        ///  &lt;quote id=&quot;3&quot;&gt;
+        ///    &lt;text&gt;Failure is simply the opportunity to begin again, this time more intelligently.&lt;/text&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string quotes {
+            get {
+                return ResourceManager.GetString("quotes", resourceCulture);
+            }
+        }
     }
 }

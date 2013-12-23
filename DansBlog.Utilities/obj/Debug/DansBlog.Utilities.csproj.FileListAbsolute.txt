@@ -2,4 +2,3 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\bin\Debug\DansBlo
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\bin\Debug\DansBlog.Utilities.pdb
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\obj\Debug\DansBlog.Utilities.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\obj\Debug\DansBlog.Utilities.pdb
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.Utilities\obj\Debug\DansBlog.Utilities.csprojResolveAssemblyReference.cache

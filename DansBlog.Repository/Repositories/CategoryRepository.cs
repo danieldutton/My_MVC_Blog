@@ -1,4 +1,5 @@
-﻿using DansBlog.DataAccess;
+﻿using System;
+using DansBlog.DataAccess;
 using DansBlog.Model.Entities;
 using DansBlog.Repository.Interfaces;
 using System.Collections.Generic;
@@ -24,15 +25,19 @@ namespace DansBlog.Repository.Repositories
 
         public void Add(Category entity)
         {
+            var category = _dataContext.Categories.FirstOrDefault(c => c.Name.Equals(entity.Name, StringComparison.InvariantCultureIgnoreCase));
+            if (category != null) return;
+
             _dataContext.Categories.Add(entity);
             _dataContext.SaveChanges();
         }
 
         public void Update(Category entity)
         {
-            var post = _dataContext.Posts.Find(entity);
-            _dataContext.SetModified(post);
-            
+            var category = _dataContext.Categories.FirstOrDefault(c => c.Name.Equals(entity.Name, StringComparison.InvariantCultureIgnoreCase));
+            if (category != null) return;
+
+            _dataContext.SetModified(entity);
             _dataContext.SaveChanges();
         }
 
