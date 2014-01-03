@@ -72,7 +72,7 @@ namespace DansBlog.Presentation.App_Start
             kernel.Bind<IViewMapper>().To<ViewMapper>();
 
             //Time
-            kernel.Bind<ICurrentTime>().To<CurrentTimeHelper>();
+            kernel.Bind<ICurrentDateTime>().To<CurrentTimeHelper>();
             kernel.Bind<IQuoteRepository<Quote>>().To<QuoteRepository>();
             kernel.Bind<IRandomNumberGenerator>().To<RandomNumberGenerator>();
             kernel.Bind<IXDocumentLoader>().To<XDocumentLoader>();

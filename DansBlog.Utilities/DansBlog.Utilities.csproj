@@ -37,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateTimes\CurrentTimeHelper.cs" />
-    <Compile Include="Interfaces\ICurrentTime.cs" />
+    <Compile Include="Interfaces\ICurrentDateTime.cs" />
     <Compile Include="Interfaces\IRandomNumberGenerator.cs" />
     <Compile Include="Interfaces\IXDocumentLoader.cs" />
     <Compile Include="Numbers\RandomNumberGenerator.cs" />

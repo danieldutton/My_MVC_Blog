@@ -45,7 +45,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         }
 
         [Test]
-        public void GetArchivedMonths_CallMapArchiveViewModel()
+        public void GetArchivedMonths_CallMapArchiveModel()
         {
             _fakeDistinctMonthHelper.Setup(x => x.GetDistinctPreviousMonths(It.IsAny<DateTime>(), It.IsAny<int>()))
             .Returns(Mother.GetListOfFiveDateTimes());

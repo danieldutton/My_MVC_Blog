@@ -26,7 +26,7 @@ namespace DansBlog.Presentation.Controllers
         public IArchiver Archiver { get; set; }
 
         [Inject]
-        public ICurrentTime CurrentTime { get; set; }
+        public ICurrentDateTime CurrentDateTime { get; set; }
 
         private readonly IPostRepository _postRepository;
 

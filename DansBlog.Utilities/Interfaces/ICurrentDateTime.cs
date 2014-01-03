@@ -2,7 +2,7 @@
 
 namespace DansBlog.Utilities.Interfaces
 {
-    public interface ICurrentTime
+    public interface ICurrentDateTime
     {
         DateTime GetCurrentTime();
     }

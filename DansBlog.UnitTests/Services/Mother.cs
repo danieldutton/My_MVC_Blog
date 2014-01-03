@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using DansBlog.Model.Entities;
+﻿using DansBlog.Model.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DansBlog._UnitTests.Services
 {

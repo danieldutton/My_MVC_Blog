@@ -40,8 +40,10 @@ namespace DansBlog._UnitTests.Repository
         {
             var posts = new List<Post>
                 {
-                    new Post {Id = 1}, new Post {Id = 7}, new Post {Id = 10},new Post {Id = 6}, new Post {Id = 4},
-                    new Post {Id = 3}, new Post {Id = 2}, new Post {Id = 8}, new Post {Id = 5}, new Post {Id = 9},
+                    new Post {Id = 1}, new Post {Id = 7}, new Post {Id = 10},
+                    new Post {Id = 6}, new Post {Id = 4}, new Post {Id = 3}, 
+                    new Post {Id = 2}, new Post {Id = 8}, new Post {Id = 5}, 
+                    new Post {Id = 9},
                 };
 
             return posts;

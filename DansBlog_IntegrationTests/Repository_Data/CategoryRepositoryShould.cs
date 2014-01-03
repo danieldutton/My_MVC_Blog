@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using DansBlog.DataAccess;
+using DansBlog.Model.Entities;
+using DansBlog.Repository.Repositories;
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
-using DansBlog.DataAccess;
-using DansBlog.Model.Entities;
-using DansBlog.Repository.Repositories;
-using NUnit.Framework;
 
 namespace DansBlog._IntegrationTests.Repository_Data
 {
@@ -106,7 +106,7 @@ namespace DansBlog._IntegrationTests.Repository_Data
         {
             Category result = _sut.Find(3);
 
-            result.Name = "Categeory Four";
+            result.Name = "Category Four";
             _sut.Update(result);
 
             Category affectedCategory = _sut.Find(3);

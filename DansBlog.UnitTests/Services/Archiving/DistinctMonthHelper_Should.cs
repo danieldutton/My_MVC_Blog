@@ -15,7 +15,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         public void GetDistinctPreviousMonths_SetMonthsRequiredParamTo1_IfANegativeValueIsGiven()
         {
             var dateTime = new DateTime(2013, 8, 4);
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(dateTime);
 
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
@@ -29,7 +29,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         public void GetDistinctPreviousMonths_SetMonthsRequiredParamTo1_IfAZeroValueIsGiven()
         {
             var dateTime = new DateTime(2013, 8, 4);
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(dateTime);
 
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
@@ -43,7 +43,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         public void GetDistinctPreviousMonths_SetDateParamToCurrentTime_IfItIsGreaterThanCurrentTime()
         {
             var dateTime = new DateTime(2014, 8, 4);
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 8, 4));
 
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
@@ -58,7 +58,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         public void GetDistinctPreviousMonths_ReturnTheMonthCount_AsSpecifiedByMonthsRequiredParam()
         {
             var dateTime = new DateTime(2013, 8, 4);
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(dateTime);
 
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
@@ -71,7 +71,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromJanuary()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 1, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -86,7 +86,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromFebruary()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 2, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -101,7 +101,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromMarch()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 3, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -116,7 +116,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromApril()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 4, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -131,7 +131,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromMay()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 5, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -146,7 +146,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromJune()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 6, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -161,7 +161,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromJuly()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 7, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -176,7 +176,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromAugust()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 8, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -191,7 +191,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromSeptember()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 9, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -206,7 +206,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromOctober()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 10, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -221,7 +221,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromNovember()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 11, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -236,7 +236,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctPreviousMonths_FetchFiveMonthsPrevious_FromDecember()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 12, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 
@@ -251,7 +251,7 @@ namespace DansBlog._UnitTests.Services.Archiving
         [Test]
         public void GetDistinctMonths_FetchFiveMonthsPrevious_WithOverlappingYears()
         {
-            var fakeCurrentTime = new Mock<ICurrentTime>();
+            var fakeCurrentTime = new Mock<ICurrentDateTime>();
             fakeCurrentTime.Setup(x => x.GetCurrentTime()).Returns(() => new DateTime(2013, 12, 1));
             var sut = new DistinctMonthHelper(fakeCurrentTime.Object);
 

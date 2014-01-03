@@ -3,7 +3,7 @@ using System;
 
 namespace DansBlog.Utilities.DateTimes
 {
-    public class CurrentTimeHelper : ICurrentTime
+    public class CurrentTimeHelper : ICurrentDateTime
     {
         public DateTime GetCurrentTime()
         {
