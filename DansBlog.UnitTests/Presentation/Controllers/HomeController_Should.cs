@@ -25,8 +25,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var fakePostRepository = new Mock<IPostRepository>();
             var fakeEmailService = new Mock<IEmailer>();
             var fakeViewMapper = new Mock<IViewMapper>();
-
             var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+            
             sut.Index(1);
 
             fakePostRepository.Verify(x => x.All, Times.Once()); 
@@ -108,6 +108,20 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         #region Archive
 
         [Test]
+        public void Archive_CallMethod_PostsGroupedByYear()
+        {
+            var fakeRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            var sut = new HomeController(fakeRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.Archive();
+
+            fakeRepository.Verify(x => x.PostsGroupedByYear(), Times.Once());
+        }
+
+        [Test]
         public void Archive_ReturnTheCorrectView()
         {
             var fakeRepository = new Mock<IPostRepository>();
@@ -130,18 +144,16 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var fakePostRepository = new Mock<IPostRepository>();
             var fakeEmailService = new Mock<IEmailer>();
             var fakeViewMapper = new Mock<IViewMapper>();
-            fakeViewMapper.Setup(
-                x =>
-                x.MapIndexViewModel(Mother.GetTenPosts_No_Categories_NoComments_No_Tags(), 1, 5, It.IsAny<string>(),
-                                    It.IsAny<bool>(), It.IsAny<string>()));
+
+            fakePostRepository.Setup(x => x.PostsGroupedByYear()).Returns(new List<IGrouping<int, Post>>());
 
             var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
 
-            ViewResult viewResult = sut.Index(1);
+            ViewResult viewResult = sut.Archive();
 
-            var expected = viewResult.Model as BlogPostViewModel;
+            var expected = viewResult.Model as List<IGrouping<int, Post>>;
 
-            Assert.IsInstanceOf<IEnumerable<IGrouping<int, Post>>>(expected);
+            Assert.IsInstanceOf<List<IGrouping<int, Post>>>(expected);
         }
 
         #endregion
@@ -175,6 +187,21 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             string actual = sut.TagCloud().ViewName;
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Tag_ReturnTheCorrectViewModel()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+
+            fakePostRepository.Setup(x => x.GetDistinctTags()).Returns(() => new List<Tag>());
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+            var model = sut.TagCloud().Model as List<Tag>;
+
+            Assert.IsInstanceOf<List<Tag>>(model);
         }
 
         #endregion
@@ -211,6 +238,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var request = new Mock<HttpRequestBase>();
             var context = new Mock<HttpContextBase>();
 
+            fakePostRepository.Setup(x => x.GetModeratedPostComments(It.IsAny<int>()))
+                              .Returns(() => new List<Comment>());
             context.Setup(x => x.Request).Returns(request.Object);
 
             var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
@@ -395,6 +424,21 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
         #region ArchiveSearch
 
+        [Test]
+        public void CallMethod_ArchiveSearchOnce()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            var fakeEmailService = new Mock<IEmailer>();
+            var fakeViewMapper = new Mock<IViewMapper>();
+            fakePostRepository.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>()));
+
+            var sut = new HomeController(fakePostRepository.Object, fakeEmailService.Object, fakeViewMapper.Object);
+
+            sut.ArchiveSearch(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>());
+
+            fakePostRepository.Verify(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(2));
+        }
+
         #endregion
 
         #region Details
@@ -427,7 +471,6 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             fakePostRepository.Verify(x => x.Find(It.Is<int>(i => i == 0)), Times.Once(), "param not 0");
         }
 
-
         [Test]
         public void Details_CallMethod_Find_WithSpecifiedPostId()
         {
@@ -453,7 +496,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             sut.Details(null, false, 2);
 
-            fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), 1, It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()), "page param is not 1");
+            fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), 1, It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()), "page param is not 1");
         }
 
         #endregion

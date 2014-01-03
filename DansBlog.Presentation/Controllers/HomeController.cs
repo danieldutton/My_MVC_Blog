@@ -30,6 +30,7 @@ namespace DansBlog.Presentation.Controllers
             MessagingService = messagingService;
         }
 
+
         [OutputCache(Duration=1800, VaryByParam="page")]
         public ViewResult Index(int? page)
         {

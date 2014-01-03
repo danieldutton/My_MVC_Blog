@@ -14,7 +14,6 @@ C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\System.
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\Ninject.Web.Common.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\Ninject.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\System.Web.Http.dll
-C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\PagedList.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\WebActivator.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
 C:\Users\Danny\Documents\GitHub\My-MVC-Blog\DansBlog.UnitTests\bin\Debug\DotNetOpenAuth.AspNet.dll
