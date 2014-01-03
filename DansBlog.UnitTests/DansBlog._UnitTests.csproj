@@ -60,9 +60,7 @@
     <Compile Include="Presentation\Controllers\SearchControllerShould.cs" />
     <Compile Include="Presentation\Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Repositories\CategoryRepository_Should.cs" />
     <Compile Include="Repository\Mother.cs" />
-    <Compile Include="Repository\Repositories\PostRepositoryShould.cs" />
     <Compile Include="Repository\Repositories\QuoteRepository_Should.cs" />
     <Compile Include="Services\Archiving\ArchiveMapperShould.cs" />
     <Compile Include="Services\Archiving\ArchiverShould.cs" />
