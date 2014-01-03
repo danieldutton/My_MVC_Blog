@@ -40,7 +40,7 @@ namespace DansBlog.Repository.Repositories
 
         public List<Post> Find(string content)
         {
-            return All.Where(c => c.Content.Contains(content)).ToList();
+            return All.Where(c => c.Content.IndexOf(content, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
         }
 
         public List<Post> GetPostByTag(string tagName)
