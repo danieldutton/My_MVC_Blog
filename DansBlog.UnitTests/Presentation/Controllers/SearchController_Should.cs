@@ -39,6 +39,17 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
+        public void Index_ReturnHttpNotFoundIfSearchReturnsNull()
+        {
+            _fakePostRepo.Setup(x => x.Find(It.IsAny<string>())).Returns(() => null);
+            var sut = new SearchController(_fakePostRepo.Object, _fakeViewMapper.Object);
+
+            var result = sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>()) as HttpNotFoundResult;
+
+            Assert.AreEqual("404", result.StatusCode);
+        }
+
+        [Test]
         public void Index_CallMethod_Find_ExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<string>())).Returns(() => new List<Post>());
@@ -61,6 +72,17 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
+        public void Index_IfPageValueIsNullDefaultTo1()
+        {
+            var sut = new SearchController(_fakePostRepo.Object, _fakeViewMapper.Object);
+
+            sut.Index(null, It.IsAny<bool>(), It.IsAny<string>());
+
+            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(p => p == 1),
+                                  It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));   
+        }
+
+        [Test]
         public void Index_ReturnTheCorrectView()
         {
             var fakePostRepository = new Mock<IPostRepository>();
@@ -68,7 +90,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             
             var sut = new SearchController(fakePostRepository.Object, fakeViewMapper.Object);
 
-            ViewResult viewResult = sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>());
+            var viewResult = sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>()) as ViewResult;
 
             Assert.AreEqual("ArchiveSearch", viewResult.ViewName);
         }
@@ -82,7 +104,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             var sut = new SearchController(_fakePostRepo.Object, _fakeViewMapper.Object);
 
-            ViewResult viewResult = sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>());
+            var viewResult = sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>()) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
 
             Assert.IsInstanceOf<BlogPostViewModel>(model);

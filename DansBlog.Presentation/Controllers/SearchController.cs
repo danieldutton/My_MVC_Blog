@@ -16,9 +16,12 @@ namespace DansBlog.Presentation.Controllers
 
 
         [ValidateInput(false)]
-        public ViewResult Index(int? page, bool? leaveComments, string search = "blank")
+        public ActionResult Index(int? page, bool? leaveComments, string search = "blank")
         {
             List<Post> posts = PostRepository.Find(search);
+
+            if (posts == null)
+                return HttpNotFound();
 
             const int pageSize = 6;
             int pageNumber = (page ?? 1);

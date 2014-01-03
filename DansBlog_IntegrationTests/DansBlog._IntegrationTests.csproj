@@ -55,6 +55,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\DansBlog.UnitTests\bin\Debug\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -69,6 +72,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -132,6 +136,10 @@
     <ProjectReference Include="..\DansBlog.Model\DansBlog.Model.csproj">
       <Project>{E537E700-E0C2-4A67-BD57-1E24C0966449}</Project>
       <Name>DansBlog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Presentation\DansBlog.Presentation.csproj">
+      <Project>{945997B1-5D4D-4526-A206-F712FACCDFFD}</Project>
+      <Name>DansBlog.Presentation</Name>
     </ProjectReference>
     <ProjectReference Include="..\DansBlog.Repository\DansBlog.Repository.csproj">
       <Project>{7DF482F0-E568-468B-B079-ECBD88DD68C8}</Project>
