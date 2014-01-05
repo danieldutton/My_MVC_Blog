@@ -37,7 +37,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             var result = sut.Index(It.IsAny<int>()) as HttpNotFoundResult;
 
-            Assert.AreEqual("404", result.StatusCode);
+            Assert.AreEqual(404, result.StatusCode);
         }
 
         [Test]
@@ -207,7 +207,6 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             string actual = sut.Create().ViewName;
 
             Assert.AreEqual(expected, actual);
-
         }
 
         [Test]

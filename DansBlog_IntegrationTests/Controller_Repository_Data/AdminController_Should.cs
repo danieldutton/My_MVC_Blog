@@ -273,7 +273,7 @@ namespace DansBlog._IntegrationTests.Controller_Repository_Data
         {
            _sut.DeleteConfirmed(5);
            var vr = _sut.Details(5) as ViewResult;
-           var model = vr.Model as Post;
+           Post model = vr.Model as Post;
            Assert.AreEqual("test", model.Title);
         }
 
