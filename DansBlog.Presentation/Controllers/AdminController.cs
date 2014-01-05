@@ -15,9 +15,12 @@ namespace DansBlog.Presentation.Controllers
         {
         }
 
-        public ViewResult Index(int? page)
+        public ActionResult Index(int? page)
         {
-            var posts = PostRepository.All;
+            List<Post> posts = PostRepository.All;
+
+            if(posts == null)
+                return HttpNotFound();
             
             const int pageSize = 28;
             int pageNumber = (page ?? 1);
@@ -27,20 +30,19 @@ namespace DansBlog.Presentation.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int id = 1)
         {
             Post post = PostRepository.Find(id);
             
             if (post == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(post);
         }
 
         public ViewResult Create(){
 
-            var post = new Post {Author = User.Identity.Name};
+            var post = new Post { Author = User.Identity.Name };
             
             return View(post);
         }
@@ -57,13 +59,13 @@ namespace DansBlog.Presentation.Controllers
             return View(post);
         }
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int id = 1)
         {
             Post post = PostRepository.Find(id);
+            
             if (post == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(post);
         }
 
@@ -78,7 +80,7 @@ namespace DansBlog.Presentation.Controllers
             return View(post);
         }
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Delete(int id = 1)
         {
             Post post = PostRepository.Find(id);
             if (post == null)
@@ -92,14 +94,22 @@ namespace DansBlog.Presentation.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = PostRepository.Find(id);
+
+            if (post == null)
+                return HttpNotFound();
+
             PostRepository.Delete(post);
 
             return RedirectToAction("Index");
         }
 
-        public ViewResult Moderate(int id)
+        public ActionResult Moderate(int id = 1)
         {
             List<Comment> comments = PostRepository.GetUnModeratedPostComments(id);
+
+            if (comments == null)
+                return HttpNotFound();
+
             return View(comments);
         }
 

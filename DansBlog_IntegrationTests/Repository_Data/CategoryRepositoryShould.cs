@@ -106,7 +106,7 @@ namespace DansBlog._IntegrationTests.Repository_Data
         {
             Category result = _sut.Find(3);
 
-            result.Name = "Category Four";
+            result.Name = "Category Ten";
             _sut.Update(result);
 
             Category affectedCategory = _sut.Find(3);

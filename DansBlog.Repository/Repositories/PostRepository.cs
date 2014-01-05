@@ -40,30 +40,44 @@ namespace DansBlog.Repository.Repositories
 
         public List<Post> Find(string content)
         {
-            return All.Where(c => c.Content.IndexOf(content, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            List<Post> result = All.Where(c => c.Content.IndexOf(content, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+
+            return result;
         }
 
         public List<Post> GetPostByTag(string tagName)
         {
-            return All.Where(a => a.Tags.Any(b => b.Name.Contains(tagName))).ToList();
+            List<Post> result = All.Where(a => a.Tags.Any(b => b.Name.Contains(tagName))).ToList();
+
+            return result;
         }
 
         public List<Comment> GetModeratedPostComments(int postId)
         {
-            return All.Single(p => p.Id == postId)
+            Post result1 = All.SingleOrDefault(p => p.Id == postId);
+            if (result1 == null) return null;
+
+            List<Comment> result = All.SingleOrDefault(p => p.Id == postId)
                 .Comments
                 .Where(p => p.HasBeenModerated)
                 .OrderBy(c => c.CreationTime)
                 .ToList();
+
+            return result;
         }
 
         public List<Comment> GetUnModeratedPostComments(int postId)
         {
-            return All.Single(p => p.Id == postId)
+            Post result1 = All.SingleOrDefault(p => p.Id == postId);
+            if (result1 == null) return null;
+            
+            List<Comment> result =  All.SingleOrDefault(p => p.Id == postId)
                 .Comments
                 .Where(p => !p.HasBeenModerated)
                 .OrderBy(c => c.CreationTime)
                 .ToList();
+
+            return result;
         }
 
         public void Delete(Post element)

@@ -28,6 +28,19 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
+        public void Index_IfPostFoundIsNull_ReturnHttpNotFound()
+        {
+            var fakePostRepository = new Mock<IPostRepository>();
+            fakePostRepository.Setup(x => x.Find(It.IsAny<int>())).Returns(()=> null);
+            var fakeViewMapper = new Mock<IViewMapper>();
+            var sut = new AdminController(fakePostRepository.Object, fakeViewMapper.Object);
+
+            var result = sut.Index(It.IsAny<int>()) as HttpNotFoundResult;
+
+            Assert.AreEqual("404", result.StatusCode);
+        }
+
+        [Test]
         public void Index_SetPageSizeToDefaultOfOne_IfValueGivenIsNull()
         {
             var fakePostRepository = new Mock<IPostRepository>();
@@ -83,7 +96,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             fakeViewMapper.Setup(x => x.MapIndexViewModel(posts, 1, It.IsAny<int>(), "Index", false, "")).Returns(()=> new BlogPostViewModel());
 
             var sut = new AdminController(fakePostRepository.Object, fakeViewMapper.Object);
-            var viewResult = sut.Index(1);
+            var viewResult = sut.Index(1) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
 
             Assert.IsInstanceOf(typeof (BlogPostViewModel), model);
@@ -99,7 +112,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             fakeViewMapper.Setup(x => x.MapIndexViewModel(posts, 1, It.IsAny<int>(), "Index", false, "")).Returns(() => new BlogPostViewModel());
 
             var sut = new AdminController(fakePostRepository.Object, fakeViewMapper.Object);
-            var viewResult = sut.Index(1);
+            var viewResult = sut.Index(1) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
 
             Assert.IsInstanceOf(typeof(BlogPostViewModel), model);   
@@ -112,7 +125,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var fakeViewMapper = new Mock<IViewMapper>();
 
             var sut = new AdminController(fakePostRepository.Object, fakeViewMapper.Object);
-            ViewResult  viewResult = sut.Index(1);
+            ViewResult  viewResult = sut.Index(1) as ViewResult;
 
             Assert.AreEqual(string.Empty, viewResult.ViewName);
         }
@@ -152,7 +165,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var viewResult = sut.Details(1) as ViewResult;
 
             Assert.AreEqual(string.Empty, viewResult.ViewName);    
-        }
+        } // rewrite this test
 
         [Test]
         public void Details_ReturnTheCorrectDefaultView()
