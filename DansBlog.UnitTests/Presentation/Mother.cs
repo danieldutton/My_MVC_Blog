@@ -1,6 +1,7 @@
 ﻿using DansBlog.Model.Entities;
 using DansBlog.Services.Email.Model;
 using System.Collections.Generic;
+using Moq;
 
 namespace DansBlog._UnitTests.Presentation
 {
@@ -71,5 +72,6 @@ namespace DansBlog._UnitTests.Presentation
         {
             return new Contact { Name = "Daniel Dutton", Email = "dan@dan.com", Subject = "Test Subject", Message = "Test Message" };
         }
+
     }
 }

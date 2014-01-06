@@ -32,9 +32,12 @@ namespace DansBlog.Presentation.Controllers
 
 
         [OutputCache(Duration=1800, VaryByParam="page")]
-        public ViewResult Index(int? page)
+        public ActionResult Index(int? page)
         {
-            List<Post> posts = PostRepository.All;           
+            List<Post> posts = PostRepository.All;
+
+            if (posts == null)
+                return HttpNotFound();
 
             BlogPostViewModel viewModel = _viewMapper.MapIndexViewModel(posts, page, PageSize, "Index", false);
 
@@ -47,9 +50,12 @@ namespace DansBlog.Presentation.Controllers
         }
 
         [OutputCache(Duration = 3600, VaryByParam = "none")]
-        public ViewResult Archive()
+        public ActionResult Archive()
         {
             IEnumerable<IGrouping<int, Post>> groupedPosts = PostRepository.PostsGroupedByYear();
+
+            if (groupedPosts == null)
+                return HttpNotFound();
             
             return View(groupedPosts);
         }
@@ -92,19 +98,20 @@ namespace DansBlog.Presentation.Controllers
                 MessagingService.Message();
             }
             else
-            {
                 return View("_CommentSubmittedFailed");
-            }
 
             return View("_CommentSubmitted");
         }
 
         [OutputCache(Duration = 3600, VaryByParam = "*")]
-        public ViewResult TagSearch(int? page, string sort = "Programming")
+        public ActionResult TagSearch(int? page, string sort = "Programming")
         {
             ViewBag.Tag = sort;
 
             List<Post> posts = PostRepository.GetPostByTag(sort);
+
+            if (posts == null)
+                return HttpNotFound();
             
             const int pageSize = 5;
             int pageNumber = (page ?? 1);
@@ -157,9 +164,12 @@ namespace DansBlog.Presentation.Controllers
         }
 
         [OutputCache(Duration = 3600, VaryByParam = "*")]
-        public ViewResult CategorySearch(int? page, string search)
+        public ActionResult CategorySearch(int? page, string search = "search")
         {
             List<Post> posts = PostRepository.GetPostsByCategory(search);
+
+            if (posts == null)
+                return HttpNotFound();
 
             const int pageSize = 5;
             int pageNumber = (page ?? 1);
@@ -170,11 +180,14 @@ namespace DansBlog.Presentation.Controllers
         }
 
         [OutputCache(Duration = 3600, VaryByParam = "*")]
-        public ViewResult ArchiveSearch(int? page, int sort, int year)
+        public ActionResult ArchiveSearch(int? page, int sort, int year)
         {
             List<Post> posts = PostRepository.GetPostsByDate(sort, year);
 
-            int pageSize = int.Parse(ConfigurationManager.AppSettings["Archive_Partial_DisplayCount"]);
+            if (posts == null)
+                return HttpNotFound();
+
+            const int pageSize = 6;
             int pageNumber = (page ?? 1);
             var viewModel = ViewMapper.MapIndexViewModel(posts, pageNumber, pageSize, "ArchiveSearch", false);
 
@@ -182,7 +195,7 @@ namespace DansBlog.Presentation.Controllers
         }
 
         [OutputCache(Duration = 3600, VaryByParam = "*")]
-        public ViewResult Details(int? page, bool leaveComments, int postId = 0)
+        public ViewResult Details(int? page, bool leaveComments, int postId = 1)
         {
             Post post = PostRepository.Find(postId);
             var posts = new List<Post> { post, };
