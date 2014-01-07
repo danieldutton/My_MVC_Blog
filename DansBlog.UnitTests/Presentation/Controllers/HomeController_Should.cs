@@ -497,7 +497,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut.TagSearch(1, "Test Value");
 
             _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.Is<List<Post>>(y => y.Equals(_posts)), It.Is<int>(p => p == 1),
-                                    It.IsAny<int>(), "Test Value", It.IsAny<bool>(), It.IsAny<string>()));
+                                    It.IsAny<int>(), It.Is<string>(p =>p == "Test Value"), It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
@@ -559,19 +559,27 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void Contact_Post_CallContactPropertyOnceIsModelStateIsValid()
         {
-            
+            _sut.Contact(It.IsAny<Contact>());
+
+            _fakeEmailer.VerifySet(x => x.Contact = It.IsAny<Contact>(), Times.Once());
         }
 
         [Test]
         public void Contact_Post_InitContactPropertyWithTheCorrectData()
         {
-            
+            var contactStub = new Contact();
+
+            _sut.Contact(contactStub);
+
+            _fakeEmailer.VerifySet(x => x.Contact = It.Is<Contact>(c => c.Equals(contactStub)));    
         }
 
         [Test]
         public void Contact_Post_CallMethodMessageOnce()
         {
+            _sut.Contact(It.IsAny<Contact>());
 
+            _fakeEmailer.Verify(x => x.Message(), Times.Once());
         }
 
         [Test]
@@ -589,7 +597,12 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void Contact_Post_ReturnTheCorrectViewIfModelStateIsInvalid()
         {
-            
+            var contactStub = new Contact();
+            _sut.ModelState.AddModelError("", "");
+
+            var viewResult = _sut.Contact(contactStub) as ViewResult;
+
+            Assert.AreEqual("ContactFailed", viewResult.ViewName);    
         }
 
         #endregion
@@ -886,7 +899,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut.Details(1, false, 4);
 
             _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(p => p == 1),
-                                    It.Is<int>(p => p == 4), It.IsAny<string>(), It.Is<bool>(p => p == false), It.IsAny<string>()));
+                                    It.Is<int>(p => p == 5), It.IsAny<string>(), It.Is<bool>(p => p == false), It.IsAny<string>()));
         }
 
         [Test]
@@ -920,9 +933,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void Error_ReturnTheCorrectView()
         {
-            var sut = new HomeController(_fakePostRepo.Object, _fakeEmailer.Object, _fakeViewMapper.Object);
-
-            ViewResult viewResult = sut.Error();
+            ViewResult viewResult = _sut.Error();
 
             Assert.AreEqual(string.Empty, viewResult.ViewName);
         }

@@ -40,7 +40,7 @@ namespace DansBlog.Presentation.Controllers
             return View(post);
         }
 
-        public ViewResult Create(){
+        public ActionResult Create(){
 
             var post = new Post { Author = User.Identity.Name };
             
@@ -83,10 +83,10 @@ namespace DansBlog.Presentation.Controllers
         public ActionResult Delete(int id = 1)
         {
             Post post = PostRepository.Find(id);
+            
             if (post == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(post);
         }
 
@@ -116,9 +116,11 @@ namespace DansBlog.Presentation.Controllers
         [HttpPost]
         public ActionResult Moderate(List<Comment> comments)
         {
+            if (comments == null) return HttpNotFound();
+
             foreach (var comment in comments)
             {
-                if (comment.HasBeenModerated)
+                if (!comment.HasBeenModerated)
                 {
                     comment.HasBeenModerated = true;
                 }
@@ -129,7 +131,7 @@ namespace DansBlog.Presentation.Controllers
 
         public JsonResult AutoCompleteCategory(string term)
         {
-            var result = CategoryRepository.SearchForCategories(term);
+            List<string> result = CategoryRepository.SearchForCategories(term);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }

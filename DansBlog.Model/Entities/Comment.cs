@@ -33,5 +33,11 @@ namespace DansBlog.Model.Entities
         public bool HasBeenModerated { get; set; }
 
         public int PostId { get; set; }
+
+
+        public Comment()
+        {
+            HasBeenModerated = false;
+        }
     }
 }

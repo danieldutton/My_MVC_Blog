@@ -6,7 +6,6 @@ using DansBlog.Services.Email.Interfaces;
 using DansBlog.Services.Email.Model;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -150,7 +149,7 @@ namespace DansBlog.Presentation.Controllers
                     RedirectToAction("ContactFailed");
                 }
             }
-            return View("ContactConfirmed");
+            return View("ContactFailed");
         }
 
         public ViewResult ContactConfirmed()
@@ -203,7 +202,7 @@ namespace DansBlog.Presentation.Controllers
             const int pageSize = 5;
             int pageNumber = (page ?? 1);
 
-            var viewModel = ViewMapper.MapIndexViewModel(posts, pageNumber, pageSize, "Details", leaveComments);
+            BlogPostViewModel viewModel = ViewMapper.MapIndexViewModel(posts, pageNumber, pageSize, "Details", leaveComments);
 
             return View("_BlogPost", viewModel);
         }
