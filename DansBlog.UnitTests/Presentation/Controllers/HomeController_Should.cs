@@ -1,4 +1,5 @@
-﻿using DansBlog.Model.Entities;
+﻿using System;
+using DansBlog.Model.Entities;
 using DansBlog.Presentation.Controllers;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
@@ -40,10 +41,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut = new HomeController(_fakePostRepo.Object, _fakeEmailer.Object, _fakeViewMapper.Object);
         }
 
-        #region Index
-
         [Test]
-        public void Index_CallMethod_All_ExactlyOnce()
+        public void Index_Call_All_ExactlyOnce()
         {
             _sut.Index(1);
 
@@ -51,7 +50,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Index_ReturnHttpNotFoundIfAllReturnsNull()
+        public void Index__ReturnHttpNotFound_If_All_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.All).Returns(() => null);
 
@@ -61,36 +60,17 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Index_CallMethod_MapIndexViewModel_PassingInTheRepositoryPosts()
+        public void Index_Call_MapIndexViewModel_WithCorrectData()
         {
             _fakePostRepo.Setup(x => x.All).Returns(_posts);
 
             _sut.Index(1);
 
-            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.Is<List<Post>>(y => y.Equals(_posts)), It.IsAny<int>(), It.IsAny<int>(),
-                It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
-        }
-
-        [Test]
-        public void Index_CallMethod_MapIndexViewModel_PassingInTheSpecifiedPageParam()
-        {
-            _fakePostRepo.Setup(x => x.All).Returns(_posts);
-
-            _sut.Index(1);
-
-            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(y => y == 1), It.IsAny<int>(),
-                It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
-        }
-
-        [Test]
-        public void Index_CallMethod_MapIndexViewModel_PassingInTheSpecifiedPageSizeParam()
-        {
-            _fakePostRepo.Setup(x => x.All).Returns(_posts);
-
-            _sut.Index(1);
-
-            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.Is<int>(y => y == 5),
-                It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
+            _fakeViewMapper.Verify(
+                x =>
+                x.MapIndexViewModel(It.Is<List<Post>>(y => y.Equals(_posts)), It.Is<int>(y => y == 1),
+                                    It.Is<int>(y => y == 5),It.IsAny<string>(), 
+                                    It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
@@ -101,8 +81,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut.Index(1);
 
             _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
-                It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()),
-                Times.Once());
+                                                            It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()),
+                                   Times.Once());
         }
 
         [Test]
@@ -119,19 +99,16 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         public void Index_ReturnTheCorrectModelType()
         {
             _fakeViewMapper.Setup(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
-                It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>())).Returns(() => new BlogPostViewModel());
+                                                           It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()))
+                           .Returns(() => new BlogPostViewModel());
 
             _fakePostRepo.Setup(x => x.All).Returns(_posts);
 
             var viewResult = _sut.Index(1) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
 
-            Assert.IsInstanceOf(typeof(BlogPostViewModel), model);
+            Assert.IsInstanceOf(typeof (BlogPostViewModel), model);
         }
-
-        #endregion 
-
-        #region About
 
         [Test]
         public void About_ReturnTheCorrectView()
@@ -141,12 +118,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual(string.Empty, viewResult.ViewName);
         }
 
-        #endregion
-
-        #region Archive
-
         [Test]
-        public void Archive_CallMethod_PostsGroupedByYearExactlyOnce()
+        public void Archive_CallMethod_PostsGroupedByYear_ExactlyOnce()
         {
             _sut.Archive();
 
@@ -154,7 +127,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Archive_ReturnHttpNotFoundIfRepositoryPostResultIsNull()
+        public void Archive_ReturnHttpNotFound_If_PostsGroupedByYear_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.PostsGroupedByYear()).Returns(() => null);
 
@@ -172,23 +145,18 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Archive_ReturnTheCorrectViewModelType()
+        public void Archive_ReturnTheCorrectModelType()
         {
             _fakePostRepo.Setup(x => x.PostsGroupedByYear()).Returns(new List<IGrouping<int, Post>>());
 
             var viewResult = _sut.Archive() as ViewResult;
-
             var expected = viewResult.Model as List<IGrouping<int, Post>>;
 
             Assert.IsInstanceOf<List<IGrouping<int, Post>>>(expected);
         }
 
-        #endregion
-
-        #region TagCloud
-
         [Test]
-        public void TagCloud_MakeACallToAction_GetDistinctTags()
+        public void TagCloud_CallMethod_GetDistinctTags_ExactlyOnce()
         {
             _sut.TagCloud();
 
@@ -196,7 +164,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void TagCloud_ReturnsTheCorrectView()
+        public void TagCloud_ReturnTheCorrectView()
         {
             ViewResult viewResult = _sut.TagCloud();
 
@@ -204,7 +172,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void TagCloud_ReturnTheCorrectViewModel()
+        public void TagCloud_ReturnTheCorrectModelType()
         {
             _fakePostRepo.Setup(x => x.GetDistinctTags()).Returns(() => new List<Tag>());
 
@@ -213,12 +181,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.IsInstanceOf<List<Tag>>(model);
         }
 
-        #endregion
-
-        #region FetchComments
-
         [Test]
-        public void FetchComments_SetIDParamToOneIfNoneGiven()
+        public void FetchComments_SetIDParamTo_1_IfNoneGiven()
         {
             var request = new Mock<HttpRequestBase>();
             var context = new Mock<HttpContextBase>();
@@ -231,7 +195,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void FetchComments_CallMethod_GetModeratedPostCommentsExactlyOnce()
+        public void FetchComments_CallMethod_GetModeratedPostComments_ExactlyOnce()
         {
             var request = new Mock<HttpRequestBase>();
             var context = new Mock<HttpContextBase>();
@@ -244,11 +208,11 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void FetchComments_ReturnTheCorrectView_IfIsAjaxRequest()
+        public void FetchComments_ReturnTheCorrectView_IfAjaxRequest()
         {
             var request = new Mock<HttpRequestBase>();
 
-            request.SetupGet(x => x.Headers).Returns(           //add in mother class utility method
+            request.SetupGet(x => x.Headers).Returns(
                 new WebHeaderCollection
                     {
                         {"X-Requested-With", "XMLHttpRequest"}
@@ -265,12 +229,12 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void FetchComments_ReturnTheCorrectModelType_IfIsAjaxRequest()
+        public void FetchComments_ReturnTheCorrectModelType_IfAjaxRequest()
         {
             _fakePostRepo.Setup(x => x.GetModeratedPostComments(It.IsAny<int>())).Returns(() => new List<Comment>());
             var request = new Mock<HttpRequestBase>();
 
-            request.SetupGet(x => x.Headers).Returns(           //add in mother class utility method
+            request.SetupGet(x => x.Headers).Returns( //add in mother class utility method
                 new WebHeaderCollection
                     {
                         {"X-Requested-With", "XMLHttpRequest"}
@@ -317,12 +281,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.IsInstanceOf<List<Comment>>(model);
         }
 
-        #endregion
-
-        #region LeaveComment
-
         [Test]
-        public void LeaveComment_CallAddCommentToPostExactlyOnce_IfModelStateIsValid()
+        public void LeaveComment_CallMethod_AddCommentToPost_ExactlyOnce_IfModelStateIsValid()
         {
             var commentStub = new Comment();
 
@@ -332,17 +292,19 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void LeaveComment_PassTheCorrectCommentDataToAddCommentToPostIfModelStateIsValid()
+        public void LeaveComment_PassTheCorrectCommentDataToAddCommentToPost_IfModelStateIsValid()
         {
-            var commentStub = new Comment { PostId = 5 };
+            var commentStub = new Comment {PostId = 5};
 
             _sut.LeaveComment(commentStub);
 
-            _fakePostRepo.Verify(x => x.AddCommentToPost(It.Is<Comment>(c => c.Equals(commentStub)), It.Is<int>(i => i == 5)), Times.Once());
+            _fakePostRepo.Verify(
+                x => x.AddCommentToPost(It.Is<Comment>(c => c.Equals(commentStub)), It.Is<int>(i => i == 5)),
+                Times.Once());
         }
 
         [Test]
-        public void LeaveComment_CallPropertyContactExactlyOnceIfModelStateIsValid()
+        public void LeaveComment_Call_Contact_ExactlyOnce_IfModelStateIsValid()
         {
             var commentStub = new Comment();
 
@@ -352,25 +314,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void LeaveComment_InitialiseContactDataWithTheCorrectDataIfModelStateIsValid()
-        {
-            var commentStub = new Comment();
-
-            var contactStub = new Contact
-                {
-                    Name = "Daniel Dutton",
-                    Email = "dan@dan.com",
-                    Message = "New Message",
-                    Subject = "New Subject",
-                };
-
-            _sut.LeaveComment(commentStub);
-
-            _fakeEmailer.VerifySet(x => x.Contact = It.IsAny<Contact>(), Times.Once());
-        }
-
-        [Test]
-        public void LeaveComment_CallMethodMessageExactlyOnce()
+        public void LeaveComment_Call_Message_ExactlyOnce()
         {
             var commentStub = new Comment();
 
@@ -400,22 +344,18 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual("_CommentSubmittedFailed", viewResult.ViewName);
         }
 
-        #endregion
-
-        #region TagSearch
-
         [Test]
-        public void TagSearch_UseDefaultIfNonSpecified()
+        public void TagSearch_UseDefaultSearchTerm_IfNonSpecified()
         {
             _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(new List<Post>());
 
-            _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>());
-    
+            _sut.TagSearch(It.IsAny<int>());
+
             _fakePostRepo.Verify(x => x.GetPostByTag(It.Is<string>(y => y == "Programming")));
         }
 
         [Test]
-        public void TagSearchPassCorrectSortValueToViewBag()
+        public void TagSearch_PassCorrectSortValueToViewBag()
         {
             _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
 
@@ -426,27 +366,27 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void TagSearch_CallGetPostByTagOnce()
+        public void TagSearch_Call_GetPostByTag_ExactlyOnce()
         {
             _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>());
 
-            _fakePostRepo.Verify(x => x.GetPostByTag(It.IsAny<string>()), Times.Once());  
+            _fakePostRepo.Verify(x => x.GetPostByTag(It.IsAny<string>()), Times.Once());
         }
 
         [Test]
-        public void TagSearch_PassCorrectDataToGetPostByTag()
+        public void TagSearch__Call_GetPostByTag_WithCorrectData()
         {
             _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(new List<Post>());
 
             _sut.TagSearch(It.IsAny<int>(), "Test Value");
 
-            _fakePostRepo.Verify(x => x.GetPostByTag(It.Is<string>(y => y == "Test Value")));   
+            _fakePostRepo.Verify(x => x.GetPostByTag(It.Is<string>(y => y == "Test Value")));
         }
 
         [Test]
-        public void TagSearch_ReturnHttpNotFoundIfRepositoryPostResultIsNull()
+        public void TagSearch_ReturnHttpNotFound_If_GetPostByTag_ReturnsNull()
         {
-            _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(()=> null);
+            _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(() => null);
 
             var viewResult = _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>()) as HttpNotFoundResult;
 
@@ -454,50 +394,55 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void TagSearch_SetPageSizeTo5()
-        {
-            _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
-
-            var viewResult = _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>()) as ViewResult;
-            var model = viewResult.Model as BlogPostViewModel;
-
-            Assert.AreEqual(6, model.Posts.PageSize);    
-        }
-
-        [Test]
-        public void TagSearch_PageSizeTo1IfNull()
-        {
-            _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
-
-            _sut.TagSearch(null, It.IsAny<string>());
-
-            _fakeViewMapper.Verify
-                (x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(i => i == 1), 
-                                          It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));    
-        }
-
-        [Test]
-        public void TagSearch_CallMapIndexViewModelExactlyOnce()
+        public void TagSearch_SetCorrectPageSize()
         {
             _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
 
             _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>());
 
             _fakeViewMapper.Verify(
-                x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
-                                         It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()),
-                                         Times.Once());
+                x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.Is<int>(y => y == 5),
+                                         It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
-        public void TagSearch_CallMapIndexViewModelWithCorrectData()
+        public void TagSearch__SetPageNoTo_1_IfNullParamIsProvided()
+        {
+            _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
+
+            _sut.TagSearch(null, It.IsAny<string>());
+
+            _fakeViewMapper.Verify
+                (x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(i => i == 1),
+                                          It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
+        }
+
+        [Test]
+        public void TagSearch_Call_MapIndexViewModel_ExactlyOnce()
+        {
+            _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
+
+            _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>());
+
+            _fakeViewMapper.Verify(
+                x => x.MapIndexViewModel
+                         (It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(),
+                          It.IsAny<string>()),
+                Times.Once());
+        }
+
+        [Test]
+        public void TagSearch_Call_MapIndexViewModel_WithCorrectData()
         {
             _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
 
             _sut.TagSearch(1, "Test Value");
 
-            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.Is<List<Post>>(y => y.Equals(_posts)), It.Is<int>(p => p == 1),
-                                    It.IsAny<int>(), It.Is<string>(p =>p == "Test Value"), It.IsAny<bool>(), It.IsAny<string>()));
+            _fakeViewMapper.Verify(
+                x =>
+                x.MapIndexViewModel(It.Is<List<Post>>(y => y.Equals(_posts)), It.Is<int>(y => y == 1),
+                                    It.Is<int>(y => y == 5), It.Is<string>(p => p == "TagSearch"), It.IsAny<bool>(),
+                                    It.IsAny<string>()));
         }
 
         [Test]
@@ -516,17 +461,13 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _fakePostRepo.Setup(x => x.GetPostByTag(It.IsAny<string>())).Returns(_posts);
             _fakeViewMapper.Setup(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
                                                            It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()))
-                                                           .Returns(() => new BlogPostViewModel());
+                           .Returns(() => new BlogPostViewModel());
 
             var viewResult = _sut.TagSearch(It.IsAny<int>(), It.IsAny<string>()) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
 
             Assert.IsInstanceOf<BlogPostViewModel>(model);
         }
-
-        #endregion
-
-        #region Downloads
 
         [Test]
         public void Downloads_ReturnTheCorrectView()
@@ -538,10 +479,6 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual(string.Empty, viewResult.ViewName);
         }
 
-        #endregion
-
-        #region Contact Get
-
         [Test]
         public void Contact_ReturnTheCorrectView()
         {
@@ -552,12 +489,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual(string.Empty, viewResult.ViewName);
         }
 
-        #endregion
-
-        #region Contact Post
-
         [Test]
-        public void Contact_Post_CallContactPropertyOnceIsModelStateIsValid()
+        public void Contact_Post_Call_Contact_Once_IfModelStateIsValid()
         {
             _sut.Contact(It.IsAny<Contact>());
 
@@ -571,11 +504,11 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             _sut.Contact(contactStub);
 
-            _fakeEmailer.VerifySet(x => x.Contact = It.Is<Contact>(c => c.Equals(contactStub)));    
+            _fakeEmailer.VerifySet(x => x.Contact = It.Is<Contact>(c => c.Equals(contactStub)));
         }
 
         [Test]
-        public void Contact_Post_CallMethodMessageOnce()
+        public void Contact_Post_Call_Message_ExactlyOnce()
         {
             _sut.Contact(It.IsAny<Contact>());
 
@@ -583,31 +516,33 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Contact_Post_RedirectToTheCorrectActionIfModelStateIsValid()
+        public void Contact_Post_RedirectToTheCorrectAction_IfModelStateIsValid()
         {
+            var redirectResult = (RedirectToRouteResult) _sut.Contact(It.IsAny<Contact>());
 
+            Assert.That(redirectResult.RouteName, Is.EqualTo("ContactConfirmed"));
         }
 
         [Test]
-        public void Contact_Post_RedirectToTheCorrectActionIfExceptionThrown()
+        public void Contact_Post_RedirectToTheCorrectAction_IfExceptionThrown()
         {
+            _fakeEmailer.Setup(x => x.Message()).Throws(new Exception());
+            
+            var redirectResult = (RedirectToRouteResult)_sut.Contact(It.IsAny<Contact>());           
 
+            Assert.That(redirectResult.RouteName, Is.EqualTo("ContactFailed"));
         }
 
         [Test]
-        public void Contact_Post_ReturnTheCorrectViewIfModelStateIsInvalid()
+        public void Contact_Post_ReturnTheCorrectVie_IfModelStateIsInvalid()
         {
             var contactStub = new Contact();
             _sut.ModelState.AddModelError("", "");
 
             var viewResult = _sut.Contact(contactStub) as ViewResult;
 
-            Assert.AreEqual("ContactFailed", viewResult.ViewName);    
+            Assert.AreEqual("ContactFailed", viewResult.ViewName);
         }
-
-        #endregion
-
-        #region ContactConfirmed
 
         [Test]
         public void ContactConfirmed_ReturnTheCorrectView()
@@ -619,10 +554,6 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual("ContactConfirmed", viewResult.ViewName);
         }
 
-        #endregion
-
-        #region ContactFailed
-
         [Test]
         public void ContactFailed_ReturnTheCorrectView()
         {
@@ -633,12 +564,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual("ContactFailed", viewResult.ViewName);
         }
 
-        #endregion
-
-        #region CategorySearch
-
         [Test]
-        public void CategorySearch_SetSearchParamToDefaultIfNoneGiven()
+        public void CategorySearch_SetSearchParamToDefaultValue_IfNoneProvided()
         {
             _sut.CategorySearch(It.IsAny<int>());
 
@@ -646,7 +573,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void CategorySearch_CallGetPostsByCategoryExactlyOnce()
+        public void CategorySearch_Call_GetPostsByCategory_ExactlyOnce()
         {
             _sut.CategorySearch(It.IsAny<int>());
 
@@ -654,7 +581,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void CategorySearch_CallGetPostsByCategoryWithTheCorrectSearchTerm()
+        public void CategorySearch_Call_GetPostsByCategory_WithTheCorrectSearchTerm()
         {
             _sut.CategorySearch(It.IsAny<int>(), "Search Term");
 
@@ -662,7 +589,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void CategorySearch_ReturnHttpNotFoundIfRepositoryPostResultIsNull()
+        public void CategorySearch_ReturnHttpNotFound_If_GetPostsByCategory_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.GetPostsByCategory(It.IsAny<string>())).Returns(() => null);
 
@@ -672,7 +599,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void CategorySearch_SetPageNumberToOneIfNullParamIsGiven()
+        public void CategorySearch_SetPageNoTo_1_IfNullParamIsProvided()
         {
             _fakePostRepo.Setup(x => x.GetPostsByCategory(It.IsAny<string>())).Returns(() => new List<Post>());
 
@@ -684,7 +611,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void CateorySearch_CallMapIndexViewModelExactlyOnce()
+        public void CateorySearch_Call_MapIndexViewModel_ExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.GetPostsByCategory(It.IsAny<string>())).Returns(() => new List<Post>());
 
@@ -696,7 +623,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void CategorySearch_CallMapIndexViewModelWithCorrectData()
+        public void CategorySearch_Call_MapIndexViewModel_WithCorrectData()
         {
             _fakePostRepo.Setup(x => x.GetPostsByCategory(It.IsAny<string>())).Returns(_posts);
 
@@ -725,7 +652,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _fakePostRepo.Setup(x => x.GetPostsByCategory(It.IsAny<string>())).Returns(_posts);
             _fakeViewMapper.Setup(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
                                                            It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()))
-                                                           .Returns(() => new BlogPostViewModel());
+                           .Returns(() => new BlogPostViewModel());
 
             var viewResult = _sut.CategorySearch(It.IsAny<int>(), It.IsAny<string>()) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
@@ -733,12 +660,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.IsInstanceOf<BlogPostViewModel>(model);
         }
 
-        #endregion
-
-        #region ArchiveSearch
-
         [Test]
-        public void ArchiveSearch_CallPostsbyDateOnce()
+        public void ArchiveSearch_Call_GetPostsByDate_ExactlyOnce()
         {
             _sut.ArchiveSearch(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>());
 
@@ -746,7 +669,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void ArchiveSearch_CallPostsByDateWithTheCorrectData()
+        public void ArchiveSearch_Call_GetPostsByDate_WithCorrectData()
         {
             _sut.ArchiveSearch(sort: 1, page: 4, year: 2013);
 
@@ -754,7 +677,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void ArchiveSearch_ReturnHttpNotFoundIfRepositoryCallIsNull()
+        public void ArchiveSearch_ReturnHttpNotFound_If_GetPostsByDate_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>())).Returns(() => null);
 
@@ -769,14 +692,15 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         {
             _fakePostRepo.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>())).Returns(_posts);
 
-            var viewResult = _sut.ArchiveSearch(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()) as ViewResult;
-            var model = viewResult.Model as BlogPostViewModel;
+            _sut.ArchiveSearch(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>());
 
-            Assert.AreEqual(6, model.Posts.PageSize);
+            _fakeViewMapper.Verify(
+                x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.Is<int>(y => y == 6),
+                                         It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
-        public void ArchiveSearch_SetPageNumberToOneIfNullParamIsGiven()
+        public void ArchiveSearch_SetPageNoTo_1_IfNullParamIsProvided()
         {
             _fakePostRepo.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>())).Returns(_posts);
 
@@ -788,7 +712,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void ArchiveSearch_CallMapIndexViewModelExactlyOnce()
+        public void ArchiveSearch_Call_MapIndexViewModel_ExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>())).Returns(_posts);
 
@@ -797,18 +721,20 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _fakeViewMapper.Verify(
                 x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
                                          It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()),
-                                         Times.Once());
+                Times.Once());
         }
 
         [Test]
-        public void ArchiveSearch_CallMapIndexViewModelWithCorrectData()
+        public void ArchiveSearch_Call_MapIndexViewModel_WithCorrectData()
         {
             _fakePostRepo.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>())).Returns(_posts);
 
             _sut.ArchiveSearch(2, 4, 2013);
 
-            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.Is<List<Post>>(p => p.Equals(_posts)), It.Is<int>(p => p == 2),
-                                    It.Is<int>(p => p == 6), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
+            _fakeViewMapper.Verify(
+                x => x.MapIndexViewModel(It.Is<List<Post>>(p => p.Equals(_posts)), It.Is<int>(p => p == 2),
+                                         It.Is<int>(p => p == 6), It.IsAny<string>(), It.IsAny<bool>(),
+                                         It.IsAny<string>()));
         }
 
         [Test]
@@ -827,7 +753,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _fakePostRepo.Setup(x => x.GetPostsByDate(It.IsAny<int>(), It.IsAny<int>())).Returns(_posts);
             _fakeViewMapper.Setup(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
                                                            It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()))
-                                                           .Returns(() => new BlogPostViewModel());
+                           .Returns(() => new BlogPostViewModel());
 
             var viewResult = _sut.ArchiveSearch(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
@@ -835,12 +761,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.IsInstanceOf<BlogPostViewModel>(model);
         }
 
-        #endregion
-
-        #region Details
-
         [Test]
-        public void Details_SetPostIdParamToDefaultIfNoneGiven()
+        public void Details_SetPostIdParamTo_1_IfNoneGiven()
         {
             _sut.Details(It.IsAny<int>(), It.IsAny<bool>());
 
@@ -848,7 +770,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Details_CallMethod_Find_Once()
+        public void Details_Call_Find_ExactlyOnce()
         {
             _sut.Details(It.IsAny<int>(), It.IsAny<bool>());
 
@@ -860,14 +782,15 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => new Post());
 
-            var viewResult = _sut.Details(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<int>());
-            var model = viewResult.Model as BlogPostViewModel;
+            _sut.Details(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<int>());
 
-            Assert.AreEqual(6, model.Posts.PageSize);     
+            _fakeViewMapper.Verify(
+                x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.Is<int>(y => y == 5),
+                                         It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
-        public void Details_SetPageNumberToOneIfNullParamIsGiven()
+        public void Details_SetPageNoTo_1_IfNullParamIsProvided()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => new Post());
 
@@ -879,7 +802,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Details_CallMapIndexViewModelExactlyOnce()
+        public void Details_Call_MapIndexViewModel_ExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => new Post());
 
@@ -888,18 +811,19 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _fakeViewMapper.Verify(
                 x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
                                          It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()),
-                                         Times.Once());
+                Times.Once());
         }
 
         [Test]
-        public void Details_CallMapIndexViewModelWithCorrectData()
+        public void Details_Call_MapIndexViewModel_WithCorrectData()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => new Post());
 
             _sut.Details(1, false, 4);
 
             _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(p => p == 1),
-                                    It.Is<int>(p => p == 5), It.IsAny<string>(), It.Is<bool>(p => p == false), It.IsAny<string>()));
+                                                            It.Is<int>(p => p == 5), It.IsAny<string>(),
+                                                            It.Is<bool>(p => p == false), It.IsAny<string>()));
         }
 
         [Test]
@@ -918,17 +842,13 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => new Post());
             _fakeViewMapper.Setup(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
                                                            It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()))
-                                                           .Returns(() => new BlogPostViewModel());
+                           .Returns(() => new BlogPostViewModel());
 
             var viewResult = _sut.Details(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<int>());
             var model = viewResult.Model as BlogPostViewModel;
 
             Assert.IsInstanceOf<BlogPostViewModel>(model);
         }
-
-        #endregion
-
-        #region Error
 
         [Test]
         public void Error_ReturnTheCorrectView()
@@ -937,8 +857,6 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             Assert.AreEqual(string.Empty, viewResult.ViewName);
         }
-
-        #endregion
 
         [TearDown]
         public void TearDown()

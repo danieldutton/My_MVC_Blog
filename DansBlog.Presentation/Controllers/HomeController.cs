@@ -92,7 +92,7 @@ namespace DansBlog.Presentation.Controllers
                         Name = comment.Author,
                         Email = comment.Email,
                         Message = comment.Content,
-                        Subject = "comment to moderate post id: " + comment.PostId
+                        Subject = "comment to moderate post id: " + comment.PostId //ToDo - Test This
                     };
                 MessagingService.Message();
             }
@@ -142,11 +142,11 @@ namespace DansBlog.Presentation.Controllers
                     MessagingService.Contact = contact;
                     MessagingService.Message();
                     
-                    RedirectToAction("ContactConfirmed");
+                    return RedirectToRoute("ContactConfirmed");
                 }
                 catch (Exception)
                 {
-                    RedirectToAction("ContactFailed");
+                    return RedirectToRoute("ContactFailed");
                 }
             }
             return View("ContactFailed");
