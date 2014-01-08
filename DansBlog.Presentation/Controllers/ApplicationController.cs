@@ -13,7 +13,8 @@ using System.Configuration;
 using System.Web.Mvc;
 
 namespace DansBlog.Presentation.Controllers
-{   [HandleError]
+{
+    [HandleError]
     public class ApplicationController : Controller
     {
         [Inject]
@@ -30,7 +31,7 @@ namespace DansBlog.Presentation.Controllers
 
         private readonly IPostRepository _postRepository;
 
-        protected IPostRepository PostRepository 
+        protected IPostRepository PostRepository
         {
             get { return _postRepository; }
         }
@@ -43,8 +44,8 @@ namespace DansBlog.Presentation.Controllers
         }
 
 
-        public ApplicationController(IPostRepository postRepository, 
-            IViewMapper viewMapper)
+        public ApplicationController(IPostRepository postRepository,
+                                     IViewMapper viewMapper)
         {
             _postRepository = postRepository;
             _viewMapper = viewMapper;
@@ -54,8 +55,8 @@ namespace DansBlog.Presentation.Controllers
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             string filePath = Server.MapPath(ConfigurationManager.AppSettings["Quote_Partial_XmlFilePath"]);
-            Quote quote = QuoteRepository.GetRandomQuote(filePath);         
-            
+            Quote quote = QuoteRepository.GetRandomQuote(filePath);
+
             int categoryCount = int.Parse(ConfigurationManager.AppSettings["Category_Partial_DisplayCount"]);
             List<Category> categories = CategoryRepository.MostPopularCategories(categoryCount);
 
@@ -63,10 +64,15 @@ namespace DansBlog.Presentation.Controllers
 
             List<Archive> archivedMonths = Archiver.GetArchivedMonths(DateTime.Now, displayCount, _postRepository.All);
 
-            var masterLayout = new MasterLayout { ArchivedMonths = archivedMonths, Categories = categories, QuoteOfTheDay = quote };
-            
+            var masterLayout = new MasterLayout
+                {
+                    ArchivedMonths = archivedMonths,
+                    Categories = categories,
+                    QuoteOfTheDay = quote
+                };
+
             ViewBag.Layout = masterLayout;
-            
+
             base.OnActionExecuted(filterContext);
         }
     }

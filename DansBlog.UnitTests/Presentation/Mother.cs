@@ -1,7 +1,6 @@
-﻿using DansBlog.Model.Entities;
-using DansBlog.Services.Email.Model;
+﻿using System;
+using DansBlog.Model.Entities;
 using System.Collections.Generic;
-using Moq;
 
 namespace DansBlog._UnitTests.Presentation
 {
@@ -62,16 +61,24 @@ namespace DansBlog._UnitTests.Presentation
 
             return tags;
         }
-        
-        public static Contact GetContactWithInValidModelState()
-        {
-            return new Contact {Name = "Daniel Dutton", Email = null, Subject = null, Message = null};
-        }
 
-        public static Contact GetContactWithValidModelState()
+        public static List<Comment> GetTenComments_With_5_Moderated()
         {
-            return new Contact { Name = "Daniel Dutton", Email = "dan@dan.com", Subject = "Test Subject", Message = "Test Message" };
-        }
+            var comments = new List<Comment>
+                {
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = true, Content = "New Content 1"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = true, Content = "New Content 2"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = true, Content = "New Content 3"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = true, Content = "New Content 4"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = true, Content = "New Content 5"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = false, Content = "New Content 6"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = false, Content = "New Content 7"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = false, Content = "New Content 8"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = false, Content = "New Content 9"},
+                    new Comment{CreationTime = new DateTime(2013, 10, 1), Author = "Daniel Dutton", Email = "dan@dan.com", HasBeenModerated = false, Content = "New Content 10"},
+                };
 
+            return comments;
+        } 
     }
 }

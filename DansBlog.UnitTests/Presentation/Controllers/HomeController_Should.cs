@@ -74,7 +74,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Index_CallMethod_MapIndexViewModel_ExactlyOnce()
+        public void Index_Call_MapIndexViewModel_ExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.All).Returns(_posts);
 

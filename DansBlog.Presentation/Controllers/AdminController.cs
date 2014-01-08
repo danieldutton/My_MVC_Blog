@@ -53,7 +53,7 @@ namespace DansBlog.Presentation.Controllers
             if (ModelState.IsValid)
             {
                 PostRepository.Add(post);
-                return RedirectToAction("Index");
+                return RedirectToRoute("Index");
             }
 
             return View(post);
@@ -75,7 +75,7 @@ namespace DansBlog.Presentation.Controllers
             if (ModelState.IsValid)
             {
                 PostRepository.Update(post);
-                return RedirectToAction("Index");
+                return RedirectToRoute("Index");
             }
             return View(post);
         }
@@ -100,7 +100,7 @@ namespace DansBlog.Presentation.Controllers
 
             PostRepository.Delete(post);
 
-            return RedirectToAction("Index");
+            return RedirectToRoute("Index");
         }
 
         public ActionResult Moderate(int id = 1)
@@ -120,11 +120,11 @@ namespace DansBlog.Presentation.Controllers
 
             foreach (var comment in comments)
             {
-                if (!comment.HasBeenModerated)
+                if (comment.HasBeenModerated)
                 {
-                    comment.HasBeenModerated = true;
+                    PostRepository.AddModeratedCommentToPost(comment, comment.PostId);
                 }
-                   PostRepository.AddModeratedCommentToPost(comment, comment.PostId);
+                   
             }
             return View("ModerationSucessfull");
         }

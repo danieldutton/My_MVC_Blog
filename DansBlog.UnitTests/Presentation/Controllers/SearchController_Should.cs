@@ -12,7 +12,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 {
     [TestFixture]
     public class SearchController_Should
-    {       
+    {
         private Mock<IPostRepository> _fakePostRepo;
 
         private Mock<IViewMapper> _fakeViewMapper;
@@ -50,14 +50,14 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Index_ReturnHttpNotFoundIfSearchReturnsNull()
+        public void Index_ReturnHttpNotFound_If_SearchReturnsNull()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<string>())).Returns(() => null);
 
             var result = _sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>()) as HttpNotFoundResult;
 
             Assert.AreEqual(404, result.StatusCode);
-        }       
+        }
 
         [Test]
         public void Index_DefaultPageSizeTo6()
@@ -66,8 +66,9 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             _sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>());
 
-            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), 
-                                  It.Is<int>(p => p == 6), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
+            _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(),
+                                                            It.Is<int>(p => p == 6), It.IsAny<string>(),
+                                                            It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
@@ -78,7 +79,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut.Index(null, It.IsAny<bool>(), It.IsAny<string>());
 
             _fakeViewMapper.Verify(x => x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(p => p == 1),
-                                  It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));   
+                                                            It.IsAny<int>(), It.IsAny<string>(), It.IsAny<bool>(),
+                                                            It.IsAny<string>()));
         }
 
         [Test]
@@ -95,8 +97,9 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         public void Index_ReturnTheCorrectModelType()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<string>())).Returns(_posts);
-            _fakeViewMapper.Setup(x => x.MapIndexViewModel(_posts, It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>(), 
-                                  It.IsAny<bool>(), It.IsAny<string>())).Returns(new BlogPostViewModel());
+            _fakeViewMapper.Setup(x => x.MapIndexViewModel(_posts, It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>(),
+                                                           It.IsAny<bool>(), It.IsAny<string>()))
+                           .Returns(new BlogPostViewModel());
 
             var viewResult = _sut.Index(It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string>()) as ViewResult;
             var model = viewResult.Model as BlogPostViewModel;
@@ -106,7 +109,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
         [TearDown]
         public void TearDown()
-        {            
+        {
             _fakePostRepo = null;
             _fakeViewMapper = null;
             _posts = null;

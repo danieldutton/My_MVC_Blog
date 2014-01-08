@@ -30,10 +30,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _posts = Mother.GetTenPosts_No_Categories_NoComments_No_Tags();
         }
 
-        #region Index
-
         [Test]
-        public void Index_CallProperty_All_ExactlyOnce()
+        public void Index_Call_All_ExactlyOnce()
         {
             _sut.Index(1);
 
@@ -59,7 +57,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             _fakeViewMapper.Verify(
                 x =>
-                x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.Is<int>(i => i == 28), It.IsAny<string>(),
+                x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.Is<int>(i => i == 28),
+                                    It.IsAny<string>(),
                                     It.IsAny<bool>(), It.IsAny<string>()));
         }
 
@@ -71,27 +70,13 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut.Index(null);
 
             _fakeViewMapper.Verify(
-                x => 
-                    x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(i => i == 1), It.IsAny<int>(),
-                    It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
+                x =>
+                x.MapIndexViewModel(It.IsAny<List<Post>>(), It.Is<int>(i => i == 1), It.IsAny<int>(),
+                                    It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()));
         }
 
         [Test]
-        public void Index_CallMethod_MapIndexViewModelExactlyOnce()
-        {
-            _fakePostRepo.Setup(x => x.All).Returns(_posts);
-
-            _sut.Index(1);
-
-            _fakeViewMapper.Verify(
-                x => 
-                    x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(), 
-                    It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()), 
-                    Times.Once());
-        }
-
-        [Test]
-        public void Index_CallMethod_MapIndexViewModel_WithTheCorrectData()
+        public void Index_Call_MapIndexViewModelExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.All).Returns(_posts);
 
@@ -99,8 +84,23 @@ namespace DansBlog._UnitTests.Presentation.Controllers
 
             _fakeViewMapper.Verify(
                 x =>
-                    x.MapIndexViewModel(It.Is<List<Post>>(p => p.Equals(_posts)), It.Is<int>(i => i == 1), It.Is<int>(i => i == 28), 
-                    It.Is<string>(i => i == "Index"), It.Is<bool>(i => i == false), It.IsAny<string>()));
+                x.MapIndexViewModel(It.IsAny<List<Post>>(), It.IsAny<int>(), It.IsAny<int>(),
+                                    It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<string>()),
+                Times.Once());
+        }
+
+        [Test]
+        public void Index_Call_MapIndexViewModel_WithCorrectData()
+        {
+            _fakePostRepo.Setup(x => x.All).Returns(_posts);
+
+            _sut.Index(1);
+
+            _fakeViewMapper.Verify(
+                x =>
+                x.MapIndexViewModel(It.Is<List<Post>>(p => p.Equals(_posts)), It.Is<int>(i => i == 1),
+                                    It.Is<int>(i => i == 28),
+                                    It.Is<string>(i => i == "Index"), It.Is<bool>(i => i == false), It.IsAny<string>()));
         }
 
         [Test]
@@ -125,12 +125,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.IsInstanceOf(typeof (BlogPostViewModel), model);
         }
 
-        #endregion
-
-        #region Details
-
         [Test]
-        public void Details_SetParamToOnebyDefaultIfNoneSpecified()
+        public void Details__SetIDParamTo_1_IfNoneGiven()
         {
             _sut.Details();
 
@@ -138,7 +134,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Details_CallFindExactlyOnce()
+        public void Details_Call_Find_ExactlyOnce()
         {
             _sut.Details(It.IsAny<int>());
 
@@ -154,7 +150,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Details_ReturnHttpNotFoundIf_Find_ReturnsNull()
+        public void Details_ReturnHttpNotFound_If_Find_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => null);
 
@@ -185,12 +181,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var viewResult = _sut.Details(It.IsAny<int>()) as ViewResult;
             var model = viewResult.Model as Post;
 
-            Assert.IsInstanceOf(typeof(Post), model);
+            Assert.IsInstanceOf(typeof (Post), model);
         }
-
-        #endregion
-
-        #region Create Get
 
         [Test]
         public void Create_Get_ReturnTheCorrectView()
@@ -216,7 +208,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var viewResult = _sut.Create() as ViewResult;
             var model = viewResult.Model as Post;
 
-            Assert.IsInstanceOf<Post>(model);   
+            Assert.IsInstanceOf<Post>(model);
         }
 
         [Test]
@@ -233,12 +225,8 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.AreEqual("Daniel Dutton", model.Author);
         }
 
-        #endregion
-
-        #region Create Post
-
         [Test]
-        public void Create_Post_CallAddMethodExactlyOnce_IfModelStateIsValid()
+        public void Create_Post_Call_Add_ExactlyOnce_IfModelStateIsValid()
         {
             _sut.Create(It.IsAny<Post>());
 
@@ -246,7 +234,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Create_Post_CallAddMethodWithTheSpecifiedPost_IfModelStateIsValid()
+        public void Create_Post_Call_Add_WithTheSpecifiedPost_IfModelStateIsValid()
         {
             var postStub = new Post();
 
@@ -258,9 +246,9 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void Create_Post_RedirectToIndexAction_IfModelStateIsValid()
         {
-            var redirectResult = (RedirectToRouteResult)_sut.Create(It.IsAny<Post>());
+            var redirectResult = (RedirectToRouteResult) _sut.Create(It.IsAny<Post>());
 
-            Assert.AreEqual(redirectResult.RouteValues, "/Admin/Inde");
+            Assert.AreEqual(redirectResult.RouteName, "Index");
         }
 
         [Test]
@@ -276,20 +264,17 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void Create_Post_ReturnTheCorrectModelType_IfModelStateIsNotValid()
         {
+            var postStub = new Post();
             _sut.ModelState.AddModelError(" ", " ");
 
-            var viewResult = _sut.Create(It.IsAny<Post>()) as ViewResult;
+            var viewResult = _sut.Create(postStub) as ViewResult;
             var model = viewResult.Model as Post;
 
-            Assert.IsInstanceOf<Post>(model);   
+            Assert.IsInstanceOf<Post>(model);
         }
 
-        #endregion
-
-        #region Edit Get
-
         [Test]
-        public void Edit_Get_SetParamToOnebyDefaultIfNoneSpecified()
+        public void Edit_Get_SetIDParamTo_1_IfNoneGiven()
         {
             _sut.Edit();
 
@@ -297,7 +282,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Edit_Get_CallFindExactlyOnce()
+        public void Edit_Get_Call_Find_ExactlyOnce()
         {
             _sut.Edit();
 
@@ -305,7 +290,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Edit_Get_CallFindWithTheSpecifiedParam()
+        public void Edit_Get_Call_Find_WithCorrectData()
         {
             _sut.Edit(4);
 
@@ -313,7 +298,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Edit_Get_ReturnHttpNotFoundIf_Find_ReturnsNull()
+        public void Edit_Get_ReturnHttpNotFound_If_Find_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => null);
 
@@ -343,20 +328,16 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             Assert.IsInstanceOf<Post>(model);
         }
 
-        #endregion
-
-        #region Edit Post
-
         [Test]
-        public void Edit_Post_CallUpdateMethodExactlyOnce_IfModelStateIsValid()
+        public void Edit_Post_Call_Update_ExactlyOnce_IfModelStateIsValid()
         {
             _sut.Edit(It.IsAny<Post>());
 
-            _fakePostRepo.Verify(x => x.Update(It.IsAny<Post>()), Times.Once());    
+            _fakePostRepo.Verify(x => x.Update(It.IsAny<Post>()), Times.Once());
         }
 
         [Test]
-        public void Edit_Post__CallUpdateMethodWithTheSpecifiedPost_IfModelStateIsValid()
+        public void Edit_Post__Call_Update_WithCorrectData_IfModelStateIsValid()
         {
             var postStub = new Post();
 
@@ -368,35 +349,43 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void Edit_Post_RedirectToIndexAction_IfModelStateIsValid()
         {
-            
+            var redirectResult = (RedirectToRouteResult)_sut.Edit(It.IsAny<Post>());
+
+            Assert.AreEqual("Index", redirectResult.RouteName);
         }
 
         [Test]
-        public void Edit_Post_ReturnCorrectViewIfModelStateIsNotValid()
+        public void Edit_Post_ReturnTheCorrectView_IfModelStateIsNotValid()
         {
-            
+            _sut.ModelState.AddModelError(" ", " ");
+
+            var viewResult = _sut.Edit(It.IsAny<Post>()) as ViewResult;
+
+            Assert.AreEqual(string.Empty, viewResult.ViewName);
         }
 
         [Test]
-        public void Edit_Post_ReturnCorrectModelTypeIfModelStateIsNotValid()
+        public void Edit_Post_ReturnTheCorrectModelType_IfModelStateIsNotValid()
         {
-            
+            var postStub = new Post();
+            _sut.ModelState.AddModelError(" ", " ");
+
+            var viewResult = _sut.Edit(postStub) as ViewResult;
+            var model = viewResult.Model as Post;
+
+            Assert.IsInstanceOf<Post>(model);
         }
 
-        #endregion
-
-        #region Delete
-
         [Test]
-        public void Delete_SetParamToOnebyDefaultIfNoneSpecified()
+        public void Delete_SetIDParamTo_1_IfNoneGiven()
         {
             _sut.Delete();
 
-            _fakePostRepo.Verify(x => x.Find(It.Is<int>(y => y == 1)));    
+            _fakePostRepo.Verify(x => x.Find(It.Is<int>(y => y == 1)));
         }
 
         [Test]
-        public void Delete_CallFindExactlyOnce()
+        public void Delete_Call_Find_ExactlyOnce()
         {
             _sut.Delete(It.IsAny<int>());
 
@@ -404,7 +393,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Delete_CallFindWithSpecifiedId()
+        public void Delete_Call_Find_WithCorrectData()
         {
             _sut.Delete(5);
 
@@ -412,7 +401,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Delete_ReturnHttpNotFoundIf_Find_ReturnsNull()
+        public void Delete_ReturnHttpNotFound_If_Find_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => null);
 
@@ -439,15 +428,11 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             var viewResult = _sut.Delete(It.IsAny<int>()) as ViewResult;
             var model = viewResult.Model as Post;
 
-            Assert.IsInstanceOf(typeof(Post), model);
+            Assert.IsInstanceOf(typeof (Post), model);
         }
 
-        #endregion
-
-        #region Delete Confirmed
-
         [Test]
-        public void DeleteConfirmed_CallFindExactlyOnce()
+        public void DeleteConfirmed_Call_Find_ExactlyOnce()
         {
             _sut.DeleteConfirmed(It.IsAny<int>());
 
@@ -455,7 +440,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void DeleteConfirmed_CallFindWithSpecifiedId()
+        public void DeleteConfirmed_Call_Find_WithCorrectData()
         {
             _sut.DeleteConfirmed(5);
 
@@ -463,7 +448,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void DeleteConfirmed_ReturnHttpNotFoundIf_Find_ReturnsNull()
+        public void DeleteConfirmed_ReturnHttpNotFound_If_Find_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => null);
 
@@ -473,7 +458,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void DeleteConfirmed_CallDeleteExactlyOnce()
+        public void DeleteConfirmed_Call_Delete_ExactlyOnce()
         {
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => new Post());
 
@@ -483,11 +468,11 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void DeleteConfirmed_CallDeleteWithTheCorrectPost()
+        public void DeleteConfirmed_Call_Delete_WithCorrectData()
         {
             var postStub = new Post();
             _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(() => postStub);
-            
+
             _sut.DeleteConfirmed(It.IsAny<int>());
 
             _fakePostRepo.Verify(x => x.Delete(It.Is<Post>(y => y.Equals(postStub))));
@@ -496,15 +481,15 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         [Test]
         public void DeleteConfirmed_RedirectToIndexAction()
         {
-            
+            _fakePostRepo.Setup(x => x.Find(It.IsAny<int>())).Returns(new Post());
+
+            var redirectResult = (RedirectToRouteResult)_sut.DeleteConfirmed(It.IsAny<int>());
+
+            Assert.AreEqual("Index", redirectResult.RouteName);
         }
 
-        #endregion
-
-        #region Moderate Get
-
         [Test]
-        public void Moderate_Get_SetParamToOnebyDefaultIfNoneSpecified()
+        public void Moderate_Get_SetIDParamTo_1_IfNoneGiven()
         {
             _sut.Moderate();
 
@@ -512,7 +497,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Moderate_Get_CallGetUnModeratedPostCommentsExactlyOnce()
+        public void Moderate_Get_Call_GetUnModeratedPostComments_ExactlyOnce()
         {
             _sut.Moderate(It.IsAny<int>());
 
@@ -520,7 +505,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Moderate_Get_CallGetUnModeratedPostCommentsWithSpecifiedId()
+        public void Moderate_Get_Call_GetUnModeratedPostComments_WithCorrectData()
         {
             _sut.Moderate(5);
 
@@ -528,10 +513,10 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         }
 
         [Test]
-        public void Moderate_Get_ReturnHttpNotFoundIf_GetUnModeratedPostComments_ReturnsNull()
+        public void Moderate_Get_ReturnHttpNotFound_If_GetUnModeratedPostComments_ReturnsNull()
         {
             _fakePostRepo.Setup(x => x.GetUnModeratedPostComments(It.IsAny<int>()))
-                .Returns(() => null);
+                         .Returns(() => null);
 
             var viewResult = _sut.Moderate(It.IsAny<int>()) as HttpNotFoundResult;
 
@@ -542,7 +527,7 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         public void Moderate_Get_ReturnTheCorrectView()
         {
             _fakePostRepo.Setup(x => x.GetUnModeratedPostComments(It.IsAny<int>()))
-                .Returns(new List<Comment>());
+                         .Returns(new List<Comment>());
 
             var viewResult = _sut.Moderate(It.IsAny<int>()) as ViewResult;
 
@@ -553,19 +538,50 @@ namespace DansBlog._UnitTests.Presentation.Controllers
         public void Moderate_Get_ReturnTheCorrectModelType()
         {
             _fakePostRepo.Setup(x => x.GetUnModeratedPostComments(It.IsAny<int>()))
-                .Returns(new List<Comment>());
+                         .Returns(new List<Comment>());
 
             var viewResult = _sut.Moderate(It.IsAny<int>()) as ViewResult;
             var model = viewResult.Model as List<Comment>;
 
-            Assert.IsInstanceOf(typeof(List<Comment>), model);
+            Assert.IsInstanceOf(typeof (List<Comment>), model);
         }
 
-        #endregion
+        [Test]
+        public void Moderate_Post_ReturnHttpNotFound_If_CommentsParamIsNull()
+        {
+            var viewResult = _sut.Moderate(null) as HttpNotFoundResult;
 
-        #region Moderate Post
+            Assert.AreEqual(404, viewResult.StatusCode);
+        }
 
-        #endregion
+        [Test]
+        public void Moderate_Post_Call_AddModeratedCommentToPost_ForModeratedCommentsOnly()
+        {
+            List<Comment> comments = Mother.GetTenComments_With_5_Moderated();
+
+            _sut.Moderate(comments);
+
+            _fakePostRepo.Verify(x => x.AddModeratedCommentToPost(It.IsAny<Comment>(), It.IsAny<int>()), Times.Exactly(5));
+        }
+
+        [Test]
+        public void Moderate_Post_ReturnTheCorrectView()
+        {
+            List<Comment> comments = Mother.GetTenComments_With_5_Moderated();
+            
+            var viewResult = _sut.Moderate(comments) as ViewResult;
+
+            Assert.AreEqual("ModerationSucessfull", viewResult.ViewName);    
+        }
+
+        [Test]
+        public void AutoCompleteCategory_Call_SearchForCategory_ExactlyOnce()
+        {
+            var fakeCategoryRepository = new Mock<ICategoryRepository>();
+            _sut.CategoryRepository = fakeCategoryRepository.Object;
+
+            fakeCategoryRepository.Verify(x => x.SearchForCategories(It.IsAny<string>()), Times.Exactly(2));            
+        }
 
         [TearDown]
         public void TearDown()
@@ -575,6 +591,5 @@ namespace DansBlog._UnitTests.Presentation.Controllers
             _sut = null;
             _posts = null;
         }
-
     }
 }

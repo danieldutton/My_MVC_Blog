@@ -132,7 +132,7 @@ namespace DansBlog._IntegrationTests.Controller_Repository_Data
             fakeContext.SetupGet(x => x.HttpContext.Request.IsAuthenticated).Returns(true);
             _sut.ControllerContext = fakeContext.Object;
 
-            ViewResult viewResult = _sut.Create();
+            var viewResult = _sut.Create() as ViewResult;
             var model = viewResult.Model as Post;
 
             Assert.AreEqual("Daniel Dutton", model.Author);
