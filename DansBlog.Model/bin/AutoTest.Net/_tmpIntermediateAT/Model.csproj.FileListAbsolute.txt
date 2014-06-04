@@ -1,8 +1,0 @@
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\_tmpIntermediateAT\Model.csprojResolveAssemblyReference.cache
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\Model.dll.config
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\_tmpIntermediateAT\Model.dll
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\_tmpIntermediateAT\Model.pdb
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\Model.dll
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\Model.pdb
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\EntityFramework.dll
-C:\Users\Daniel\Desktop\Projects\DansBlog\Model\bin\AutoTest.Net\EntityFramework.xml
