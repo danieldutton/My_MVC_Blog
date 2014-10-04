@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog._UnitTests", "DansBlog.UnitTests\DansBlog._UnitTests.csproj", "{2AB262AA-02D1-4955-8DE4-9B008F93ADDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Utilities", "DansBlog.Utilities\DansBlog.Utilities.csproj", "{2E0F0783-B4C2-4A5E-9D2E-46560B18E120}"
@@ -16,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog.Services", "DansBlog.Services\DansBlog.Services.csproj", "{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DansBlog._IntegrationTests", "DansBlog_IntegrationTests\DansBlog._IntegrationTests.csproj", "{37831759-A1CB-4A80-95FC-8304314B3D26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{53446A5C-20F7-4F7B-A825-BCB71996AD53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,5 +62,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AB262AA-02D1-4955-8DE4-9B008F93ADDC} = {53446A5C-20F7-4F7B-A825-BCB71996AD53}
+		{37831759-A1CB-4A80-95FC-8304314B3D26} = {53446A5C-20F7-4F7B-A825-BCB71996AD53}
 	EndGlobalSection
 EndGlobal
