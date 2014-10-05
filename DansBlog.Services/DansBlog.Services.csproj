@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{96F1E5BD-A859-4A2C-A1EF-03A221CB172E}</ProjectGuid>
+    <ProjectGuid>{E3244B04-B6A9-4695-AC16-F4621206F4E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DansBlog.Services</RootNamespace>
@@ -33,33 +33,37 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archiving\ViewModel\Archive.cs" />
     <Compile Include="Archiving\Archiver.cs" />
     <Compile Include="Archiving\Interfaces\IArchiveMapper.cs" />
     <Compile Include="Archiving\Interfaces\IArchiver.cs" />
     <Compile Include="Archiving\Interfaces\IDistinctMonthHelper.cs" />
     <Compile Include="Archiving\Utilities\ArchiveMapper.cs" />
     <Compile Include="Archiving\Utilities\DistinctMonthHelper.cs" />
+    <Compile Include="Archiving\ViewModel\Archive.cs" />
     <Compile Include="Email\Emailer.cs" />
-    <Compile Include="Email\Model\Contact.cs" />
-    <Compile Include="Email\Model\EmailSettings.cs" />
     <Compile Include="Email\Interfaces\IEmailer.cs" />
     <Compile Include="Email\Interfaces\IMessagingService.cs" />
+    <Compile Include="Email\Model\Contact.cs" />
+    <Compile Include="Email\Model\EmailSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DansBlog.Model\DansBlog.Model.csproj">
-      <Project>{E537E700-E0C2-4A67-BD57-1E24C0966449}</Project>
+      <Project>{1c593ec3-7e7f-4f54-af6b-57d027009209}</Project>
       <Name>DansBlog.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
-      <Project>{2e0f0783-b4c2-4a5e-9d2e-46560b18e120}</Project>
+      <Project>{84f9ea21-b5df-4bae-8470-a2e3bc449572}</Project>
       <Name>DansBlog.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

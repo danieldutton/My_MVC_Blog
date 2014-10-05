@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DansBlog.Presentation.App_Start
+namespace DansBlog
 {
     public class FilterConfig
     {

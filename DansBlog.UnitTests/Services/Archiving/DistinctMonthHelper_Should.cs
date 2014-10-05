@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DansBlog._UnitTests.Services.Archiving
+namespace DansBlog.UnitTests.Services.Archiving
 {
     [TestFixture]
     public class DistinctMonthHelper_Should

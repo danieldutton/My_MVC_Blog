@@ -1,5 +1,5 @@
-﻿using DansBlog.Model.Entities;
-using DansBlog.Presentation.Controllers;
+﻿using DansBlog.Controllers;
+using DansBlog.Model.Entities;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
@@ -8,7 +8,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace DansBlog._UnitTests.Presentation.Controllers
+namespace DansBlog.UnitTests.Presentation.Controllers
 {
     [TestFixture]
     public class AdminController_Should

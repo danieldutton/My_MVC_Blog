@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DansBlog._UnitTests.Model.Entities
+namespace DansBlog.UnitTests.Model.Entities
 {
     [TestFixture]
     public class Post_Should

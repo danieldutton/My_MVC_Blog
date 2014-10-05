@@ -1,8 +1,9 @@
+using System.Configuration;
 using DansBlog.DataAccess;
 using DansBlog.Model.Domain;
 using DansBlog.Presentation.Mappers;
+using DansBlog.Repository;
 using DansBlog.Repository.Interfaces;
-using DansBlog.Repository.Repositories;
 using DansBlog.Services.Archiving;
 using DansBlog.Services.Archiving.Interfaces;
 using DansBlog.Services.Archiving.Utilities;
@@ -13,18 +14,19 @@ using DansBlog.Utilities.DateTimes;
 using DansBlog.Utilities.Interfaces;
 using DansBlog.Utilities.Numbers;
 using DansBlog.Utilities.Xml;
-using System.Configuration;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(DansBlog.Presentation.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(DansBlog.Presentation.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(DansBlog.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(DansBlog.App_Start.NinjectWebCommon), "Stop")]
 
-namespace DansBlog.Presentation.App_Start
+namespace DansBlog.App_Start
 {
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-    using Ninject;
-    using Ninject.Web.Common;
     using System;
     using System.Web;
+
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
+    using Ninject;
+    using Ninject.Web.Common;
 
     public static class NinjectWebCommon 
     {
@@ -55,11 +57,19 @@ namespace DansBlog.Presentation.App_Start
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-            kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-            
-            RegisterServices(kernel);
-            return kernel;
+            try
+            {
+                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+                RegisterServices(kernel);
+                return kernel;
+            }
+            catch
+            {
+                kernel.Dispose();
+                throw;
+            }
         }
 
         /// <summary>

@@ -5,9 +5,8 @@ using DansBlog.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace DansBlog.Presentation.Controllers
-{   
-    [Authorize]
+namespace DansBlog.Controllers
+{
     public class AdminController : ApplicationController
     {
         public AdminController(IPostRepository postRepository, IViewMapper viewMapper) 
@@ -53,7 +52,7 @@ namespace DansBlog.Presentation.Controllers
             if (ModelState.IsValid)
             {
                 PostRepository.Add(post);
-                return RedirectToRoute("Index");
+                return RedirectToAction("Index");
             }
 
             return View(post);
@@ -75,7 +74,7 @@ namespace DansBlog.Presentation.Controllers
             if (ModelState.IsValid)
             {
                 PostRepository.Update(post);
-                return RedirectToRoute("Index");
+                return RedirectToAction("Index");
             }
             return View(post);
         }
@@ -100,7 +99,7 @@ namespace DansBlog.Presentation.Controllers
 
             PostRepository.Delete(post);
 
-            return RedirectToRoute("Index");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Moderate(int id = 1)
@@ -136,4 +135,4 @@ namespace DansBlog.Presentation.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
-}
+    }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DansBlog._UnitTests.Model
+namespace DansBlog.UnitTests.Model
 {
     [TestFixture]
     public static class Mother

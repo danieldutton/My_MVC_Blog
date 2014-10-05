@@ -9,8 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace DansBlog.Presentation.Controllers
-{   
+namespace DansBlog.Controllers
+{
     public class HomeController : ApplicationController
     {
         private readonly IViewMapper _viewMapper;
@@ -20,9 +20,9 @@ namespace DansBlog.Presentation.Controllers
         public IEmailer MessagingService { get; private set; }
 
 
-        public HomeController(IPostRepository postRepository, 
+        public HomeController(IPostRepository postRepository,
                               IEmailer messagingService,
-                              IViewMapper viewMapper) 
+                              IViewMapper viewMapper)
             : base(postRepository, viewMapper)
         {
             _viewMapper = viewMapper;
@@ -30,7 +30,7 @@ namespace DansBlog.Presentation.Controllers
         }
 
 
-        [OutputCache(Duration=1800, VaryByParam="page")]
+        [OutputCache(Duration = 1800, VaryByParam = "page")]
         public ActionResult Index(int? page)
         {
             List<Post> posts = PostRepository.All;
@@ -42,7 +42,7 @@ namespace DansBlog.Presentation.Controllers
 
             return View(viewModel);
         }
-       
+
         public ViewResult About()
         {
             return View();
@@ -55,7 +55,7 @@ namespace DansBlog.Presentation.Controllers
 
             if (groupedPosts == null)
                 return HttpNotFound();
-            
+
             return View(groupedPosts);
         }
 
@@ -63,15 +63,15 @@ namespace DansBlog.Presentation.Controllers
         public ViewResult TagCloud()
         {
             List<Tag> tags = PostRepository.GetDistinctTags();
-            
+
             return View(tags);
         }
-       
+
         public ActionResult FetchComments(int id = 1)
         {
             List<Comment> comments = PostRepository.GetModeratedPostComments(id);
-                      
-            if(Request.IsAjaxRequest())
+
+            if (Request.IsAjaxRequest())
                 return PartialView(comments);
 
             return View("NonAjaxView", comments);
@@ -88,12 +88,12 @@ namespace DansBlog.Presentation.Controllers
                 PostRepository.AddCommentToPost(comment, comment.PostId);
 
                 MessagingService.Contact = new Contact
-                    {
-                        Name = comment.Author,
-                        Email = comment.Email,
-                        Message = comment.Content,
-                        Subject = "comment to moderate post id: " + comment.PostId //ToDo - Test This
-                    };
+                {
+                    Name = comment.Author,
+                    Email = comment.Email,
+                    Message = comment.Content,
+                    Subject = "comment to moderate post id: " + comment.PostId //ToDo - Test This
+                };
                 MessagingService.Message();
             }
             else
@@ -111,7 +111,7 @@ namespace DansBlog.Presentation.Controllers
 
             if (posts == null)
                 return HttpNotFound();
-            
+
             const int pageSize = 5;
             int pageNumber = (page ?? 1);
 
@@ -141,7 +141,7 @@ namespace DansBlog.Presentation.Controllers
                 {
                     MessagingService.Contact = contact;
                     MessagingService.Message();
-                    
+
                     return RedirectToRoute("ContactConfirmed");
                 }
                 catch (Exception)
@@ -156,7 +156,7 @@ namespace DansBlog.Presentation.Controllers
         {
             return View("ContactConfirmed");
         }
-        
+
         public ViewResult ContactFailed()
         {
             return View("ContactFailed");
@@ -211,6 +211,5 @@ namespace DansBlog.Presentation.Controllers
         {
             return View();
         }
-
     }
 }

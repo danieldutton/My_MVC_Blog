@@ -1,6 +1,5 @@
-﻿using System;
+﻿using DansBlog.Controllers;
 using DansBlog.Model.Entities;
-using DansBlog.Presentation.Controllers;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
@@ -8,6 +7,7 @@ using DansBlog.Services.Email.Interfaces;
 using DansBlog.Services.Email.Model;
 using Moq;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,7 +15,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace DansBlog._UnitTests.Presentation.Controllers
+namespace DansBlog.UnitTests.Presentation.Controllers
 {
     [TestFixture]
     public class HomeController_Should

@@ -1,14 +1,12 @@
 ﻿using DansBlog.DataAccess;
-using DansBlog.Presentation.App_Start;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace DansBlog.Presentation
+namespace DansBlog
 {
     public class MvcApplication : HttpApplication
     {
@@ -16,13 +14,11 @@ namespace DansBlog.Presentation
         {
             Database.SetInitializer(new BlogDataInitializer());
             Database.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
-            AreaRegistration.RegisterAllAreas();
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
         }
     }
 }

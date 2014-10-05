@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DansBlog._UnitTests.Services
+namespace DansBlog.UnitTests.Services
 {
     public static class Mother
     {

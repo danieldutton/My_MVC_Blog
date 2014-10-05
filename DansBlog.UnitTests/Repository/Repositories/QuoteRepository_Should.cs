@@ -1,11 +1,11 @@
 ﻿using DansBlog.Model.Domain;
-using DansBlog.Repository.Repositories;
+using DansBlog.Repository;
 using DansBlog.Utilities.Interfaces;
 using Moq;
 using NUnit.Framework;
 using System.Xml.Linq;
 
-namespace DansBlog._UnitTests.Repository.Repositories
+namespace DansBlog.UnitTests.Repository.Repositories
 {
     [TestFixture]
     public class QuoteRepository_Should

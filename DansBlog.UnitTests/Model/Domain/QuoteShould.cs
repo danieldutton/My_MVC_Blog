@@ -1,7 +1,7 @@
 ﻿using DansBlog.Model.Domain;
 using NUnit.Framework;
 
-namespace DansBlog._UnitTests.Model.Domain
+namespace DansBlog.UnitTests.Model.Domain
 {
     [TestFixture]
     public class QuoteShould

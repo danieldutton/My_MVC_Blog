@@ -6,7 +6,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace DansBlog._UnitTests.Services.Archiving
+namespace DansBlog.UnitTests.Services.Archiving
 {
     [TestFixture]
     public class ArchiverShould

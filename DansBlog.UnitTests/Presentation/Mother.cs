@@ -1,8 +1,8 @@
-﻿using System;
-using DansBlog.Model.Entities;
+﻿using DansBlog.Model.Entities;
+using System;
 using System.Collections.Generic;
 
-namespace DansBlog._UnitTests.Presentation
+namespace DansBlog.UnitTests.Presentation
 {
     public static class Mother
     {

@@ -5,11 +5,11 @@ using DansBlog.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace DansBlog.Presentation.Controllers
+namespace DansBlog.Controllers
 {
     public class SearchController : ApplicationController
     {
-        public SearchController(IPostRepository postRepository, IViewMapper viewMapper) 
+        public SearchController(IPostRepository postRepository, IViewMapper viewMapper)
             : base(postRepository, viewMapper)
         {
         }
@@ -26,9 +26,8 @@ namespace DansBlog.Presentation.Controllers
             const int pageSize = 6;
             int pageNumber = (page ?? 1);
             BlogPostViewModel viewModel = ViewMapper.MapIndexViewModel(posts, pageNumber, pageSize, "Index", false, search);
-            
+
             return View("ArchiveSearch", viewModel);
         }
-
     }
 }

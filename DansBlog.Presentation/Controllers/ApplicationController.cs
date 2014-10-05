@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 
-namespace DansBlog.Presentation.Controllers
+namespace DansBlog.Controllers
 {
     [HandleError]
     public class ApplicationController : Controller
@@ -65,11 +65,11 @@ namespace DansBlog.Presentation.Controllers
             List<Archive> archivedMonths = Archiver.GetArchivedMonths(DateTime.Now, displayCount, _postRepository.All);
 
             var masterLayout = new MasterLayout
-                {
-                    ArchivedMonths = archivedMonths,
-                    Categories = categories,
-                    QuoteOfTheDay = quote
-                };
+            {
+                ArchivedMonths = archivedMonths,
+                Categories = categories,
+                QuoteOfTheDay = quote
+            };
 
             ViewBag.Layout = masterLayout;
 
