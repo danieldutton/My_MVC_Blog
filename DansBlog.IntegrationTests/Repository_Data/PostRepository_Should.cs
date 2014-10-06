@@ -10,8 +10,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
     [TestFixture]
     public class PostRepository_Should
     {
-        private const string DbFile = "DansBlog.DataAccess.BlogDbContext";
-
         private BlogDbContext _dataContext;
 
         private PostRepository _sut;
@@ -21,7 +19,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
         public void InitTest()
         {
             _dataContext = new BlogDbContext();
-            _dataContext.Database.Initialize(true);
             _sut = new PostRepository(_dataContext);
         }
 
@@ -43,11 +40,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
         public void TearDown()
         {
             _dataContext.Dispose();
-
-            if (File.Exists(DbFile))
-            {
-                File.Delete(DbFile);
-            }
             _sut = null;
         }
     }

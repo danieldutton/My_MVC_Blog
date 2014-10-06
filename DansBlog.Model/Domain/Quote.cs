@@ -18,7 +18,8 @@
 
         public override string ToString()
         {
-            return string.Format("[{0}] Text: {1} Author: {2}", GetType().Name, Text, Author);
+            return string.Format("[{0}] Text: {1} Author: {2}", 
+                GetType().Name, Text, Author);
         }
     }
 }

@@ -3,7 +3,6 @@ using DansBlog.Model.Entities;
 using DansBlog.Repository;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace DansBlog.IntegrationTests.Repository_Data
@@ -11,8 +10,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
     [TestFixture]
     public class CategoryRepository_Should
     {
-        private const string DbFile = "DansBlog.DataAccess.BlogDbContext";
-
         private BlogDbContext _dataContext;
 
         private CategoryRepository _sut;
@@ -21,7 +18,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
         public void InitTest()
         {
             _dataContext = new BlogDbContext();
-            _dataContext.Database.Initialize(true);
             _sut = new CategoryRepository(_dataContext);
         }
 
@@ -122,11 +118,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
         public void TearDown()
         {
             _dataContext.Dispose();
-
-            if (File.Exists(DbFile))
-            {
-                File.Delete(DbFile);
-            }
             _sut = null;
         }
     }

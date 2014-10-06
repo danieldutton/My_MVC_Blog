@@ -8,7 +8,6 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -17,8 +16,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
     [TestFixture]
     public class AdminController_Should
     {
-        private const string DbFile = "DansBlog.DataAccess.BlogDbContext";
-
         private BlogDbContext _dataContext;
         
         private AdminController _sut;
@@ -31,7 +28,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
         public void InitTest()
         {
             _dataContext = new BlogDbContext();
-            _dataContext.Database.Initialize(true);
             _postRepository = new PostRepository(_dataContext);
             _viewMapper = new ViewMapper();
             _sut = new AdminController(_postRepository, _viewMapper);
@@ -328,11 +324,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
         public void TearDown()
         {
             _dataContext.Dispose();
-
-            if (File.Exists(DbFile))
-            {
-                File.Delete(DbFile);
-            }
             _postRepository = null;
         }
     }

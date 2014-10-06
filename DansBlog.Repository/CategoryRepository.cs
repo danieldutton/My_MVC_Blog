@@ -28,7 +28,7 @@ namespace DansBlog.Repository
         {
             var category = _dataContext.Categories.FirstOrDefault(c => c.Name.Equals(entity.Name, StringComparison.InvariantCultureIgnoreCase));
             if (category != null) return;
-
+            
             _dataContext.Categories.Add(entity);
             _dataContext.SaveChanges();
         }

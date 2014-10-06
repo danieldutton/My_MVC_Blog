@@ -4,9 +4,6 @@ using DansBlog.Presentation.Mappers;
 using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository;
 using NUnit.Framework;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.IO;
 using System.Web.Mvc;
 
 namespace DansBlog.IntegrationTests.Controller_Repository_Data
@@ -14,8 +11,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
     [TestFixture]
     public class SearchController_Should
     {
-        private const string DbFile = "DansBlog.DataAccess.BlogDbContext";
-
         private BlogDbContext _dataContext;
 
         private SearchController _sut;
@@ -29,7 +24,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
         public void InitTest()
         {
             _dataContext = new BlogDbContext();
-            _dataContext.Database.Initialize(true);
             _postRepository = new PostRepository(_dataContext);
             _viewMapper = new ViewMapper();
             _sut = new SearchController(_postRepository, _viewMapper);
@@ -111,11 +105,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
         public void TearDown()
         {
             _dataContext.Dispose();
-
-            if (File.Exists(DbFile))
-            {
-                File.Delete(DbFile);
-            }
             _postRepository = null;
         }
     }

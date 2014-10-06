@@ -21,14 +21,12 @@
                 <p>
                     @Html.DisplayFor(modelItem => item.Content)
                 </p>
-                <div>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </div>
+
                 <div>
                     @Html.ActionLink("Edit", "Edit", new {id = item.Id}) 
                     @Html.ActionLink("Details", "Details", new {id = item.Id}) 
                     @Html.ActionLink("Delete", "Delete", new {id = item.Id})
-                    @Html.ActionLink("Awaiting Moderation", "Moderate", new {id = item.Id})
+                    @Html.ActionLink("Moderate Comments", "Moderate", new {id = item.Id})
                 </div>           
         }
 </div>
