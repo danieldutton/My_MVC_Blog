@@ -1,7 +1,7 @@
 ﻿using DansBlog.Model.Entities;
 using System.Data.Entity;
 
-namespace DansBlog.DataAccess
+namespace DansBlog.DataAccess.Interfaces
 {
     public interface IDbContext
     {

@@ -1,5 +1,6 @@
 using System.Configuration;
 using DansBlog.DataAccess;
+using DansBlog.DataAccess.Interfaces;
 using DansBlog.Model.Domain;
 using DansBlog.Presentation.Mappers;
 using DansBlog.Repository;

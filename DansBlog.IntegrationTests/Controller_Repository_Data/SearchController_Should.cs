@@ -28,10 +28,6 @@ namespace DansBlog.IntegrationTests.Controller_Repository_Data
         [SetUp]
         public void InitTest()
         {
-            Database.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0", "",
-                    string.Format("Data Source=\"{0}\";", DbFile));
-            Database.SetInitializer(new BlogDataInitializer());
-
             _dataContext = new BlogDbContext();
             _dataContext.Database.Initialize(true);
             _postRepository = new PostRepository(_dataContext);

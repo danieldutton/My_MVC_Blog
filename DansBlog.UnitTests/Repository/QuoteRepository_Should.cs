@@ -5,7 +5,7 @@ using Moq;
 using NUnit.Framework;
 using System.Xml.Linq;
 
-namespace DansBlog.UnitTests.Repository.Repositories
+namespace DansBlog.UnitTests.Repository
 {
     [TestFixture]
     public class QuoteRepository_Should

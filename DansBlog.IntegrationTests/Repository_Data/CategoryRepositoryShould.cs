@@ -3,8 +3,6 @@ using DansBlog.Model.Entities;
 using DansBlog.Repository;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 
@@ -22,10 +20,6 @@ namespace DansBlog.IntegrationTests.Repository_Data
         [SetUp]
         public void InitTest()
         {
-            Database.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0", "",
-                    string.Format("Data Source=\"{0}\";", DbFile));
-            Database.SetInitializer(new BlogDataInitializer());
-
             _dataContext = new BlogDbContext();
             _dataContext.Database.Initialize(true);
             _sut = new CategoryRepository(_dataContext);

@@ -1,4 +1,5 @@
-﻿using DansBlog.Model.Entities;
+﻿using DansBlog.DataAccess.Interfaces;
+using DansBlog.Model.Entities;
 using System.Data.Entity;
 
 namespace DansBlog.DataAccess

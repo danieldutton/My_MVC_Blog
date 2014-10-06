@@ -12,9 +12,6 @@ namespace DansBlog
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new BlogDataInitializer());
-            Database.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

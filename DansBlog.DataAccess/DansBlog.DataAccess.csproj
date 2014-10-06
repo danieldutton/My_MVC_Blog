@@ -57,9 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogConfiguration.cs" />
     <Compile Include="BlogDataInitializer.cs" />
     <Compile Include="BlogDbContext.cs" />
-    <Compile Include="IDbContext.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

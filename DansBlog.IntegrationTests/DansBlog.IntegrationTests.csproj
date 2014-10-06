@@ -97,6 +97,7 @@
     <Compile Include="Repository_Data\CategoryRepositoryShould.cs" />
     <Compile Include="Repository_Data\PostRepository_Should.cs" />
     <Compile Include="Repository_Data\QuoteRepository_Should.cs" />
+    <Compile Include="Services\Archiver_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,6 +120,10 @@
       <Project>{9c7d2250-18ec-437b-b563-cd7e89a93823}</Project>
       <Name>DansBlog.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DansBlog.Services\DansBlog.Services.csproj">
+      <Project>{E3244B04-B6A9-4695-AC16-F4621206F4E6}</Project>
+      <Name>DansBlog.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DansBlog.Utilities\DansBlog.Utilities.csproj">
       <Project>{84F9EA21-B5DF-4BAE-8470-A2E3BC449572}</Project>
       <Name>DansBlog.Utilities</Name>
@@ -129,9 +134,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

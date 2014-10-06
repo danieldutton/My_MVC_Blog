@@ -21,7 +21,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = string.Empty, Subject = SubjectValue, Email = EmailValue, Message = MessageValue };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -31,7 +31,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = string.Empty, Subject = SubjectValue, Email = EmailValue, Message = MessageValue };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Name is required", errorMessage);
@@ -42,7 +42,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = null, Subject = SubjectValue, Email = EmailValue, Message = MessageValue };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -52,7 +52,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = null, Subject = SubjectValue, Email = EmailValue, Message = MessageValue };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Name is required", errorMessage);
@@ -77,7 +77,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = string.Empty, Email = EmailValue, Message = MessageValue };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -87,7 +87,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = string.Empty, Email = EmailValue, Message = MessageValue };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Subject is required", errorMessage);
@@ -98,7 +98,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = null, Email = EmailValue, Message = MessageValue };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -108,7 +108,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = null, Email = EmailValue, Message = MessageValue };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Subject is required", errorMessage);
@@ -133,7 +133,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = string.Empty, Message = MessageValue };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -143,7 +143,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = string.Empty, Message = MessageValue };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Email is required", errorMessage);
@@ -154,7 +154,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = null, Message = MessageValue };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -164,7 +164,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = null, Message = MessageValue };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Email is required", errorMessage);
@@ -189,7 +189,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = EmailValue, Message = string.Empty };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -199,7 +199,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = EmailValue, Message = string.Empty };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Message is required", errorMessage);
@@ -210,7 +210,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name =NameValue, Subject = SubjectValue, Email = EmailValue, Message = null };
 
-            int errorCount = UnitTests.Model.Mother.ValidateModel(sut).Count;
+            int errorCount = Mother.ValidateModel(sut).Count;
 
             Assert.AreEqual(1, errorCount);
         }
@@ -220,7 +220,7 @@ namespace DansBlog.UnitTests.Services.Email
         {
             var sut = new Contact { Name = NameValue, Subject = SubjectValue, Email = EmailValue, Message = null };
 
-            IList<ValidationResult> result = UnitTests.Model.Mother.ValidateModel(sut);
+            IList<ValidationResult> result = Mother.ValidateModel(sut);
             string errorMessage = result[0].ErrorMessage;
 
             Assert.AreEqual("Message is required", errorMessage);
