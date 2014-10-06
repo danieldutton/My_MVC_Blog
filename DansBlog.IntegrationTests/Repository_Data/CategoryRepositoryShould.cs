@@ -119,7 +119,7 @@ namespace DansBlog.IntegrationTests.Repository_Data
         {
             Category result = _sut.Find(3);
             _sut.Delete(result);
-            var deletedResult = _sut.Find(3);
+            Category deletedResult = _sut.Find(3);
 
             Assert.IsTrue(deletedResult == null);
         }

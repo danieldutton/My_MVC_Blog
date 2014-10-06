@@ -9,7 +9,6 @@ namespace DansBlog.DataAccess
     {
         protected override void Seed(BlogDbContext context)
         {
-            //seed data here
             var posts = new List<Post>
                 {
                     new Post{PublishDate = new DateTime(2011, 10, 7), Author = "Author 1", Title = "Title 1", Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vehicula in tellus at rutrum. Mauris lacinia lectus dui. Suspendisse non scelerisque enim. Nullam scelerisque porttitor lectus, eu congue est viverra a. Phasellus nec nulla vitae nisl mattis hendrerit vitae eget purus. In eget sodales sem, a blandit ipsum. Pellentesque congue quis felis sit amet pharetra. Vestibulum congue velit ante. Aenean mauris velit, hendrerit ut faucibus sed, molestie nec dui. Nam eu augue varius, rhoncus dolor non, iaculis felis. Proin vitae aliquam augue, a semper risus. Integer sodales tempus facilisis.", Categories = new List<Category>{new Category{Name = "Category One"}}, Comments = new List<Comment>{new Comment{Author = "Daniel Dutton", CreationTime = new DateTime(2013, 12, 01), Content = "Comment 1 Content", Email = "test@test.com"}}},
@@ -25,9 +24,7 @@ namespace DansBlog.DataAccess
                 };
 
             foreach (var post in posts)
-            {
                 context.Posts.Add(post);
-            }
 
             base.Seed(context);
         }

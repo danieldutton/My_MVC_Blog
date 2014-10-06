@@ -11,7 +11,10 @@ namespace DansBlog.Repository
     {
         private readonly IDbContext _dataContext;
 
-        public List<Post> All { get { return _dataContext.Posts.OrderByDescending(p => p.PublishDate).ToList(); } }
+        public List<Post> All
+        {
+            get { return _dataContext.Posts.OrderByDescending(p => p.PublishDate).ToList(); }
+        }
 
 
         public PostRepository(IDbContext dataContext)
@@ -40,14 +43,20 @@ namespace DansBlog.Repository
 
         public List<Post> Find(string content)
         {
-            List<Post> result = All.Where(c => c.Content.IndexOf(content, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            List<Post> result = All.
+                Where(c => c.Content
+                    .IndexOf(content, StringComparison.OrdinalIgnoreCase) >= 0)
+                    .ToList();
 
             return result;
         }
 
         public List<Post> GetPostByTag(string tagName)
         {
-            List<Post> result = All.Where(a => a.Tags.Any(b => b.Name.Contains(tagName))).ToList();
+            List<Post> result = All.
+                Where(a => a.Tags.
+                    Any(b => b.Name.Contains(tagName)))
+                    .ToList();
 
             return result;
         }
@@ -55,9 +64,11 @@ namespace DansBlog.Repository
         public List<Comment> GetModeratedPostComments(int postId)
         {
             Post result1 = All.SingleOrDefault(p => p.Id == postId);
+            
             if (result1 == null) return null;
 
-            List<Comment> result = All.SingleOrDefault(p => p.Id == postId)
+            List<Comment> result = All.
+                SingleOrDefault(p => p.Id == postId)
                 .Comments
                 .Where(p => p.HasBeenModerated)
                 .OrderBy(c => c.CreationTime)
@@ -71,7 +82,8 @@ namespace DansBlog.Repository
             Post result1 = All.SingleOrDefault(p => p.Id == postId);
             if (result1 == null) return null;
             
-            List<Comment> result =  All.SingleOrDefault(p => p.Id == postId)
+            List<Comment> result =  All.
+                SingleOrDefault(p => p.Id == postId)
                 .Comments
                 .Where(p => !p.HasBeenModerated)
                 .OrderBy(c => c.CreationTime)
@@ -91,7 +103,12 @@ namespace DansBlog.Repository
         public List<Post> GetPostsByCategory(string category)
         {
             List<Post> posts = All;
-            List<Post> postsByCategory = posts.Where(a => a.Categories.Any(b => b.Name.Contains(category))).ToList();
+            
+            List<Post> postsByCategory = posts.
+                Where(a => a.Categories
+                    .Any(b => b.Name
+                        .Contains(category)))
+                        .ToList();
 
             return postsByCategory;
         }

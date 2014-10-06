@@ -94,7 +94,6 @@
     <Compile Include="Controller_Repository_Data\AdminController_Should.cs" />
     <Compile Include="Controller_Repository_Data\SearchController_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository_DataAccess\PostRepository_Should.cs" />
     <Compile Include="Repository_Data\CategoryRepositoryShould.cs" />
     <Compile Include="Repository_Data\PostRepository_Should.cs" />
     <Compile Include="Repository_Data\QuoteRepository_Should.cs" />
@@ -124,6 +123,14 @@
       <Project>{84F9EA21-B5DF-4BAE-8470-A2E3BC449572}</Project>
       <Name>DansBlog.Utilities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestFiles\quotes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

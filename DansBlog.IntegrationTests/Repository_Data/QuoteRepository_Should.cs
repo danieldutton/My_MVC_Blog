@@ -14,7 +14,7 @@ namespace DansBlog.IntegrationTests.Repository_Data
 
         private Mock<IRandomNumberGenerator> _fakeNumberGenerator;
 
-        private const string QuotesFilesPath = "quotes.xml";
+        private const string QuotesFilesPath = "TestFiles/quotes.xml";
 
         [SetUp]
         public void Init()
