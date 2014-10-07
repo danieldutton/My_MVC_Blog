@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace DansBlog.Presentation.HtmlHelpers
+namespace DansBlog.HtmlHelpers
 {
     public static class CommentHelperExtension
     {

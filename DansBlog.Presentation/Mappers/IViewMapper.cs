@@ -1,8 +1,8 @@
-﻿using DansBlog.Model.Entities;
-using DansBlog.Presentation.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DansBlog.Model.Entities;
+using DansBlog.ViewModels;
 
-namespace DansBlog.Presentation.Mappers
+namespace DansBlog.Mappers
 {
     public interface IViewMapper
     {

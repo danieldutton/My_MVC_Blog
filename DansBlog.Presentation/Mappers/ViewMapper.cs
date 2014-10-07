@@ -1,10 +1,10 @@
 ﻿using DansBlog.Model.Entities;
-using DansBlog.Presentation.ViewModels;
+using DansBlog.ViewModels;
 using PagedList;
 using System;
 using System.Collections.Generic;
 
-namespace DansBlog.Presentation.Mappers
+namespace DansBlog.Mappers
 {
     public class ViewMapper : IViewMapper
     {

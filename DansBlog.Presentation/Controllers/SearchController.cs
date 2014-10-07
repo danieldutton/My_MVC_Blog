@@ -1,9 +1,9 @@
-﻿using DansBlog.Model.Entities;
-using DansBlog.Presentation.Mappers;
-using DansBlog.Presentation.ViewModels;
+﻿using DansBlog.Mappers;
+using DansBlog.Model.Entities;
 using DansBlog.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using DansBlog.ViewModels;
 
 namespace DansBlog.Controllers
 {

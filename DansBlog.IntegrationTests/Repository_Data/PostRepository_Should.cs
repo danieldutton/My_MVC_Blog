@@ -3,7 +3,6 @@ using DansBlog.Model.Entities;
 using DansBlog.Repository;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.IO;
 
 namespace DansBlog.IntegrationTests.Repository_Data
 {

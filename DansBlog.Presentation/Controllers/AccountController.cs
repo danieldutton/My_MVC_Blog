@@ -1,5 +1,5 @@
-﻿using DansBlog.Models;
-using DansBlog.Presentation.Mappers;
+﻿using DansBlog.Mappers;
+using DansBlog.Models;
 using DansBlog.Repository.Interfaces;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;

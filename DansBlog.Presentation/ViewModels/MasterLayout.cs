@@ -1,9 +1,9 @@
 ﻿using DansBlog.Model.Domain;
 using DansBlog.Model.Entities;
-using System.Collections.Generic;
 using DansBlog.Services.Archiving.ViewModel;
+using System.Collections.Generic;
 
-namespace DansBlog.Presentation.ViewModels
+namespace DansBlog.ViewModels
 {
     public class MasterLayout
     {

@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
-using DansBlog.DataAccess;
+﻿using DansBlog.DataAccess;
 using Microsoft.Owin;
 using Owin;
+using System.Data.Entity;
 
 [assembly: OwinStartupAttribute(typeof(DansBlog.Startup))]
 namespace DansBlog

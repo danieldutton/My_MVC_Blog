@@ -1,9 +1,9 @@
 ﻿using DansBlog.Controllers;
 using DansBlog.DataAccess;
+using DansBlog.Mappers;
 using DansBlog.Model.Entities;
-using DansBlog.Presentation.Mappers;
-using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository;
+using DansBlog.ViewModels;
 using Moq;
 using NUnit.Framework;
 using System;

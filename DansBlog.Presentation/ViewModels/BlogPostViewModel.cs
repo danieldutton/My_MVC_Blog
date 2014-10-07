@@ -1,7 +1,7 @@
 ﻿using DansBlog.Model.Entities;
 using PagedList;
 
-namespace DansBlog.Presentation.ViewModels
+namespace DansBlog.ViewModels
 {
     public class BlogPostViewModel
     {

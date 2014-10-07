@@ -1,11 +1,11 @@
-﻿using DansBlog.Model.Domain;
+﻿using DansBlog.Mappers;
+using DansBlog.Model.Domain;
 using DansBlog.Model.Entities;
-using DansBlog.Presentation.Mappers;
-using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Services.Archiving.Interfaces;
 using DansBlog.Services.Archiving.ViewModel;
 using DansBlog.Utilities.Interfaces;
+using DansBlog.ViewModels;
 using Ninject;
 using System;
 using System.Collections.Generic;

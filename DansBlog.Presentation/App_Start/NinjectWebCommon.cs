@@ -1,8 +1,7 @@
-using System.Configuration;
 using DansBlog.DataAccess;
 using DansBlog.DataAccess.Interfaces;
+using DansBlog.Mappers;
 using DansBlog.Model.Domain;
-using DansBlog.Presentation.Mappers;
 using DansBlog.Repository;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Services.Archiving;
@@ -15,19 +14,18 @@ using DansBlog.Utilities.DateTimes;
 using DansBlog.Utilities.Interfaces;
 using DansBlog.Utilities.Numbers;
 using DansBlog.Utilities.Xml;
+using System.Configuration;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(DansBlog.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(DansBlog.App_Start.NinjectWebCommon), "Stop")]
 
 namespace DansBlog.App_Start
 {
-    using System;
-    using System.Web;
-
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
+    using System;
+    using System.Web;
 
     public static class NinjectWebCommon 
     {

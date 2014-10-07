@@ -1,10 +1,10 @@
 ﻿using DansBlog.Controllers;
+using DansBlog.Mappers;
 using DansBlog.Model.Entities;
-using DansBlog.Presentation.Mappers;
-using DansBlog.Presentation.ViewModels;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Services.Email.Interfaces;
 using DansBlog.Services.Email.Model;
+using DansBlog.ViewModels;
 using Moq;
 using NUnit.Framework;
 using System;

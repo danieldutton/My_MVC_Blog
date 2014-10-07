@@ -1,8 +1,8 @@
 ﻿using DansBlog.Controllers;
 using DansBlog.DataAccess;
-using DansBlog.Presentation.Mappers;
-using DansBlog.Presentation.ViewModels;
+using DansBlog.Mappers;
 using DansBlog.Repository;
+using DansBlog.ViewModels;
 using NUnit.Framework;
 using System.Web.Mvc;
 
