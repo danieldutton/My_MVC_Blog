@@ -39,10 +39,6 @@ p, ul, ol {
     color: #A7430F;
 }
 
-ul, ol {
-   
-}
-
 li{
   list-style:none;   
 }
@@ -50,9 +46,6 @@ li{
 a {
   text-decoration: none;
   color: #A7430F;
-}
-
-a:hover {
 }
 
 #wrapper {
@@ -214,9 +207,6 @@ a:hover {
     padding: 20px px;
 }
 
-#page-bgbtm {
-}
-
 /* Content */
 
 #content {
@@ -227,12 +217,6 @@ a:hover {
 
 .post {
   margin-bottom: 15px;
-}
-
-.post-bgtop {
-}
-
-.post-bgbtm {
 }
 
 .post .title {
@@ -358,9 +342,6 @@ a:hover {
 
 /* Calendar */
 
-#calendar {
-}
-
 #calendar_wrap {
   padding: 20px;
 }
@@ -447,7 +428,7 @@ textarea {
     width: 200px;   
 }
 
-.archive-year {
+.archive-block {
     border-bottom: dotted;
     background-color: #E9E3CB;  
     margin-bottom: 8px;
@@ -459,7 +440,7 @@ textarea {
     color: #a42903;   
 }
 
-/*Admin INdex Section*/
+/*Admin Index Section*/
 .admin-header {
     background-color: #E9E3CB;   
 }

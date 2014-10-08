@@ -51,16 +51,6 @@ namespace DansBlog.Repository
             return result;
         }
 
-        public List<Post> GetPostByTag(string tagName)
-        {
-            List<Post> result = All.
-                Where(a => a.Tags.
-                    Any(b => b.Name.Contains(tagName)))
-                    .ToList();
-
-            return result;
-        }
-
         public List<Comment> GetModeratedPostComments(int postId)
         {
             Post result1 = All.SingleOrDefault(p => p.Id == postId);
@@ -131,13 +121,6 @@ namespace DansBlog.Repository
                             .OrderByDescending(p => p.PublishDate).ToList();
         }
 
-        //violates srp move in due course
-        public List<Tag> GetDistinctTags()
-        {
-            return _dataContext.Tags.ToList()
-                .Distinct()
-                .ToList();
-        }
 
         public void AddCommentToPost(Comment comment, int postId)
         {

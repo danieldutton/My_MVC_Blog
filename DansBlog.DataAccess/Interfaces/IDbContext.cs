@@ -11,8 +11,6 @@ namespace DansBlog.DataAccess.Interfaces
 
         IDbSet<Category> Categories { get; set; }
 
-        IDbSet<Tag> Tags { get; set; }
-
         int SaveChanges();
 
         void SetModified(object entity);

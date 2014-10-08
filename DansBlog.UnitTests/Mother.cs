@@ -45,25 +45,6 @@ namespace DansBlog.UnitTests
             return posts;
         }
 
-        public static List<Tag> GetDistinctTags()
-        {
-            var tags = new List<Tag>
-                {
-                    new Tag {TagId = 1, Name = "Tag 1"},
-                    new Tag {TagId = 2, Name = "Tag 2"},
-                    new Tag {TagId = 3, Name = "Tag 3"},
-                    new Tag {TagId = 4, Name = "Tag 4"},
-                    new Tag {TagId = 5, Name = "Tag 5"},
-                    new Tag {TagId = 6, Name = "Tag 6"},
-                    new Tag {TagId = 7, Name = "Tag 7"},
-                    new Tag {TagId = 8, Name = "Tag 8"},
-                    new Tag {TagId = 9, Name = "Tag 9"},
-                    new Tag {TagId = 10, Name = "Tag 10"},
-                };
-
-            return tags;
-        }
-
         public static List<Comment> GetTenComments_With_5_Moderated()
         {
             var comments = new List<Comment>

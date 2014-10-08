@@ -12,7 +12,6 @@ namespace DansBlog.DataAccess
 
         public IDbSet<Category> Categories { get; set; }
 
-        public IDbSet<Tag> Tags { get; set; } 
         
         public BlogDbContext():base("DansMVCBlog")
         {           
@@ -30,11 +29,6 @@ namespace DansBlog.DataAccess
                         .HasMany(j => j.Categories)
                         .WithMany(j => j.Posts)
                         .Map(x => x.ToTable("PostCategory"));
-
-            modelBuilder.Entity<Post>()
-                        .HasMany(j => j.Tags)
-                        .WithMany(j => j.Posts)
-                        .Map(x => x.ToTable("PostTag"));
             
             base.OnModelCreating(modelBuilder);
         }

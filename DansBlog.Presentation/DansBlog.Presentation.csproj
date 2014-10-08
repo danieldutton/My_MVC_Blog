@@ -276,7 +276,6 @@
     <Content Include="Views\Home\Downloads.cshtml" />
     <Content Include="Views\Home\FetchComments.cshtml" />
     <Content Include="Views\Home\NonAjaxView.cshtml" />
-    <Content Include="Views\Home\TagCloud.cshtml" />
     <Content Include="Views\Home\_CommentsForm.cshtml" />
     <Content Include="Views\Search\ArchiveSearch.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
@@ -295,6 +294,7 @@
     <Content Include="Content\downloads\tempconverter_java.rar" />
     <Content Include="Content\downloads\TemperatureConverter_1.2.rar" />
     <Content Include="Content\downloads\_sorter.rar" />
+    <Content Include="Views\Home\Categories.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

@@ -65,7 +65,9 @@ namespace DansBlog.Repository
 
             foreach(var category in categories)
             {
-                category.Count = posts.Count(c => c.Categories.Any(d => d.Name.Equals(category.Name)));
+                category.Count = posts.Count(c => c.Categories
+                    .Any(d => d.Name
+                        .Equals(category.Name)));
             }
 
             return categories;

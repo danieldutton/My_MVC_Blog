@@ -26,8 +26,6 @@ namespace DansBlog.Model.Entities
         [Required(ErrorMessage = "Author is required")]
         public string Author { get; set; }
 
-        public virtual List<Tag> Tags { get; set; }
-
         public virtual List<Comment> Comments { get; set; }
 
         [NotMapped]

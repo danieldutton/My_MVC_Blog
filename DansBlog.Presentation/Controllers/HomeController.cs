@@ -3,11 +3,11 @@ using DansBlog.Model.Entities;
 using DansBlog.Repository.Interfaces;
 using DansBlog.Services.Email.Interfaces;
 using DansBlog.Services.Email.Model;
+using DansBlog.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using DansBlog.ViewModels;
 
 namespace DansBlog.Controllers
 {
@@ -59,12 +59,14 @@ namespace DansBlog.Controllers
             return View(groupedPosts);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none")]
-        public ViewResult TagCloud()
+        public ActionResult Categories()
         {
-            List<Tag> tags = PostRepository.GetDistinctTags();
+            var categories = CategoryRepository.All;
 
-            return View(tags);
+            if (categories == null)
+                return HttpNotFound();
+
+            return View(categories);
         }
 
         public ActionResult FetchComments(int id = 1)
@@ -100,24 +102,6 @@ namespace DansBlog.Controllers
                 return View("_CommentSubmittedFailed");
 
             return View("_CommentSubmitted");
-        }
-
-        [OutputCache(Duration = 3600, VaryByParam = "*")]
-        public ActionResult TagSearch(int? page, string sort = "Programming")
-        {
-            ViewBag.Tag = sort;
-
-            List<Post> posts = PostRepository.GetPostByTag(sort);
-
-            if (posts == null)
-                return HttpNotFound();
-
-            const int pageSize = 5;
-            int pageNumber = (page ?? 1);
-
-            BlogPostViewModel viewModel = _viewMapper.MapIndexViewModel(posts, pageNumber, pageSize, "TagSearch", false);
-
-            return View("_BlogPost", viewModel);
         }
 
         public ViewResult Downloads()

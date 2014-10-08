@@ -11,10 +11,6 @@ namespace DansBlog.Repository.Interfaces
         IEnumerable<IGrouping<int, Post>> PostsGroupedByYear();
 
         List<Post> GetPostsByDate(int month, int year);
-            
-        List<Tag> GetDistinctTags();
-
-        List<Post> GetPostByTag(string tagName);
 
         List<Post> Find(string content);
 

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DansBlog.Model.Entities.Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+@foreach (var category in Model)
+{
+    <h4 class ="archive-block">@category.Name</h4>
+}
